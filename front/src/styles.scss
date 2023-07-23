@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+//colors
+
+:root {
+  --primary_color: #348888;
+  --secondary_color: #BF7E78;
+  --gray_color: #C5C5C6;
+  overflow-x: hidden;
+}
+
+$primary_color: #348888;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: cursive;
+    // font-family: 'Montserrat',sans-serif !important;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  li {
+    list-style: none;
+  }
+
