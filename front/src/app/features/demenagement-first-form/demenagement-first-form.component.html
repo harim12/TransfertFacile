@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="form-section">
+        <h2>Déménagez sans stress ! </h2>
+        <form>
+            <div class="custom-select"  [class.open]="isOpen" (click)="toggleDropdown()">
+                <label class="input1" for="input1">Que déménagez-vous ?</label>
+                <span class="selected-option">{{ selectedOption?.label || 'Meubles et Électroménagers' }}</span>
+                <ul class="custom-options" [class.open]="isOpen">
+                  <li *ngFor="let option of dropdownOptions" (click)="onOptionSelected(option)">
+                    <i [class]="option.iconClass"></i>
+                    {{option.value}}
+                  </li>
+                </ul>
+              </div>  
+            <div class="row">
+                
+              <div class="column">
+                  <label for="input3">Adresse de départ</label>
+                  <input type="text" id="input3" name="input3" placeholder="Oujda hay el andalous">
+                </div>
+    
+                <div class="column sec-col">
+                  <label for="input4">Adresse d'arrivée</label>
+                  <input type="text" id="input4" name="input4" placeholder="Oujda sidi maafa">
+                </div>
+    
+            </div>
+            <button type="submit" class="btn-devise">Obtenir un devis</button>
+          </form> 
+    </div>
+    
+        <div class="image-container">
+            <img src="./../../../assets/landingPageImg.jpg" alt="#">
+        </div>
+    
+</div>
+

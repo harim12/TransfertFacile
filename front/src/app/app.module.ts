@@ -6,14 +6,17 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './core/home/home.component';
 import { RouterModule } from '@angular/router';
-import { DemenagementFormComponent } from './features/demenagement-form/demenagement-form.component';
+import { DemenagementFirstFormComponent } from './features/demenagement-first-form/demenagement-first-form.component';
+import { DemenagementSecondFormComponent } from './features/demenagement-second-form/demenagement-second-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    DemenagementFormComponent
+    DemenagementFirstFormComponent,
+    DemenagementSecondFormComponent
+    
   ],
   imports: [
     BrowserModule,
