@@ -1,0 +1,133 @@
+.container {
+    width: 100%;
+    position: relative;
+    text-align: center;
+   
+    
+  }
+  .top-section{
+    height: 1%;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    // margin-top: -20px;
+  }
+  .img-top{
+    filter: blur(2px);
+
+
+  }
+  .estimePrice {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    font-family: 'Pacifico', sans-serif;
+    line-height: 1.7;
+    background: rgba(52, 136, 136, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 25px 30px;
+    white-space: nowrap;
+  }
+
+  .content-section{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    margin: auto;
+    margin-top: 70px;
+    margin-left: 80px;
+    margin-bottom: 40px;
+
+}
+
+.card{
+    width: 300px;
+    height: 350px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    position: relative;
+    height: 100%;
+    border-radius: 15px;
+}
+.card-header{
+    height: 70%;
+
+}
+.image-honda{
+    // width: 100%;
+    // height: 140px;
+    // margin-top:40px !important;
+    border-radius:  15px 15px 0 0 ;
+
+}
+
+.card-body{
+    // height: 30%;
+    padding-bottom: 10px;
+    img{
+        // position: absolute;
+        // top: 0px;
+        // right: 0px;
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    }
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-right: 5px;
+
+    .name{
+        color: var(--primary_color);
+        font-weight: bold;
+        margin-left: 6px;
+    }
+}
+.rating{
+    color: orange;
+    margin-right: 5px;
+}
+.rat{
+}
+.price{
+    font-weight: bold;
+    margin-left: 5px;
+}
+.btn-book{
+    padding: 10px 30px;
+    background-color: var(--primary_color);
+    margin-right: 5px;
+    color: white;
+    margin-bottom: -30px !important;
+    border-radius: 7px;
+    
+}
+
+  @media (max-width: 600px) {
+    .estimePrice{
+        font-size: 15px;
+        // padding: 4px;
+    }
+
+
+  }

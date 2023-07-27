@@ -11,6 +11,7 @@ import { HomeDemenagementComponent } from './features/home-demenagement/home-dem
 import { MatTabsModule } from '@angular/material/tabs'; // Import the MatTabsModule
 import { HttpClientModule } from '@angular/common/http';
 import { DemenagementFormSecondComponent } from './features/demenagement-form-second/demenagement-form-second.component';
+import { DevisResultComponent } from './features/devis-result/devis-result.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { DemenagementFormSecondComponent } from './features/demenagement-form-se
     DemenagementFirstFormComponent,    
     HomeDemenagementComponent,
     DemenagementFormSecondComponent,
+    DevisResultComponent,
     
     
     
