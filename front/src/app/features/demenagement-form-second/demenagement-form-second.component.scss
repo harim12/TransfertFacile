@@ -1,0 +1,296 @@
+  //============THE LAYOUT GRID
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(245, 243, 247);
+    position: relative;
+
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      "containerHome map"
+      "OptionsLogistique ."
+      "photos  .";
+    grid-template-columns: 70% 30%; 
+    grid-template-rows: auto auto auto; 
+    gap: 20px;
+    margin-left: 40% !important;
+    margin: 20px !important;
+    width: 80%;
+  }
+
+  
+  .typeDem{
+    grid-area: containerHome;
+      
+    margin-bottom: 70px;
+  }
+  .type-demenagement{
+    width: 100%;
+  }
+  
+  .horaire-wrapper{
+    grid-area: OptionsLogistique;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;    
+
+    
+}
+
+.map-container{
+    grid-area: map;
+    background-color: var(--primary_color);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    color: var(--primary_color);
+    margin-top: 77px;
+    padding-bottom: 40px;
+    // margin-right: 10px;
+  
+    background-color: white;    
+  }
+    
+  .wrapper-photos-horaire {
+    margin-top: 30px;
+    grid-area: photos;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: white;    
+
+  }
+  
+//==================END OF THE LAYOUT STYLE
+  
+
+
+
+
+.map {
+    grid-area: map;
+    object-fit: contain;
+    width: 100%;
+    height: 55%;
+  
+  }
+  
+  .details{
+    margin-left: 5%;
+  
+    .line{
+      margin-top: 10px;
+      width: 300px;
+      height: 1px;
+      margin-left: 40px;
+      background-color: white;
+      margin-top: 40px;
+    }
+  
+    .totalTraject{
+      font-size: 30px;
+      margin-top: 25px;
+      
+    }
+  }
+  
+  .wrapper-photos-horaire{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    // margin-top: -50px !important;
+  }
+  .section{
+    margin-left: 20px;
+    // margin-bottom: 120px !important;
+  
+  }
+  
+  .title{
+    color: var(--primary_color);
+    font-family: 'Pacifico',sans-serif;
+    margin-bottom: 7px;
+    font-size: 27px;
+    font-weight: 200;
+    margin-bottom: 20px;
+    margin-top: 8px;
+    
+  }
+  
+  .horaire{
+    width: 150px;
+    height: 50px;
+  
+  }
+  
+  .info-spec{
+    width: 60%;
+    border-radius: 9px;
+    height: 50px;
+    border:1px solid var(--primary_color);
+  
+  }
+  input::placeholder {
+    /* Add your desired styles here */
+    color: #999; /* Placeholder text color */
+    font-style: italic; /* Italicize the placeholder text */
+    padding-left: 10px;
+  }
+  .photo-donwload{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 100px;
+    align-items: center;
+    flex-wrap: wrap;
+    // margin-left: -40px;
+    margin-bottom: 20px;
+  
+    a{
+      color: var(--primary_color);
+    }
+  }
+  
+  .photo{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    width: 170px;
+    height: 170px;
+  }
+  
+  
+  //==========HORAIRE
+  
+  
+  
+  
+  
+  .horaire-wrapper{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-top: 40px;
+  
+    .section-wrapper{
+      display: flex;
+      flex-direction: row;
+    }
+  
+    h2{
+      
+  
+    }
+  }
+  
+  .title-horaire{
+      font-family: 'Pacifico',sans-serif ;
+      color: var(--primary_color);
+      white-space: nowrap;
+      margin-left: 20px;
+    //   padding-top: 20px;
+  }
+  
+  .section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 50px !important;
+    // margin-left: 10px !important;
+    // padding-left: 15px;
+    
+  
+    h2{
+      color: var(--primary_color);
+    }
+  }
+  
+  .input{
+    width: 200px;
+    height: 40px;
+    margin-bottom: 7px;
+    
+  }
+  .row-checkbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  
+    input{
+      margin-right: 5px;
+    }
+  }
+  
+  .btn-devis{
+    padding: 25px 55px;
+    background-color: var(--primary_color);
+    color: white;
+    border: none;
+    font-size: 20px;
+    // margin: auto !important;
+    margin-left: 7%;
+    margin-bottom:150px !important;
+    margin-right: 3%;
+  }
+
+
+
+  @media (max-width: 900px) {
+    .container{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(249, 250, 250);
+    }
+    .grid-container {
+      
+       
+      display: grid;
+      grid-template-areas:
+        "containerHome"
+        "OptionsLogistique"
+        "photos"
+        "map";
+      grid-template-columns: 1fr; /* Two columns with a ratio of 3:0.2 */
+      grid-template-rows: auto 1fr auto; /* Header and footer have dynamic height, content takes the remaining space */
+      gap: 10px;
+     
+
+    }
+    .map{
+      width: 100%;
+      height: 40%;
+    }
+   
+ }
+
+
+
+  @media (max-width: 600px) {
+    
+      .photo-donwload{
+        display: flex;
+        flex-direction: column;
+        // justify-content: flex-start;
+        gap: 100px;
+       
+        flex-wrap: wrap;
+        // margin-left: -40px;
+        margin-bottom: 20px;
+        width: 30%;
+      
+        a{
+          color: var(--primary_color);
+        }
+      }
+      .section-wrapper{
+        display: flex;
+        flex-direction: column !important;
+      }
+  }
+  

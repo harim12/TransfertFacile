@@ -1,0 +1,91 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+
+    <div class="grid-container">
+        <div class="typeDem">
+            <h2 class="title">Inventaire</h2>
+            <app-home-demenagement class="typeDeme"></app-home-demenagement>
+            
+            
+        </div>
+        <div class="horaire-wrapper">
+          <h2 class="title-horaire">Options logistiques</h2>
+          <div class="section-wrapper">
+              <div class="section enlevement">
+                  <!-- Your "enlèvement" content here -->
+                  <h2>Enlèvement</h2>
+                  <input type="text" class="input"  placeholder="choisissez un type de propriété">
+                  <input type="text" class="input"  placeholder="choisissez un étage">
+                  <div class="row-checkbox">
+                  <input type="checkbox">
+                  <p>Avec ascenseur</p>
+                  </div>
+              </div>
+              <div class="section Livraison">
+                  <!-- Your "livraison" content here -->
+                  <h2>Livraison</h2>
+                  <input type="text" class="input"  placeholder="chambre">
+                  <input type="text" class="input"  placeholder="choisissez un étage">
+                  <div class="row-checkbox">
+                  <input type="checkbox">
+                  <p>Avec ascenseur</p>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+        <div class="wrapper-photos-horaire">
+          <div class="section photos">
+            <!-- Your "photos" content here -->
+            <h2 class="horaire-title title">horaire</h2>
+            <input class="horaire" type="date">
+            <h2 class="title">Instructions spéciales</h2>
+           
+            <input class="info-spec" type="text" placeholder="entrez vos informations spéciales">
+
+            <h2 class="title">Ajouter des photos</h2>
+            <div class="photo-donwload">
+              <div class="photo">
+                <i class="fa-solid fa-image"></i>
+                <p>Glissez la photo ici</p>
+                <a href="#">Télécharger</a>
+              </div>
+              <div class="photo">
+                <i class="fa-solid fa-image"></i>
+                <p>Glissez la photo ici</p>
+                <a href="#">Télécharger</a>
+              </div>
+              <div class="photo">
+                <i class="fa-solid fa-image"></i>
+                <p>Glissez la photo ici</p>
+                <a href="#">Télécharger</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="map-container">
+          <!-- Your map content here -->
+          <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387115.0279103553!2d-74.25986542499986!3d40.69714942296785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1630729506707!5m2!1sen!2sus" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          <div class="details">
+            <div class="depart">
+              <h2>De</h2>
+              <p>Oujda hay el andalous</p>
+            </div>
+            <div class="line"></div>
+            <div class="arrivée">
+              <h2>A</h2>
+              <p>casablanca maarif</p>
+            </div>
+            <p class="totalTraject">500 km</p>
+          </div>
+        </div>
+    
+      
+    
+        
+      </div>
+      <button class="btn-devis">Recevoir des devis</button>
+</div>
+

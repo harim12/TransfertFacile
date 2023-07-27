@@ -7,21 +7,30 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './core/home/home.component';
 import { RouterModule } from '@angular/router';
 import { DemenagementFirstFormComponent } from './features/demenagement-first-form/demenagement-first-form.component';
-import { DemenagementSecondFormComponent } from './features/demenagement-second-form/demenagement-second-form.component';
+import { HomeDemenagementComponent } from './features/home-demenagement/home-demenagement.component';
+import { MatTabsModule } from '@angular/material/tabs'; // Import the MatTabsModule
+import { HttpClientModule } from '@angular/common/http';
+import { DemenagementFormSecondComponent } from './features/demenagement-form-second/demenagement-form-second.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    DemenagementFirstFormComponent,
-    DemenagementSecondFormComponent
+    DemenagementFirstFormComponent,    
+    HomeDemenagementComponent,
+    DemenagementFormSecondComponent,
+    
+    
+    
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule, // Add RouterModule to the imports array
+    HttpClientModule
 
   ],
   providers: [],
