@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.list{
+    border: 1px solid black;
+    width: 70%;
+}
+.single{ 
+    background-color: green;
+    width: 40%;
+}

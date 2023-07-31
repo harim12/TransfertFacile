@@ -5,9 +5,9 @@
     position: absolute;
     z-index: 1;
     top: 0px;
-    bottom: 0 !important;
+    bottom: 0px !important;
     width: 5rem;
-      height: 100% !important;
+    height: 100vh !important;
     // overflow-y: hidden;
     // box-shadow: 0.063rem 0 1.25rem 0 #8690A3;
     transition: all 600ms ease;
@@ -107,8 +107,9 @@
     .sidenav-link-text{
         color: white;
     }
-}.logout{
-    margin-top: 100px;
+}
+.logout{
+    margin-top: 600px !important;
 }
 ul{
     color: white !important;

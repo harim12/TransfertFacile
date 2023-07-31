@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   // Set the default route to '/users/demeFormFirst'
-  { path: '', redirectTo: '/transporteurs/dashbord', pathMatch: 'full' },
+  { path: '', redirectTo: '/transporteurs/dashbord/demandes', pathMatch: 'full' },
 
   // Lazy load the UserModule
   {

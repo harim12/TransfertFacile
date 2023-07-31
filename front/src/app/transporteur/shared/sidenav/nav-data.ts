@@ -22,6 +22,6 @@ export const navbarData = [
     {
         routeLink:'logout',
         icon:'fa-solid fa-right-from-bracket logout',
-        label:'Logout'
+        label:''
     }
 ]

@@ -9,6 +9,8 @@ import { DemandeTransfertComponent } from './features/demande-transfert/demande-
 import { ProjetTransfertComponent } from './features/projet-transfert/projet-transfert.component';
 import { ProfileComponent } from './features/profile/profile.component';
 import { ProductivityComponent } from './features/productivity/productivity.component';
+import { ListDemandesComponent } from './features/list-demandes/list-demandes.component';
+import { SingleDemandeComponent } from './features/single-demande/single-demande.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { ProductivityComponent } from './features/productivity/productivity.comp
     DemandeTransfertComponent,
     ProjetTransfertComponent,
     ProfileComponent,
-    ProductivityComponent
+    ProductivityComponent,
+    ListDemandesComponent,
+    SingleDemandeComponent
   ],
   imports: [
     CommonModule,
