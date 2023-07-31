@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './core/home/home.component';
-import { DemenagementFirstFormComponent } from './features/demenagement-first-form/demenagement-first-form.component';
-import { DemenagementFormSecondComponent } from './features/demenagement-form-second/demenagement-form-second.component';
-import { DevisResultComponent } from './features/devis-result/devis-result.component';
-import { HondaDetailComponent } from './honda-detail/honda-detail.component';
 
-const routes: Routes = [
-  {path:"",component:HomeComponent},
-  {path:'demeFormFirst',component:DemenagementFirstFormComponent},
-  {path:'demeFormSecond',component:DemenagementFormSecondComponent},
-  {path:'devisResult',component:DevisResultComponent},
-  {path:'hondaDetail',component:HondaDetailComponent}
+const appRoutes: Routes = [
+  // Set the default route to '/users/demeFormFirst'
+  { path: '', redirectTo: '/transporteurs/dashbord', pathMatch: 'full' },
+
+  // Lazy load the UserModule
+  {
+    path: 'users',
+    loadChildren: () => import('./user/user.module').then(m => m.UserModule),
+  },
+  {
+    path:'transporteurs',
+    loadChildren:() => import('./transporteur/transporteur.module').then(m => m.TransporteurModule),
+  }
+  // Other routes for other features can be defined here
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
