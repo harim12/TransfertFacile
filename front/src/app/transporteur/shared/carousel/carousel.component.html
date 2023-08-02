@@ -1,0 +1,26 @@
+<div class="content">
+    <div class="navigation-buttons">
+        <button class="prev-button" (click)="prevSlide()">&lt;</button>
+      </div>
+    <div class="carousel-container">
+        <div class="content">
+            
+              <div class="carousel-wrapper">
+                <div #slidesWrapper class="carousel">
+                  <ng-container *ngFor="let item of items">
+                    <div class="slide">
+                      <div class="item">
+                        <i [class]="item.icon"></i>
+                        <span>{{ item.title }}</span>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            
+        </div>
+      </div>
+      <div class="navigation-buttons">
+        <button class="next-button" (click)="nextSlide()">&gt;</button>
+      </div>
+</div>

@@ -1,0 +1,65 @@
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+   
+
+  }
+  .content{
+    display: flex;
+    width: 97%;
+  }
+  .carousel-wrapper {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto; /* To center the carousel */
+  }
+  
+  .carousel {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+  
+  .slide {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    /* Set a minimum width for the item to fit its content */
+    min-width: fit-content;
+    /* Optional: You can add padding or margin to the item for spacing */
+    padding: 10px;
+  }
+  
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--primary_color);
+    padding: 10px;
+  }
+  
+  .item i {
+    color: var(--primary_color);
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .prev-button,
+  .next-button {
+    padding: 8px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 5px;
+  }
+  

@@ -11,7 +11,9 @@ import { ProfileComponent } from './features/profile/profile.component';
 import { ProductivityComponent } from './features/productivity/productivity.component';
 import { ListDemandesComponent } from './features/list-demandes/list-demandes.component';
 import { SingleDemandeComponent } from './features/single-demande/single-demande.component';
-
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { BrowserModule } from '@angular/platform-browser';
+import { CarouselComponent } from './shared/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,15 @@ import { SingleDemandeComponent } from './features/single-demande/single-demande
     ProfileComponent,
     ProductivityComponent,
     ListDemandesComponent,
-    SingleDemandeComponent
+    SingleDemandeComponent,
+    CarouselComponent,
+    
   ],
   imports: [
     CommonModule,
     // Other transporteur-related imports
-    TransporteurRoutingModule
+    TransporteurRoutingModule,
+    SlickCarouselModule,
   ],
 
 })

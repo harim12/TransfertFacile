@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./single-demande.component.scss']
 })
 export class SingleDemandeComponent {
-
+  carouselItems = [
+    { icon: 'fa-solid fa-couch', title: 'Fautffffeuil' },
+  
+    { icon: 'fa-solid fa-bed', title: 'lit place' },
+    { icon: 'fa-solid fa-bed', title: 'lit pdfslace' },
+    
+  ];
 }
