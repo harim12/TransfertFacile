@@ -10,6 +10,8 @@ export class SingleDemandeComponent {
     { icon: 'fa-solid fa-couch', title: 'Fautffffeuil' },
   
     { icon: 'fa-solid fa-bed', title: 'lit place' },
+    { icon: 'fa-solid fa-bed', title: 'lit place' },
+    { icon: 'fa-solid fa-bed', title: 'lit place' },
     { icon: 'fa-solid fa-bed', title: 'lit pdfslace' },
     
   ];
