@@ -17,10 +17,12 @@ $primary_color: #348888;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
   }
   
   body {
     font-family: 'poppins',sans-serif;
+    height: fit-content;
   }
   
   a {

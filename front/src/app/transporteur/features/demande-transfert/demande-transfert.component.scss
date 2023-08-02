@@ -1,14 +1,25 @@
 .container{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
+    // height: fit-content !important;
+    margin-top: 50px;
+    // margin-left: 15px;
+    padding: 0px;
+    // overflow: hidden;
+    margin-left: 10px;
+    gap: 10px;
+    height: 100%;
 }
 .list{
-    border: 1px solid black;
-    width: 70%;
+    width: 95%;
+    margin: auto;
+    height: 100%;
 }
 .single{ 
-    background-color: green;
+    background-color: white;
     width: 40%;
+    height: 99vh;
+    margin-top: 83px;
 }

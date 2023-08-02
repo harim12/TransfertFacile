@@ -1,15 +1,21 @@
 .body{
     width: calc(100% - 5rem);
-    height: 100vh;
+    height: 100%;
     margin-left: 5rem;
     z-index: 0;
     position: relative;
-    top: 55px;
+    // top: 55px;
+    // bottom: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
     transition: all .5s ease;
     padding: 3rem 1.5rem 3rem 0.5rem;
     overflow: auto;
     padding-right: 1rem !important;
     position: relative;
+    height: fit-content;
+    // background-color: green;
+
 }
 .body-trimmed{
     width: calc(100% - 16.5625rem);

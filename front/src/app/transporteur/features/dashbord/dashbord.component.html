@@ -1,9 +1,10 @@
 <div class="container">
     <app-sidenav (onToggleSideNav) = "onToggleSideNav($event)" class="sidenav"></app-sidenav>
-<app-body 
-    [collapsed] = "isSideNavCollapsed"
-    [screenWidth] = "screenWidth"
-    >
+    <app-body 
+    class="bodyy"
+        [collapsed] = "isSideNavCollapsed"
+        [screenWidth] = "screenWidth"
+        >
 
-</app-body>
+    </app-body>
 </div>
