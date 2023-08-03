@@ -1,1 +1,12 @@
-<p>projet-transfert works!</p>
+<div class="container">
+    <app-list-projets  class="list" ></app-list-projets>
+    
+    <!-- Add the event listener for when app-single-demande is ready -->
+    <app-single-projet
+      class="single"
+      [projet]="selectedProjet"
+      [ngClass]="{ 'hide': !selectedProjet }"
+    ></app-single-projet>
+  
+  </div>
+  

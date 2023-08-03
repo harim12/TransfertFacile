@@ -1,0 +1,236 @@
+/* Container styles */
+.table-container {
+    // max-width: 800px;
+   
+    margin: 0 auto;
+    // background-color: white;
+    color: black;
+    padding: 20px;
+   
+    // border: 1px solid var(--gray_color);
+    padding: 0px;
+    // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  .first-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // background-color: #f2f2f2;
+    width: 100%;
+    // padding: 10px 30px;
+    // padding: 10px;
+    padding-bottom: 20px;
+  }
+  .paging-buttons{
+    // border: 1px solid black;
+
+    button{
+      // padding: 10px;
+      border: none;
+      width: 60px;
+      height: 40px;
+      background-color: #85C1C1;
+      color: white;
+      // margin-right: 5px;
+
+    }
+    .btn-1{
+      border-radius: 5px 0px 0px 5px;
+
+    }
+    .btn-2{
+      border-radius: 0px 5px 5px 0px;
+
+    }
+    select{
+      width: 70px;
+      height: 39.5px;
+      margin: 0px;
+      // border: 1px solid black;
+
+      border: none;
+      // border-bottom: none;
+    }
+    option{
+      // margin-left: 5px;
+    }
+  }
+  .bottom{
+    background-color: white;
+    margin-top: -10px;
+    padding: 10px 0px;
+       border: 1px solid var(--gray_color);
+
+  }
+  
+  /* Table title styles */
+  .table-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .table-title h2 {
+    color: var(--primary_color);
+    font-family:'Prata',serif;
+    margin-bottom: 7px;
+    font-size: 27px;
+    font-weight: 200;
+    white-space: nowrap;
+
+  }
+  
+  /* Table styles */
+  .table-responsive {
+    overflow-x: auto;
+    padding: 20px;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    // border: 1px solid #ddd; /* Added border to the entire table */
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    padding: 12px;
+    text-align: left;
+    // border-bottom: 1px solid #bbbaba;
+    // border: 1px solid #bbbaba; /* Added border to cells */
+  }
+  td{
+    cursor: pointer;
+
+  }
+  
+  .custom-table th {
+    background-color: var(--primary_color);
+    color: white;
+    // border-top: 2px solid #bbbaba; /* Added 2px border at the top of header cells */
+    // border-bottom: 2px solid #bbbaba; /* Added 2px border at the bottom of header cells */
+    // border-left: 1px solid #bbbaba; /* Added 1px border at the left of header cells */
+    // border-right: 1px solid #bbbaba; /* Added 1px border at the right of header cells */
+  }
+  
+  /* Alternating row colors */
+  .custom-table tbody tr:nth-child(even) {
+    background-color: #f3efef; /* Very light gray for odd rows */
+  }
+  
+  /* Table paging styles */
+  .table-paging {
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    padding-top: 10px;
+    // padding-bottom: 20px;
+    margin-left: 23px;
+    background-color: white;
+    
+  }
+  
+  .paging-info
+  {
+    // display: flex;
+    // align-items: center;
+    // color: #85C1C1;
+    background-color: #85C1C1;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 12px;
+    font-size: 17px;
+    color: white;
+    select{
+      color: #85C1C1;
+      border-color: #85C1C1;
+
+    }
+    
+  }
+  .paging-info{
+    margin-right: 20px;
+  }
+  .paging-buttons button {
+    // background-color: #348888;
+    // color: #ffffff;
+    // border: none;
+    // padding: 8px 12px;
+    // cursor: pointer;
+    // border-radius: 3px;
+    // margin-left: 10px;
+  }
+  
+  .paging-buttons button:hover {
+    background-color: #348888;
+  }
+  
+  .paging-buttons span {
+    margin: 5px 0; /* Add some spacing between the pagination and the number of pages */
+  }
+  
+  // .paging-info select {
+  //   background-color: #348888;
+  //   color: #ffffff;
+  //   border: none;
+  //   padding: 6px;
+  //   border-radius: 3px;
+  //   margin-left: 5px;
+  // }
+  
+  .paging-info select:focus {
+    outline: none;
+  }
+  
+  .paging-info select option {
+    // background-color: #348888;
+  }
+
+  
+  @media (max-width: 1100px) {
+    .table-container
+    .first-row{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      // background-color: #f2f2f2;
+      width: 100%;
+      padding: 10px 30px;
+      // padding: 10px;
+      padding-bottom: 20px;
+    }
+    .table-container {
+      max-width: 100%;
+      // padding: 10px;
+    }
+    .table-paging {
+      flex-direction: column;
+    }
+    .paging-info,
+    .paging-buttons {
+      margin-bottom: 10px;
+      white-space: nowrap;
+    }
+    
+}
+
+  
+  /* Media query for responsiveness */
+  @media screen and (max-width: 600px) {
+     .table-title h2{
+      margin-left: -50px !important;
+     }
+     .paging-buttons{
+      margin-left: -25px !important;
+     }
+  }
+  @media screen and (max-width: 500px) {
+    .table-title h2{
+     white-space: wrap;
+    }
+    .paging-buttons{
+     margin-left: -25px !important;
+    }
+ }

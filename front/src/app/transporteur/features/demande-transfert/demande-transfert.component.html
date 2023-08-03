@@ -1,6 +1,13 @@
 <div class="container">
-    <app-list-demandes class="list"></app-list-demandes>
-   
-      <app-single-demande  #singleComponent class="single" [ngClass]="{'hide': !selectedDemande}" [demande]="selectedDemande"></app-single-demande>
-   
+    <app-list-demandes  class="list" ></app-list-demandes>
+    
+    <!-- Add the event listener for when app-single-demande is ready -->
+    <app-single-demande
+      class="single"
+      [ngClass]="{ 'hide': !selectedDemande }"
+      [demande]="selectedDemande"
+     
+    ></app-single-demande>
+  
   </div>
+  

@@ -14,6 +14,8 @@ import { SingleDemandeComponent } from './features/single-demande/single-demande
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarouselComponent } from './shared/carousel/carousel.component';
+import { ListProjetsComponent } from './features/list-projets/list-projets.component';
+import { SingleProjetComponent } from './features/single-projet/single-projet.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { CarouselComponent } from './shared/carousel/carousel.component';
     ListDemandesComponent,
     SingleDemandeComponent,
     CarouselComponent,
+    ListProjetsComponent,
+    SingleProjetComponent,
     
   ],
   imports: [

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { DemandeDemenagement } from '../../shared/models/demande.model';
 import { TypeLivraison } from '../../shared/models/typeLivraison.model';
 import { DemandeDemenagementService } from '../../shared/services/demande-demenagement.service';
@@ -22,7 +22,6 @@ export class ListDemandesComponent {
    onRowClicked(demande:DemandeDemenagement){
       this.demandeDemenagementService.setSelectedDemande(demande);
       // this.router.navigate(['/dashbord', 'single']);
-
       
     }
 

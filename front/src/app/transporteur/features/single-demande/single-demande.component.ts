@@ -8,8 +8,7 @@ import { DemandeDemenagement } from '../../shared/models/demande.model';
 })
 export class SingleDemandeComponent {
   @Input() demande: DemandeDemenagement | undefined;
-  @ViewChild('singleElement') singleElement: ElementRef | undefined;
-  carouselItems = [
+   carouselItems = [
     { icon: 'fa-solid fa-couch', title: 'Fautffffeuil' },
   
     { icon: 'fa-solid fa-bed', title: 'lit place' },
@@ -18,11 +17,5 @@ export class SingleDemandeComponent {
     { icon: 'fa-solid fa-bed', title: 'lit pdfslace' },
     
   ];
-  scrollIntoView() {
-    this.singleElement?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  ngAfterViewInit() {
-    // Scroll to the singleContainer element
-    this.singleElement?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+ 
 }

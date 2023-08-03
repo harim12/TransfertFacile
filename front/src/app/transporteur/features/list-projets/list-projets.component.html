@@ -1,0 +1,50 @@
+
+<div class="table-container">
+    <div class="first-row">
+        <div class="table-title">
+            <h2>Demandes de déménagement</h2>
+          </div>
+          
+
+
+          <div class="paging-buttons">
+            <button class="btn-1">page</button>
+            <select >
+              <option>1</option>
+              <option>1</option>
+              <option>1</option>
+              <option>1</option>
+              <option>1</option>
+            </select>
+            <button class="btn-2">of 5</button>
+          </div>
+    </div>
+
+    <div class="bottom">
+        
+       
+        <div class="table-responsive">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Horaire</th>
+                <th>Départ</th>
+                <th>Arrivée</th>
+                <th>Type de livraison</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor ="let projet of projets" (click)="onRowClicked(projet)">
+                <td>{{projet.demande.horaire}}</td>
+                <td>{{projet.demande.depart}}</td>
+                <td>{{projet.demande.arrivee}}</td>
+                <td>{{projet.demande.typeLivraison}}</td>
+              </tr>
+             
+            
+              <!-- Add more rows as needed -->
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>

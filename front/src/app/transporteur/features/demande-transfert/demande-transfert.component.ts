@@ -10,22 +10,33 @@ import { DemandeDemenagement } from '../../shared/models/demande.model';
 export class DemandeTransfertComponent {
   selectedDemande:DemandeDemenagement | undefined ;
   constructor(private demandeDemenagementService:DemandeDemenagementService){}
-  @ViewChild('singleComponent') singleComponent: ElementRef | undefined;
 
 
- ngOnInit() {
-  // Subscribe to the selectedDemande changes
-  this.demandeDemenagementService.selectedDemande$.subscribe((demande) => {
-    if (demande) {
-      // Set the selectedDemande to show the app-single-demande component
+  ngOnInit() {
+    // Subscribe to the selectedDemande changes
+    this.demandeDemenagementService.selectedDemande$.subscribe((demande) => {
       this.selectedDemande = demande;
+    });
+  
+  }
 
-      // Scroll to the app-single-demande component
-      if (this.singleComponent && this.singleComponent.nativeElement) {
-        this.singleComponent.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        console.log( this.singleComponent.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' })        )
-      }
-    }
-  });
-}
+  // scrollToSingleComponent() {
+  //   if (this.singleComponent && this.singleComponent.nativeElement) {
+  //     console.log("rah dkhl fwst SCROLLTOSINGLECOMPOENT++++++>")
+  //     this.singleComponent.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  //   }
+  // }
+
+  // onRowClicked(demande: DemandeDemenagement) {
+  //   this.demandeDemenagementService.setSelectedDemande(demande);
+  //   if (demande) {
+  //     console.log(demande)
+  //     console.log("hbt=========>",this.singleComponent)
+  //     // Set the selectedDemande to show the app-single-demande component
+  //     this.selectedDemande = demande;
+
+  //     // Scroll to the app-single-demande component when selectedDemande is updated
+  //     this.scrollToSingleComponent();
+  //   }
+  //   }
 }

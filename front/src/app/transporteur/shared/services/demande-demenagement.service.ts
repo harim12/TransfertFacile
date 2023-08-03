@@ -13,14 +13,11 @@ export class DemandeDemenagementService {
 
   setSelectedDemande(demande: any) {
     this.selectedDemandeSource.next(demande);
-    console.log(this.selectedDemande$)
+   
   }
 
  scrollToSingleComponent() {
-  // Set selectedDemande to show the app-single-demande component
   
-
-  // Scroll to the app-single-demande component
 
     this.singleElementRef?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   

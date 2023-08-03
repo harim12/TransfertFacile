@@ -5,9 +5,11 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserModule } from './user/user.module';
 import { TransporteurModule } from './transporteur/transporteur.module';
+
 @NgModule({
   declarations: [
     AppComponent,
+
     
   ],
   imports: [
