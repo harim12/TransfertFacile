@@ -5,6 +5,7 @@ import { DemandeTransfertComponent } from './features/demande-transfert/demande-
 import { ProjetTransfertComponent } from './features/projet-transfert/projet-transfert.component';
 import { ProfileComponent } from './features/profile/profile.component';
 import { ProductivityComponent } from './features/productivity/productivity.component';
+import { SingleDemandeComponent } from './features/single-demande/single-demande.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashbord', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: 'projet', component: ProjetTransfertComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'productivity', component: ProductivityComponent },
+    { path: 'single',component:SingleDemandeComponent}
 
   ] }
 ];

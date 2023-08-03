@@ -1,4 +1,6 @@
 <div class="container">
     <app-list-demandes class="list"></app-list-demandes>
-    <app-single-demande class="single"></app-single-demande>
-</div>
+   
+      <app-single-demande  #singleComponent class="single" [ngClass]="{'hide': !selectedDemande}" [demande]="selectedDemande"></app-single-demande>
+   
+  </div>

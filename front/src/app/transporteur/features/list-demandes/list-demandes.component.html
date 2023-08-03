@@ -21,17 +21,7 @@
     </div>
 
     <div class="bottom">
-        <div class="table-paging">
-            <!-- <div class="paging-info">
-              Show
-              <select>
-                <option>5</option>
-                <option>10</option>
-                <option>20</option>
-              </select>
-              entries
-            </div> -->
-          </div>
+        
        
         <div class="table-responsive">
           <table class="custom-table">
@@ -44,78 +34,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>08:00 AM</td>
-                <td>New York</td>
-                <td>Los Angeles</td>
-                <td>Express</td>
+              <tr *ngFor ="let demande of demandes" (click) = "onRowClicked(demande)">
+                <td>{{demande.horaire}}</td>
+                <td>{{demande.depart}}</td>
+                <td>{{demande.arrivee}}</td>
+                <td>{{demande.typeLivraison}}</td>
               </tr>
-              <tr>
-                <td>10:30 AM</td>
-                <td>London</td>
-                <td>Paris</td>
-                <td>Standard</td>
-              </tr>
-              <tr>
-                <td>02:45 PM</td>
-                <td>Tokyo</td>
-                <td>Sydney</td>
-                <td>Express</td>
-              </tr><tr>
-                <td>02:45 PM</td>
-                <td>Tokyo</td>
-                <td>Sydney</td>
-                <td>Express</td>
-              </tr><tr>
-                <td>02:45 PM</td>
-                <td>Tokyo</td>
-                <td>Sydney</td>
-                <td>Express</td>
-              </tr>
-              <tr>
-                <td>02:45 PM</td>
-                <td>Tokyo</td>
-                <td>Sydney</td>
-                <td>Express</td>
-              </tr>
-              <tr>
-                <td>02:45 PM</td>
-                <td>Tokyo</td>
-                <td>Sydney</td>
-                <td>Express</td>
-              </tr>
-              <tr>
-                <td>02:45 PM</td>
-                <td>Tokyo</td>
-                <td>Sydney</td>
-                <td>Express</td>
-              </tr>
-              <tr>
-                <td>02:45 PM</td>
-                <td>Tokyo</td>
-                <td>Sydney</td>
-                <td>Express</td>
-              </tr>   <tr>
-                <td>02:45 PM</td>
-                <td>Tokyo</td>
-                <td>Sydney</td>
-                <td>Express</td>
-              </tr>   <tr>
-                <td>02:45 PM</td>
-                <td>Tokyo</td>
-                <td>Sydney</td>
-                <td>Express</td>
-              </tr>   <tr>
-                <td>02:45 PM</td>
-                <td>Tokyo</td>
-                <td>Sydney</td>
-                <td>Express</td>
-              </tr>   <tr>
-                <td>02:45 PM</td>
-                <td>Tokyo</td>
-                <td>Sydney</td>
-                <td>Express</td>
-              </tr>
+             
+            
               <!-- Add more rows as needed -->
             </tbody>
           </table>

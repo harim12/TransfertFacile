@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { DemandeDemenagement } from '../../shared/models/demande.model';
 
 @Component({
   selector: 'app-single-demande',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./single-demande.component.scss']
 })
 export class SingleDemandeComponent {
+  @Input() demande: DemandeDemenagement | undefined;
+  @ViewChild('singleElement') singleElement: ElementRef | undefined;
   carouselItems = [
     { icon: 'fa-solid fa-couch', title: 'Fautffffeuil' },
   
@@ -15,4 +18,11 @@ export class SingleDemandeComponent {
     { icon: 'fa-solid fa-bed', title: 'lit pdfslace' },
     
   ];
+  scrollIntoView() {
+    this.singleElement?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  ngAfterViewInit() {
+    // Scroll to the singleContainer element
+    this.singleElement?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }

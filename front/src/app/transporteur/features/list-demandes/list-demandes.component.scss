@@ -100,6 +100,10 @@
     // border-bottom: 1px solid #bbbaba;
     // border: 1px solid #bbbaba; /* Added border to cells */
   }
+  td{
+    cursor: pointer;
+
+  }
   
   .custom-table th {
     background-color: var(--primary_color);
