@@ -17,7 +17,7 @@
     align-items: center;
     // background-color: #f2f2f2;
     width: 100%;
-    padding: 10px 30px;
+    // padding: 10px 30px;
     // padding: 10px;
     padding-bottom: 20px;
   }
@@ -73,10 +73,11 @@
   
   .table-title h2 {
     color: var(--primary_color);
-    font-family: 'Pacifico',sans-serif;
+    font-family:'Prata',serif;
     margin-bottom: 7px;
     font-size: 27px;
     font-weight: 200;
+    white-space: nowrap;
 
   }
   
@@ -101,7 +102,7 @@
   }
   
   .custom-table th {
-    background-color: var(--secondary_color);
+    background-color: var(--primary_color);
     color: white;
     // border-top: 2px solid #bbbaba; /* Added 2px border at the top of header cells */
     // border-bottom: 2px solid #bbbaba; /* Added 2px border at the bottom of header cells */
@@ -183,24 +184,19 @@
   }
 
   
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     .table-container
     .first-row{
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: flex-start;
-      background-color: #f2f2f2;
+      // background-color: #f2f2f2;
       width: 100%;
       padding: 10px 30px;
       // padding: 10px;
       padding-bottom: 20px;
     }
-}
-
-  
-  /* Media query for responsiveness */
-  @media screen and (max-width: 600px) {
     .table-container {
       max-width: 100%;
       // padding: 10px;
@@ -211,5 +207,26 @@
     .paging-info,
     .paging-buttons {
       margin-bottom: 10px;
+      white-space: nowrap;
     }
+    
+}
+
+  
+  /* Media query for responsiveness */
+  @media screen and (max-width: 600px) {
+     .table-title h2{
+      margin-left: -50px !important;
+     }
+     .paging-buttons{
+      margin-left: -25px !important;
+     }
   }
+  @media screen and (max-width: 500px) {
+    .table-title h2{
+     white-space: wrap;
+    }
+    .paging-buttons{
+     margin-left: -25px !important;
+    }
+ }

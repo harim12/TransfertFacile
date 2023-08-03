@@ -1,10 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Prata&display=swap'); 
 .container{
     // display: flex;
     // flex-direction: row;
     // justify-content: center;
     // align-items: center;
-    width: 100%;
-    height: 100%;
+    // width: 100%;
+    // height: 100%;
+    // margin-top: ;
+    border-radius: 30px;
+
 }
 
 .content{
@@ -12,7 +17,8 @@
     padding-left: 15px;
     .title{
         color: var(--primary_color);
-        font-family: 'Pacifico',sans-serif;
+        // font-family: 'Pacifico',sans-serif;
+        font-family:'Prata',serif;
         margin-bottom: 7px;
         font-size: 27px;
         font-weight: 200;
@@ -84,11 +90,15 @@ img{
     align-items: center;
     gap: 10px;
     padding-bottom: 0px;
-
+    margin-top: 25px;
     img{
       box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       border-radius: 5px;
     }
+  }
+  .special-details{
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 //   .item {
 //     display: flex;
