@@ -2,7 +2,7 @@
 <div class="table-container">
     <div class="first-row">
         <div class="table-title">
-            <h2>Demandes de déménagement</h2>
+            <h2>Projets de déménagement</h2>
           </div>
           
 
@@ -27,17 +27,19 @@
           <table class="custom-table">
             <thead>
               <tr>
-                <th>Horaire</th>
-                <th>Départ</th>
-                <th>Arrivée</th>
-                <th>Type de livraison</th>
+                <th>Image</th>
+                <th>Nom et prénom</th>
+                <th>telephone</th>
+                <th>départ</th>
+                <th>arrivée</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor ="let projet of projets" (click)="onRowClicked(projet)">
-                <td>{{projet.demande.horaire}}</td>
-                <td>{{projet.demande.depart}}</td>
-                <td>{{projet.demande.arrivee}}</td>
+                <td><img src="./../../../../assets/OIP.jpeg" alt="#"></td>
+                <td>{{projet.userDemanding.name}}</td>
+                <td>{{projet.userDemanding.phoneNumber}}</td>
+                <td>{{projet.demande.typeLivraison}}</td>
                 <td>{{projet.demande.typeLivraison}}</td>
               </tr>
              

@@ -16,6 +16,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CarouselComponent } from './shared/carousel/carousel.component';
 import { ListProjetsComponent } from './features/list-projets/list-projets.component';
 import { SingleProjetComponent } from './features/single-projet/single-projet.component';
+import { DetailsComponent } from './features/details/details.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SingleProjetComponent } from './features/single-projet/single-projet.co
     CarouselComponent,
     ListProjetsComponent,
     SingleProjetComponent,
+    DetailsComponent,
     
   ],
   imports: [

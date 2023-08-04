@@ -10,9 +10,9 @@ import { ProjetDemenagementService } from '../../shared/services/projet-demenage
 })
 export class ListProjetsComponent {
   projets:ProjetDemenagement[] = [
-    {demande:{horaire:"2023-06-11",depart:"oujda hay andalous",arrivee:"saidiaa",typeLivraison:TypeLivraison.Maison},userDemanding:{name:'rim',phoneNumber:45}},
-    {demande:{horaire:"2023-09-11",depart:"rabat",arrivee:"saidiaa",typeLivraison:TypeLivraison.Moto},userDemanding:{name:'chorouk',phoneNumber:45}},
-    {demande:{horaire:"2023-05-11",depart:"sale",arrivee:"saidiaa",typeLivraison:TypeLivraison.Maison},userDemanding:{name:'rim',phoneNumber:45}},
+    {demande:{horaire:"2023-06-11",depart:"oujda hay andalous",arrivee:"saidiaa",typeLivraison:TypeLivraison.Maison},userDemanding:{name:'ghita sakhrawi ',phoneNumber:6634145}},
+    {demande:{horaire:"2023-09-11",depart:"rabat",arrivee:"sale",typeLivraison:TypeLivraison.Moto},userDemanding:{name:'ayoub moufti',phoneNumber:6634145}},
+    {demande:{horaire:"2023-05-11",depart:"sale",arrivee:"casablanca",typeLivraison:TypeLivraison.Maison},userDemanding:{name:'hicham kharob',phoneNumber:6634145}},
 
    ];
   
