@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Prata&display=swap');
+
 .container{
     display: flex;
     flex-direction: row;
@@ -37,22 +40,41 @@
 }
 .icon{
     border-radius: 50%;
-    border: var(--gray_color) 1px solid;
+    border: var(--primary_color) 1px solid;
     padding: 5px;
     font-size: 22px;
-    color: var(--gray_color);
+    color: var(--primary_color);
 }
 .name{
     font-weight: bold;
     white-space: nowrap;
-    color: rgb(155, 155, 155);
-    font-family: 'Pacifico',sans-serif;
+    // color: rgb(155, 155, 155);
+    color: var(--primary_color);
+    font-family:'Prata',serif;
     font-size: 17px;
     font-weight: 100;
+    padding-left: -10px;
+    font-weight: 300;
 }
 
 .admin{
     font-size: 13px;
     font-weight: 300;
-    color: var(--gray_color);
+    color: var(--primary_color);
+}
+
+
+ 
+@media(max-width:400px){
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 15px;
+        // padding: 15px 40px;
+        // gap: 30px;
+        // margin-right: 10px;
+        // margin-bottom: 150px !important;
+    }
 }

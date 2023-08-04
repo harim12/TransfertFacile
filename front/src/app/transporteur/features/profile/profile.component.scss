@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Prata&display=swap'); 
 .container {
     margin-top: 40px;
+
   }
   .title{
     // font-family: 'Pacifico',sans-serif;
@@ -158,7 +159,6 @@
   .tab-content {
     display: none;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 8px;
   
     &.show {

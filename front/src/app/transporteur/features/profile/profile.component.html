@@ -20,16 +20,16 @@
   
       <div class="tab-content-wrapper">
         <div class="tab-content" [class.show]="activeTab === 0">
-            <p>tab content1</p>
+            <app-details></app-details>
         </div>
         <div class="tab-content" [class.show]="activeTab === 1">
-          <p>tab content 2</p>
+            <app-details-vehicule></app-details-vehicule>
         </div>
         <div class="tab-content" [class.show]="activeTab === 2">
-          <p>tab content 3</p>
+          <app-details-mot-de-passe></app-details-mot-de-passe>
         </div>
         <div class="tab-content" [class.show]="activeTab === 3">
-          <p>tab content 4</p>
+          <app-details-paiment></app-details-paiment>
           
         </div>
       </div>
@@ -49,20 +49,19 @@
   
       <div class="tab-content-wrapper">
         <div [class.show]="activeTab === 0" class="tab-content">
-          <!-- Tab 1 content -->
-          <p>This is Tab 1 content.</p>
+            <app-details></app-details>
         </div>
         <div [class.show]="activeTab === 1" class="tab-content">
           <!-- Tab 2 content -->
-          <p>This is Tab 2 content.</p>
+          <app-details-vehicule></app-details-vehicule>
         </div>
         <div [class.show]="activeTab === 2" class="tab-content">
           <!-- Tab 3 content -->
-          <p>This is Tab 3 content.</p>
+          <app-details-mot-de-passe></app-details-mot-de-passe>
         </div>
         <div [class.show]="activeTab === 3" class="tab-content">
           <!-- Tab 4 content -->
-          <p>This is Tab 4 content.</p>
+          <app-details-paiment></app-details-paiment>
         </div>
       </div>
     </div>

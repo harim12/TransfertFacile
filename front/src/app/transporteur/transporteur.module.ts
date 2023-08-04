@@ -17,6 +17,9 @@ import { CarouselComponent } from './shared/carousel/carousel.component';
 import { ListProjetsComponent } from './features/list-projets/list-projets.component';
 import { SingleProjetComponent } from './features/single-projet/single-projet.component';
 import { DetailsComponent } from './features/details/details.component';
+import { DetailsVehiculeComponent } from './features/details-vehicule/details-vehicule.component';
+import { DetailsMotDePasseComponent } from './features/details-mot-de-passe/details-mot-de-passe.component';
+import { DetailsPaimentComponent } from './features/details-paiment/details-paiment.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { DetailsComponent } from './features/details/details.component';
     ListProjetsComponent,
     SingleProjetComponent,
     DetailsComponent,
+    DetailsVehiculeComponent,
+    DetailsMotDePasseComponent,
+    DetailsPaimentComponent,
     
   ],
   imports: [

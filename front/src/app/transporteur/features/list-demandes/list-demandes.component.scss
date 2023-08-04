@@ -90,15 +90,12 @@
   .custom-table {
     width: 100%;
     border-collapse: collapse;
-    // border: 1px solid #ddd; /* Added border to the entire table */
   }
   
   .custom-table th,
   .custom-table td {
     padding: 12px;
     text-align: left;
-    // border-bottom: 1px solid #bbbaba;
-    // border: 1px solid #bbbaba; /* Added border to cells */
   }
   td{
     cursor: pointer;
@@ -108,10 +105,6 @@
   .custom-table th {
     background-color: var(--primary_color);
     color: white;
-    // border-top: 2px solid #bbbaba; /* Added 2px border at the top of header cells */
-    // border-bottom: 2px solid #bbbaba; /* Added 2px border at the bottom of header cells */
-    // border-left: 1px solid #bbbaba; /* Added 1px border at the left of header cells */
-    // border-right: 1px solid #bbbaba; /* Added 1px border at the right of header cells */
   }
   
   /* Alternating row colors */
@@ -121,11 +114,7 @@
   
   /* Table paging styles */
   .table-paging {
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
     padding-top: 10px;
-    // padding-bottom: 20px;
     margin-left: 23px;
     background-color: white;
     
@@ -133,9 +122,6 @@
   
   .paging-info
   {
-    // display: flex;
-    // align-items: center;
-    // color: #85C1C1;
     background-color: #85C1C1;
     border-radius: 5px;
     width: fit-content;
@@ -152,16 +138,7 @@
   .paging-info{
     margin-right: 20px;
   }
-  .paging-buttons button {
-    // background-color: #348888;
-    // color: #ffffff;
-    // border: none;
-    // padding: 8px 12px;
-    // cursor: pointer;
-    // border-radius: 3px;
-    // margin-left: 10px;
-  }
-  
+ 
   .paging-buttons button:hover {
     background-color: #348888;
   }
@@ -170,22 +147,13 @@
     margin: 5px 0; /* Add some spacing between the pagination and the number of pages */
   }
   
-  // .paging-info select {
-  //   background-color: #348888;
-  //   color: #ffffff;
-  //   border: none;
-  //   padding: 6px;
-  //   border-radius: 3px;
-  //   margin-left: 5px;
-  // }
+  
   
   .paging-info select:focus {
     outline: none;
   }
   
-  .paging-info select option {
-    // background-color: #348888;
-  }
+ 
 
   
   @media (max-width: 1100px) {
@@ -195,15 +163,12 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: flex-start;
-      // background-color: #f2f2f2;
       width: 100%;
       padding: 10px 30px;
-      // padding: 10px;
       padding-bottom: 20px;
     }
     .table-container {
       max-width: 100%;
-      // padding: 10px;
     }
     .table-paging {
       flex-direction: column;
@@ -220,7 +185,7 @@
   /* Media query for responsiveness */
   @media screen and (max-width: 600px) {
      .table-title h2{
-      margin-left: -50px !important;
+      margin-left: -30px !important;
      }
      .paging-buttons{
       margin-left: -25px !important;
