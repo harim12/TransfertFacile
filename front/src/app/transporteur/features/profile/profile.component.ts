@@ -22,11 +22,26 @@ export class ProfileComponent {
   }
 
   private checkScreenSize() {
-    this.isNonResponsive = window.innerWidth > 768; // Set your desired breakpoint
+    if (window.innerWidth > 768) {
+      this.isNonResponsive = true;
+    } else {
+      this.isNonResponsive = false;
+    }
   }
-
+  
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
+    const previousTab = this.activeTab; // Remember the current activeTab
     this.checkScreenSize();
+    
+    if (this.isNonResponsive) {
+      this.activeTab = previousTab
+      console.log(this.activeTab)
+    } else {
+      this.activeTab = previousTab; // Restore the previous activeTab if switching to non-responsive
+
+      console.log(this.activeTab)
+      // Reset to first tab when switching to responsive
+    }
   }
 }

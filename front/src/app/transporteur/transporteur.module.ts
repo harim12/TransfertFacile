@@ -20,6 +20,9 @@ import { DetailsComponent } from './features/details/details.component';
 import { DetailsVehiculeComponent } from './features/details-vehicule/details-vehicule.component';
 import { DetailsMotDePasseComponent } from './features/details-mot-de-passe/details-mot-de-passe.component';
 import { DetailsPaimentComponent } from './features/details-paiment/details-paiment.component';
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -48,6 +51,7 @@ import { DetailsPaimentComponent } from './features/details-paiment/details-paim
     // Other transporteur-related imports
     TransporteurRoutingModule,
     SlickCarouselModule,
+    FormsModule
   ],
 
 })

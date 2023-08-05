@@ -20,7 +20,7 @@
   
       <div class="tab-content-wrapper">
         <div class="tab-content" [class.show]="activeTab === 0">
-            <app-details></app-details>
+          <app-details></app-details>
         </div>
         <div class="tab-content" [class.show]="activeTab === 1">
             <app-details-vehicule></app-details-vehicule>
@@ -38,7 +38,7 @@
     <!-- ==================RESPONSIVE VERSION====================== -->
     <div class="tab-container-responsive" *ngIf="!isNonResponsive">
       <div class="tab-select-wrapper">
-        <select (change)="selectTabResponsive($event)">
+        <select (change)="selectTabResponsive($event)" [(ngModel)]="activeTab">
           <option value="0">Détails </option>
           <option value="1">Détails véhicule</option>
           <option value="2">Mot de passe</option>
