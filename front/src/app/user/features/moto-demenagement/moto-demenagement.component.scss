@@ -87,7 +87,7 @@ label{
     position: absolute;
     
     background-color: #fff;
-    // border: 1px solid black;
+    border: 1px solid black;
     width: 97%;
     border-radius: 4px;
     display: none; /* This should hide the list by default */
@@ -98,7 +98,7 @@ label{
 
   .custom-options2{
     z-index: 1;
-    margin-top: -10px !important;
+    // margin-top: -10px !important;
   }
   
   

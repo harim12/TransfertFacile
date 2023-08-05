@@ -1,1 +1,53 @@
-<p>colis-objet-emballe-demenagement works!</p>
+<div class="container">
+    <div class="content">
+        
+        <div class="row">
+            <div class="custom-select1"  id ="custom-select" [class.open]="isOpenSelect1" (click)="toggleDropdown('select1')">
+                
+                <span class="selected-option">{{ selectedOption1?.label || 'Veuillez selectionner' }}</span>
+                <ul class="custom-options custom-options1" [class.open]="isOpenSelect1">
+                    <li *ngFor="let option of dropdownOptionsPrice" (click)="onOptionSelected(option,'select1')">
+                    {{option.value}}
+                    </li>
+                </ul>
+            </div> 
+            
+        </div>
+        <div class="row2">
+            <div class="left">
+                <div class="col">
+                    <input class="input" type="text" placeholder="L">
+                    <label class="dim">Largeur</label>
+                </div>
+                <div class="col">
+                    <input class="input" type="text" placeholder="P">
+                    <label  class="dim">Profondeur</label>
+                </div>
+                <div class="col">
+                    <input class="input" type="text" placeholder="H">
+                    <label  class="dim">Hauteur</label>
+                </div>
+                <div class="col">
+                    <div class="custom-select2" id="custom-select"  [class.open]="isOpenSelect2" (click)="toggleDropdown('select2')">
+                        <span class="selected-option">{{ selectedOption2?.label || 'cm' }}</span>
+                        <ul class="custom-options custom-options2" [class.open]="isOpenSelect2">
+                            <li *ngFor="let option of dropdownOptionsEtat" (click)="onOptionSelected(option,'select2')">
+                            {{option.value}}
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="right">  
+                    <input type="text" class="inpuut">
+                    <div class="kg">
+                        <p>Kg</p>
+                    </div>
+                </div>
+                <label class="dim">poids</label>
+            </div>
+        </div>  
+    </div>
+</div>
+    
