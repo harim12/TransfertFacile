@@ -233,6 +233,15 @@
     cursor: pointer;
   }
 
+.btn-ajouter{
+  background-color: var(--primary_color);
+  color: white;
+  padding: 15px;
+  border: none;
+}
+.icon-add{
+  margin-left: 10px;
+}
 
 
   @media (max-width: 900px) {
