@@ -1,0 +1,121 @@
+.container{
+    background-color: white;
+    // margin-left: 40px;
+}
+.content{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.first-row{
+    margin-bottom: 30px;
+}
+.row{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 100%;
+    height: fit-content;
+}
+
+input{
+    width: 50%;
+    height: 50px;
+}
+input::placeholder{
+    color: rgb(122, 120, 120);
+    padding-left: 15px;
+}
+select{
+    width: 50%;
+    height: 50px;
+    option{
+        height: 50px;
+    }
+}
+
+
+.title{
+    color: var(--primary_color);
+    // font-family: 'Pacifico',sans-serif;
+    font-family:'Prata',serif;
+    margin-bottom: 7px;
+    font-size: 27px;
+    font-weight: 200;
+}
+label{
+    font-family:'Prata',serif;
+    font-size: 20px;
+    // margin-top: 10px;
+    // margin-bottom: 5px;
+}
+
+// ============SELECT STYLE
+
+#custom-select {
+    position: relative;
+    color: black;
+    cursor: pointer;
+    width: 50%;
+  }
+
+  
+  .custom-select label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .selected-option {
+    width: 97%;
+  
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: var(--gray_color);
+    margin-top: 15px;
+    margin-bottom: 25px;
+
+  }
+  
+  .custom-options {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+    position: absolute;
+    
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 97%;
+    border-radius: 4px;
+    display: none; /* This should hide the list by default */
+  }
+  .custom-options1{
+    z-index: 2;
+  }
+
+  .custom-options2{
+    z-index: 1;
+  }
+  
+  
+  .custom-options.open {
+    display: block; /* This should show the list when isOpen is true */
+    margin-top: -25px;
+  }
+  
+  .custom-options li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .custom-options li:hover {
+    background-color: var(--primary_color);
+    color: white;
+  }

@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="content">
+        <div class="row first-row">
+            <label >Entrer marque et modèle</label>
+            <input type="text" placeholder="Aston Martin">
+        </div>
+        <div class="row">
+            
+                <!-- <select>
+                    <option value="" hidden>Valeurs estimées de votre voiture</option>
+                    <option value="min50000DH">0-50000 DH</option>
+                    <option value="min10000DH">5 0000 DH - 10 000 DH</option>
+                    <option value="min15000DH">10 000 DH - 15 000 DH</option>
+                    <option value="min20000DH">15 000 DH - 20 000 DH</option>
+                    <option value="plus20000DH">+20 000 DH</option>
+                </select> -->
+                <div class="custom-select1"  id ="custom-select" [class.open]="isOpenSelect1" (click)="toggleDropdown('select1')">
+                    <label >Informations importante</label>
+                    <span class="selected-option">{{ selectedOption1?.label || 'Valeurs estimées de votre voiture' }}</span>
+                    <ul class="custom-options custom-options1" [class.open]="isOpenSelect1">
+                      <li *ngFor="let option of dropdownOptionsPrice" (click)="onOptionSelected(option,'select1')">
+                        {{option.value}}
+                      </li>
+                    </ul>
+                </div> 
+                <div class="custom-select2" id="custom-select"  [class.open]="isOpenSelect2" (click)="toggleDropdown('select2')">
+                    <label >Informations importante</label>
+                    <span class="selected-option">{{ selectedOption2?.label || 'Valeurs estimées de votre voiture' }}</span>
+                    <ul class="custom-options custom-options2" [class.open]="isOpenSelect2">
+                      <li *ngFor="let option of dropdownOptionsEtat" (click)="onOptionSelected(option,'select2')">
+                        {{option.value}}
+                      </li>
+                    </ul>
+                </div>  
+                <!-- <select>
+                    <option value="" hidden>Conditions du véhicule</option>
+                    <option value="neuve">Voiture neuve</option>
+                    <option value="seconde">Voiture seconde main</option>
+                    <option value="third">Voiture seconde main mais hors état de marche</option>
+                  </select> -->
+        </div>  
+    </div>
+</div>
+    

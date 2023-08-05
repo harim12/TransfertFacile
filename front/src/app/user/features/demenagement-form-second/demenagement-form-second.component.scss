@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: rgb(245, 243, 247);
+    margin-top: 30px;
     position: relative;
 
   }
@@ -27,8 +27,11 @@
   
   .typeDem{
     grid-area: containerHome;
-      
-    margin-bottom: 70px;
+    background-color: white;
+    padding-left: 40px;
+    padding-top: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
   }
   .type-demenagement{
     width: 100%;
@@ -50,9 +53,8 @@
     background-color: var(--primary_color);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     color: var(--primary_color);
-    margin-top: 77px;
-    padding-bottom: 40px;
-    // margin-right: 10px;
+    height: fit-content;
+    padding-bottom: 30px;
   
     background-color: white;    
   }
@@ -100,24 +102,23 @@
   
   .wrapper-photos-horaire{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    // margin-top: -50px !important;
   }
   .section{
     margin-left: 20px;
-    // margin-bottom: 120px !important;
-  
   }
   
   .title{
     color: var(--primary_color);
-    font-family: 'Pacifico',sans-serif;
+    font-family:'Prata',serif;
     margin-bottom: 7px;
+    font-size: 27px;
+    font-weight: 200;
+        margin-bottom: 7px;
     font-size: 27px;
     font-weight: 200;
     margin-bottom: 20px;
     margin-top: 8px;
-    
-  }
+}
   
   .horaire{
     width: 150px;
@@ -133,9 +134,8 @@
   
   }
   input::placeholder {
-    /* Add your desired styles here */
-    color: #999; /* Placeholder text color */
-    font-style: italic; /* Italicize the placeholder text */
+    color: #999; 
+    font-style: italic; 
     padding-left: 10px;
   }
   .photo-donwload{
@@ -175,24 +175,22 @@
   .horaire-wrapper{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     margin-top: 40px;
-  
+    padding-left: 20px;
     .section-wrapper{
       display: flex;
       flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
     }
-  
-    h2{
-      
-  
-    }
+ 
   }
   
   .title-horaire{
-      font-family: 'Pacifico',sans-serif ;
-      color: var(--primary_color);
-      white-space: nowrap;
-      margin-left: 20px;
-    //   padding-top: 20px;
+    color: var(--primary_color);
+    font-family:'Prata',serif;
+    padding-top: 17px;
+      padding-left: 20px;
+      padding-bottom: -15px;
   }
   
   .section{
@@ -201,12 +199,9 @@
     justify-content: space-between;
     width: 100%;
     padding-top: 50px !important;
-    // margin-left: 10px !important;
-    // padding-left: 15px;
-    
-  
-    h2{
-      color: var(--primary_color);
+    .title-sec{
+      font-family:'Prata',serif;
+      font-size: 20px;
     }
   }
   
@@ -232,7 +227,6 @@
     color: white;
     border: none;
     font-size: 20px;
-    // margin: auto !important;
     margin-left: 7%;
     margin-bottom:150px !important;
     margin-right: 3%;
@@ -257,8 +251,8 @@
         "OptionsLogistique"
         "photos"
         "map";
-      grid-template-columns: 1fr; /* Two columns with a ratio of 3:0.2 */
-      grid-template-rows: auto 1fr auto; /* Header and footer have dynamic height, content takes the remaining space */
+      grid-template-columns: 1fr; 
+      grid-template-rows: auto 1fr auto;
       gap: 10px;
      
 
@@ -277,11 +271,8 @@
       .photo-donwload{
         display: flex;
         flex-direction: column;
-        // justify-content: flex-start;
         gap: 100px;
-       
         flex-wrap: wrap;
-        // margin-left: -40px;
         margin-bottom: 20px;
         width: 30%;
       

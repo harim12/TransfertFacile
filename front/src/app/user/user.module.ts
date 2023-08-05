@@ -8,6 +8,9 @@ import { DemenagementFormSecondComponent } from './features/demenagement-form-se
 import { DevisResultComponent } from './features/devis-result/devis-result.component';
 import { HondaDetailComponent } from './honda-detail/honda-detail.component';
 import { UserRoutingModule } from './user-routing.module';
+import { MotoDemenagementComponent } from './features/moto-demenagement/moto-demenagement.component';
+import { VoitureDemenagementComponent } from './features/voiture-demenagement/voiture-demenagement.component';
+import { ColisObjetEmballeDemenagementComponent } from './features/colis-objet-emballe-demenagement/colis-objet-emballe-demenagement.component';
 
 
 
@@ -20,6 +23,9 @@ import { UserRoutingModule } from './user-routing.module';
     DemenagementFormSecondComponent,
     DevisResultComponent,
     HondaDetailComponent,
+    MotoDemenagementComponent,
+    VoitureDemenagementComponent,
+    ColisObjetEmballeDemenagementComponent,
   ],
   imports: [
     CommonModule,

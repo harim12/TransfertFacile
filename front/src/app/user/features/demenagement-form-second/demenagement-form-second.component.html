@@ -5,17 +5,27 @@
 
     <div class="grid-container">
         <div class="typeDem">
-            <h2 class="title">Inventaire</h2>
-            <app-home-demenagement class="typeDeme"></app-home-demenagement>
-            
-            
+             <ng-container *ngIf="selectedOptionService.selectedOption=== 'meubles_et_electromenagers'">
+              <h2 class="title">Inventaire</h2>
+              <app-home-demenagement></app-home-demenagement>
+             </ng-container>
+             <ng-container *ngIf="selectedOptionService.selectedOption === 'voitures_et_autres_vehicules'">
+              <h2 class="title"> Transport de voiture</h2>
+              <app-voiture-demenagement></app-voiture-demenagement>
+             </ng-container>  
+             <ng-container *ngIf="selectedOptionService.selectedOption === 'motos'">
+              <app-moto-demenagement></app-moto-demenagement>
+             </ng-container>
+             <ng-container *ngIf="selectedOptionService.selectedOption === 'colis_et_objets_emballes'">
+              <app-colis-objet-emballe-demenagement></app-colis-objet-emballe-demenagement>
+             </ng-container>
         </div>
         <div class="horaire-wrapper">
           <h2 class="title-horaire">Options logistiques</h2>
           <div class="section-wrapper">
               <div class="section enlevement">
                   <!-- Your "enlèvement" content here -->
-                  <h2>Enlèvement</h2>
+                  <p class="title-sec">Enlèvement</p>
                   <input type="text" class="input"  placeholder="choisissez un type de propriété">
                   <input type="text" class="input"  placeholder="choisissez un étage">
                   <div class="row-checkbox">
@@ -25,7 +35,7 @@
               </div>
               <div class="section Livraison">
                   <!-- Your "livraison" content here -->
-                  <h2>Livraison</h2>
+                  <p class="title-sec">Livraison</p>
                   <input type="text" class="input"  placeholder="chambre">
                   <input type="text" class="input"  placeholder="choisissez un étage">
                   <div class="row-checkbox">
@@ -39,7 +49,7 @@
         <div class="wrapper-photos-horaire">
           <div class="section photos">
             <!-- Your "photos" content here -->
-            <h2 class="horaire-title title">horaire</h2>
+            <h2 class="horaire-title title">Horaire</h2>
             <input class="horaire" type="date">
             <h2 class="title">Instructions spéciales</h2>
            

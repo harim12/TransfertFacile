@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { SelectedOptionService } from '../../shared/services/selected-option.service';
 
 @Component({
   selector: 'app-demenagement-first-form',
@@ -8,12 +9,12 @@ import { Component, HostListener } from '@angular/core';
 export class DemenagementFirstFormComponent {
   dropdownOptions = [
     { label: 'Meubles et Électroménagers', value: 'meubles_et_electromenagers', iconClass: 'fas fa-couch' },
-    { label: 'Déménagement', value: 'demenagement', iconClass: 'fas fa-box-open' },
     { label: 'Voitures et autres véhicules', value: 'voitures_et_autres_vehicules', iconClass: 'fas fa-car' },
     { label: 'Motos', value: 'motos', iconClass: 'fas fa-motorcycle' },
     { label: 'Colis et objets emballés', value: 'colis_et_objets_emballes', iconClass: 'fas fa-gift' }
   ];
   
+  constructor(public selectedOptionService: SelectedOptionService){}
 
   selectedOption: any;
   isOpen = false;
@@ -25,6 +26,8 @@ export class DemenagementFirstFormComponent {
 
   onOptionSelected(option: any): void {
     this.selectedOption = option;
+    this.selectedOptionService.selectedOption = option.value;
+    console.log(this.selectedOptionService.selectedOption)
     this.closeDropdown();
   }
 
