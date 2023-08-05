@@ -1,0 +1,126 @@
+.container{
+    background-color: white;
+    // margin-left: 40px;
+}
+.content{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.first-row{
+    margin-bottom: 30px;
+}
+.row{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
+    height: fit-content;
+}
+
+input{
+    width: 59%;
+    height: 50px;
+    border : .5px solid black;
+    border-radius: 5px;
+}
+input::placeholder{
+    color: rgb(122, 120, 120);
+    padding-left: 15px;
+}
+
+.title{
+    color: var(--primary_color);
+    // font-family: 'Pacifico',sans-serif;
+    font-family:'Prata',serif;
+    margin-bottom: 7px;
+    font-size: 27px;
+    font-weight: 200;
+}
+label{
+    font-family:'Prata',serif;
+    font-size: 20px;
+    // margin-top: 10px;
+    // margin-bottom: 5px;
+}
+
+// ============SELECT STYLE
+
+#custom-select {
+    position: relative;
+    color: black;
+    cursor: pointer;
+    width: 60%;
+    margin-bottom: 0px;
+    margin: 0px !important;
+  }
+
+  
+  .custom-select label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .selected-option {
+    width: 97%;
+  
+    display: block;
+    padding: 10px;
+    border: .5px solid black;
+    border-radius: 4px;
+    background-color: #fff;
+    color: rgb(122, 120, 120);
+    margin-top: 15px;
+    margin-bottom: 25px;
+
+  }
+  
+  .custom-options {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+    position: absolute;
+    
+    background-color: #fff;
+    // border: 1px solid black;
+    width: 97%;
+    border-radius: 4px;
+    display: none; /* This should hide the list by default */
+  }
+  .custom-options1{
+    z-index: 2;
+  }
+
+  .custom-options2{
+    z-index: 1;
+    margin-top: -10px !important;
+  }
+  
+  
+  .custom-options.open {
+    display: block; /* This should show the list when isOpen is true */
+    margin-top: -25px;
+  }
+  
+  .custom-options li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .custom-options li:hover {
+    background-color: var(--primary_color);
+    color: white;
+  }
+  @media (max-width:990px){
+    #custom-select {
+      width: 90%;
+    }
+    input{
+      width: 89%;
+    }
+  }

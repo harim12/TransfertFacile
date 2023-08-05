@@ -14,9 +14,12 @@
               <app-voiture-demenagement></app-voiture-demenagement>
              </ng-container>  
              <ng-container *ngIf="selectedOptionService.selectedOption === 'motos'">
+              <h2 class="title"> Transport de moto</h2>
               <app-moto-demenagement></app-moto-demenagement>
              </ng-container>
              <ng-container *ngIf="selectedOptionService.selectedOption === 'colis_et_objets_emballes'">
+              <h2 class="title">Colis et objets emballes</h2>
+              <p>Entrez les dimensions et le poids du colis que vous souhaitez transporter</p>
               <app-colis-objet-emballe-demenagement></app-colis-objet-emballe-demenagement>
              </ng-container>
         </div>

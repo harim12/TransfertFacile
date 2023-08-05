@@ -1,1 +1,28 @@
-<p>moto-demenagement works!</p>
+<div class="container">
+    <div class="content">
+        <div class="row first-row">
+            <label >Entrer marque et modèle</label>
+            <input type="text" placeholder="temax">
+        </div>
+        <div class="row">
+            <div class="custom-select1"  id ="custom-select" [class.open]="isOpenSelect1" (click)="toggleDropdown('select1')">
+                <label >Informations importante</label>
+                <span class="selected-option">{{ selectedOption1?.label || 'Valeurs estimées de votre moto' }}</span>
+                <ul class="custom-options custom-options1" [class.open]="isOpenSelect1">
+                    <li *ngFor="let option of dropdownOptionsPrice" (click)="onOptionSelected(option,'select1')">
+                    {{option.value}}
+                    </li>
+                </ul>
+            </div> 
+            <div class="custom-select2" id="custom-select"  [class.open]="isOpenSelect2" (click)="toggleDropdown('select2')">
+                <span class="selected-option">{{ selectedOption2?.label || 'Conditions du véhicule' }}</span>
+                <ul class="custom-options custom-options2" [class.open]="isOpenSelect2">
+                    <li *ngFor="let option of dropdownOptionsEtat" (click)="onOptionSelected(option,'select2')">
+                    {{option.value}}
+                    </li>
+                </ul>
+            </div>  
+        </div>  
+    </div>
+</div>
+    
