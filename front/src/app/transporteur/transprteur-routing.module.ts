@@ -6,9 +6,10 @@ import { ProjetTransfertComponent } from './features/projet-transfert/projet-tra
 import { ProfileComponent } from './features/profile/profile.component';
 import { ProductivityComponent } from './features/productivity/productivity.component';
 import { SingleDemandeComponent } from './features/single-demande/single-demande.component';
-import { AuthTransporteurComponent } from './auth-transporteur/auth-transporteur.component';
-import { LoginTransporteurComponent } from './login-transporteur/login-transporteur.component';
-import { SignUpTransporteurComponent } from './sign-up-transporteur/sign-up-transporteur.component';
+import { AuthTransComponent } from './auth/auth-trans/auth-trans.component';
+import { LoginTransporteurComponent } from './auth/login-transporteur/login-transporteur.component';
+import { SignUpTransporteurComponent } from './auth/sign-up-transporteur/sign-up-transporteur.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashbord', pathMatch: 'full' },
@@ -19,11 +20,16 @@ const routes: Routes = [
     { path: 'profile', component: ProfileComponent },
     { path: 'productivity', component: ProductivityComponent },
     { path: 'single',component:SingleDemandeComponent},
-    { path: 'auth',component:AuthTransporteurComponent},
-    { path: 'login-transporteur',component:LoginTransporteurComponent},
-    { path: 'signup-transporteur',component:SignUpTransporteurComponent}
 
-  ] }
+  ] },
+  {path: 'auth-transporteur',component:AuthTransComponent,children:[
+    
+  ]
+    
+  },
+  {path: 'login-transporteur',component:LoginTransporteurComponent},
+  {path: 'signup-transporteur',component:SignUpTransporteurComponent}
+
 ];
 
 @NgModule({

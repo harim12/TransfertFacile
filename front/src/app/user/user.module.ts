@@ -12,9 +12,9 @@ import { MotoDemenagementComponent } from './features/moto-demenagement/moto-dem
 import { VoitureDemenagementComponent } from './features/voiture-demenagement/voiture-demenagement.component';
 import { ColisObjetEmballeDemenagementComponent } from './features/colis-objet-emballe-demenagement/colis-objet-emballe-demenagement.component';
 import { FormsModule } from '@angular/forms';
-import { LoginUserComponent } from './login-user/login-user.component';
-import { SignUpUserComponent } from './sign-up-user/sign-up-user.component';
-import { AuthUserComponent } from './auth-user/auth-user.component';
+import { LoginUserComponent } from './auth/login-user/login-user.component';
+import { SignUpUserComponent } from './auth/sign-up-user/sign-up-user.component';
+import { AuthUserComponent } from './auth/auth-user/auth-user.component';
 
 
 
