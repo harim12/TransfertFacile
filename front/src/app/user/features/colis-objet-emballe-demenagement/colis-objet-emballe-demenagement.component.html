@@ -2,7 +2,7 @@
     <div class="content">
         
         <div class="row">
-            <div class="custom-select1"  id ="custom-select" [class.open]="isOpenSelect1" (click)="toggleDropdown('select1')">
+            <div class="custom-select1 custom-select"   [class.open]="isOpenSelect1" (click)="toggleDropdown('select1')">
                 
                 <span class="selected-option">{{ selectedOption1?.label || 'Veuillez selectionner' }}</span>
                 <ul class="custom-options custom-options1" [class.open]="isOpenSelect1">
@@ -28,7 +28,7 @@
                     <label  class="dim">Hauteur</label>
                 </div>
                 <div class="col">
-                    <div class="custom-select2" id="custom-select"  [class.open]="isOpenSelect2" (click)="toggleDropdown('select2')">
+                    <div class="custom-select2 custom-select"  [class.open]="isOpenSelect2" (click)="toggleDropdown('select2')">
                         <span class="selected-option">{{ selectedOption2?.label || 'cm' }}</span>
                         <ul class="custom-options custom-options2" [class.open]="isOpenSelect2">
                             <li *ngFor="let option of dropdownOptionsEtat" (click)="onOptionSelected(option,'select2')">
@@ -36,6 +36,11 @@
                             </li>
                         </ul>
                     </div>  
+                    <!-- <select class="select"  [(ngModel)]="selectedOption2">
+                        <option value="cm" hidden>cm</option>
+                        <option value="cm">cm</option>
+                        <option value="mm">mm</option>
+                    </select> -->
                 </div>
             </div>
             <div class="right-container">

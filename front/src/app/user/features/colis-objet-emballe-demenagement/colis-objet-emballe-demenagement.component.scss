@@ -102,7 +102,7 @@ p{
 
 
 
-#custom-select {
+.custom-select {
     position: relative;
     color: black;
     cursor: pointer;
@@ -227,3 +227,27 @@ p{
         width: 90%;
     }
   }
+
+
+    .select {
+      /* Vos styles personnalisés ici */
+      position: relative;
+      color: black;
+      height: 45px !important;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 0px;
+      margin: 0px !important;
+      margin-left: -3px !important;
+  }
+
+    option{
+      // background-color: red;
+      height:fit-content;
+      padding: 15px !important;
+      font-size: 20px;
+    }
+    option:hover{
+      background-color: var(--primary_color);
+      color: white;
+    }

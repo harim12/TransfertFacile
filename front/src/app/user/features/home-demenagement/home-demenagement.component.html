@@ -2,259 +2,259 @@
 <div class="tab-container">
   
 
-    <div class="tab-wrapper">
-      <div class="tab" (click)="openTab(0)" [class.active]="activeTab === 0">
-        <i class="fas fa-couch"></i>
+  <div class="tab-wrapper">
+    <div class="tab" (click)="openTab(0)" [class.active]="activeTab === 0">
+      <i class="fas fa-couch"></i>
 
-        salon
-      </div>
-      <div class="tab" (click)="openTab(1)" [class.active]="activeTab === 1">
-        <i class="fas fa-utensils"></i>
+      salon
+    </div>
+    <div class="tab" (click)="openTab(1)" [class.active]="activeTab === 1">
+      <i class="fas fa-utensils"></i>
 
-        salle à manger
-      </div>
-      <div class="tab" (click)="openTab(2)" [class.active]="activeTab === 2">
-        <i class="fas fa-blender"></i>
+      salle à manger
+    </div>
+    <div class="tab" (click)="openTab(2)" [class.active]="activeTab === 2">
+      <i class="fas fa-blender"></i>
 
-        Cuisine
-      </div>
-      <div class="tab" (click)="openTab(3)" [class.active]="activeTab === 3">
-        <i class="fas fa-laptop"></i>
+      Cuisine
+    </div>
+    <div class="tab" (click)="openTab(3)" [class.active]="activeTab === 3">
+      <i class="fas fa-laptop"></i>
 
-        bureau
-      </div>
-      <div class="tab" (click)="openTab(4)" [class.active]="activeTab === 4">
-        <i class="fas fa-bed"></i>
+      bureau
+    </div>
+    <div class="tab" (click)="openTab(4)" [class.active]="activeTab === 4">
+      <i class="fas fa-bed"></i>
 
-        chambres
-      </div>
-      <div class="tab" (click)="openTab(5)" [class.active]="activeTab === 5">
+      chambres
+    </div>
+    <div class="tab" (click)="openTab(5)" [class.active]="activeTab === 5">
 <i class="fas fa-faucet"></i>
 
-        salle de bain
-      </div>
-      <div class="tab" (click)="openTab(6)" [class.active]="activeTab === 6">
-        <i class="fas fa-tree"></i>
-
-        Jardin et balcon
-      </div>
-     
-
+      salle de bain
     </div>
-  
-    <div class="tab-content-wrapper">
-      <div class="tab-content" [class.show]="activeTab === 0">
-        <div class="row">
-          <p>Canape 2 place</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Canape 3 place</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Fauteuil</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Table d'appoint</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Télevision</p>
-          <input type="checkbox">
-        </div>
-        
-       
-        <div class="row last">
-          <p>Tableau</p>
-          <input type="checkbox">
-        </div>
-      </div>
-      <div class="tab-content" [class.show]="activeTab === 1">
-        
-        <div class="row">
-          <p>Table - 6 places</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Table salle à manger - 8/10 places</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p> Armoire</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Buffet</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Meuble</p>
-          <input type="checkbox">
-        </div>
-        <div class="row last">
-          <p>Tapis</p>
-          <input type="checkbox">
-        </div>
-      </div>
-      
-      <div class="tab-content" [class.show]="activeTab === 2">
-        <div class="row">
-          <p>Table de cuisine</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Chaises</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Frigo</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Frigo - congélateur</p>
-          <input type="checkbox">
-        </div>
-       
-        <div class="row">
-          <p>Machine à laver</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Four</p>
-          <input type="checkbox">
-        </div>
-        
-       
+    <div class="tab" (click)="openTab(6)" [class.active]="activeTab === 6">
+      <i class="fas fa-tree"></i>
 
-       
-      </div>
-
-      <div class="tab-content" [class.show]="activeTab === 3">
-
-        <div class="row">
-          <p>Bureau</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Chaise de bureau</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Piédestal</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Meuble d'archivage</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Ordinateur de bureau</p>
-          <input type="checkbox">
-        </div>
-        <div class="row last">
-          <p>Imprimante</p>
-          <input type="checkbox">
-        </div>
-
-
-    
-      </div>
-      <div class="tab-content" [class.show]="activeTab === 4">
-        
-        <div class="row">
-          <p>Lit double</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Lit simple</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Table de chevet</p>
-          <input type="checkbox">
-        </div>
-        
-        <div class="row">
-          <p> Garde-robe</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Coiffeuse</p>
-          <input type="checkbox">
-        </div>
-       
-       
-
-        <div class="row">
-          <p>Coiffeuse</p>
-          <input type="checkbox">
-        </div>
-        
-      </div>
-      <div class="tab-content" [class.show]="activeTab === 5">
-        
-        <div class="row">
-          <p>Meubles de rangement</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Chaises salle à manger</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Miroir</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Baignoire</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Lavabo</p>
-          <input type="checkbox">
-        </div>
-        <div class="row last">
-          <p>Tapis</p>
-          <input type="checkbox">
-        </div>
-       
-      </div>
-      <div class="tab-content" [class.show]="activeTab === 6">
-        <div class="row">
-          <p>Table de jardin</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Chaises</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Parasol</p>
-          <input type="checkbox">
-        </div>
-        <div class="row">
-          <p>Banc</p>
-          <input type="checkbox">
-        </div>
-       
-        <div class="row">
-          <p>Barbecue</p>
-          <input type="checkbox">
-        </div>
-        <div class="row last" >
-          <p>TapiVélos</p>
-          <input type="checkbox">
-        </div>
-      
-      </div>
+      Jardin et balcon
     </div>
-
+   
 
   </div>
 
-   
+  <div class="tab-content-wrapper">
+    <div class="tab-content" [class.show]="activeTab === 0">
+      <div class="row">
+        <p>Canape 2 place</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Canape 3 place</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Fauteuil</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Table d'appoint</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Télevision</p>
+        <input type="checkbox">
+      </div>
+      
+     
+      <div class="row last">
+        <p>Tableau</p>
+        <input type="checkbox">
+      </div>
+    </div>
+    <div class="tab-content" [class.show]="activeTab === 1">
+      
+      <div class="row">
+        <p>Table - 6 places</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Table salle à manger - 8/10 places</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p> Armoire</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Buffet</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Meuble</p>
+        <input type="checkbox">
+      </div>
+      <div class="row last">
+        <p>Tapis</p>
+        <input type="checkbox">
+      </div>
+    </div>
+    
+    <div class="tab-content" [class.show]="activeTab === 2">
+      <div class="row">
+        <p>Table de cuisine</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Chaises</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Frigo</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Frigo - congélateur</p>
+        <input type="checkbox">
+      </div>
+     
+      <div class="row">
+        <p>Machine à laver</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Four</p>
+        <input type="checkbox">
+      </div>
+      
+     
+
+     
+    </div>
+
+    <div class="tab-content" [class.show]="activeTab === 3">
+
+      <div class="row">
+        <p>Bureau</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Chaise de bureau</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Piédestal</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Meuble d'archivage</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Ordinateur de bureau</p>
+        <input type="checkbox">
+      </div>
+      <div class="row last">
+        <p>Imprimante</p>
+        <input type="checkbox">
+      </div>
+
+
+  
+    </div>
+    <div class="tab-content" [class.show]="activeTab === 4">
+      
+      <div class="row">
+        <p>Lit double</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Lit simple</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Table de chevet</p>
+        <input type="checkbox">
+      </div>
+      
+      <div class="row">
+        <p> Garde-robe</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Coiffeuse</p>
+        <input type="checkbox">
+      </div>
+     
+     
+
+      <div class="row">
+        <p>Coiffeuse</p>
+        <input type="checkbox">
+      </div>
+      
+    </div>
+    <div class="tab-content" [class.show]="activeTab === 5">
+      
+      <div class="row">
+        <p>Meubles de rangement</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Chaises salle à manger</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Miroir</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Baignoire</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Lavabo</p>
+        <input type="checkbox">
+      </div>
+      <div class="row last">
+        <p>Tapis</p>
+        <input type="checkbox">
+      </div>
+     
+    </div>
+    <div class="tab-content" [class.show]="activeTab === 6">
+      <div class="row">
+        <p>Table de jardin</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Chaises</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Parasol</p>
+        <input type="checkbox">
+      </div>
+      <div class="row">
+        <p>Banc</p>
+        <input type="checkbox">
+      </div>
+     
+      <div class="row">
+        <p>Barbecue</p>
+        <input type="checkbox">
+      </div>
+      <div class="row last" >
+        <p>TapiVélos</p>
+        <input type="checkbox">
+      </div>
+    
+    </div>
+  </div>
+
+
+</div>
+
+ 
 
 
 

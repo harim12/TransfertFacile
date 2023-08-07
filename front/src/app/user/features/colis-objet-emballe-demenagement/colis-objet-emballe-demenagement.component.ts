@@ -27,6 +27,7 @@ export class ColisObjetEmballeDemenagementComponent {
   
 
   toggleDropdown(selectOption:string): void {
+    console.log("select clicked")
     if(selectOption=='select1'){
       this.isOpenSelect1 = !this.isOpenSelect1;
     }else{

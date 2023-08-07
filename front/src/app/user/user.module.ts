@@ -11,6 +11,10 @@ import { UserRoutingModule } from './user-routing.module';
 import { MotoDemenagementComponent } from './features/moto-demenagement/moto-demenagement.component';
 import { VoitureDemenagementComponent } from './features/voiture-demenagement/voiture-demenagement.component';
 import { ColisObjetEmballeDemenagementComponent } from './features/colis-objet-emballe-demenagement/colis-objet-emballe-demenagement.component';
+import { FormsModule } from '@angular/forms';
+import { LoginUserComponent } from './login-user/login-user.component';
+import { SignUpUserComponent } from './sign-up-user/sign-up-user.component';
+import { AuthUserComponent } from './auth-user/auth-user.component';
 
 
 
@@ -26,10 +30,14 @@ import { ColisObjetEmballeDemenagementComponent } from './features/colis-objet-e
     MotoDemenagementComponent,
     VoitureDemenagementComponent,
     ColisObjetEmballeDemenagementComponent,
+    LoginUserComponent,
+    SignUpUserComponent,
+    AuthUserComponent,
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule
   ]
 })
 export class UserModule { }

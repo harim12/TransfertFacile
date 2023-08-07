@@ -5,27 +5,31 @@
 
     <div class="grid-container">
         <div class="typeDem">
-             <ng-container *ngIf="selectedOptionService.selectedOption=== 'meubles_et_electromenagers'">
+             <ng-container  *ngIf="selectedOptionService.selectedOption=== 'meubles_et_electromenagers'">
               <h2 class="title">Inventaire</h2>
-              <app-home-demenagement></app-home-demenagement>
+              <app-home-demenagement class="home"></app-home-demenagement>
              </ng-container>
              <ng-container *ngIf="selectedOptionService.selectedOption === 'voitures_et_autres_vehicules'">
               <h2 class="title"> Transport de voiture</h2>
               <app-voiture-demenagement></app-voiture-demenagement>
              </ng-container>  
-             <ng-container *ngIf="selectedOptionService.selectedOption === 'motos'">
-              <h2 class="title"> Transport de moto</h2>
+             <ng-container class="moto-container" *ngIf="selectedOptionService.selectedOption === 'motos'">
+              <img class="moto-img" src="./../../../../assets/moto (1).png" alt="">
+              <h2 class="title moto-title"> Transport de moto</h2>
               <app-moto-demenagement></app-moto-demenagement>
              </ng-container>
-             <ng-container *ngIf="selectedOptionService.selectedOption === 'colis_et_objets_emballes'">
+             <ng-container class="colis" *ngIf="selectedOptionService.selectedOption === 'colis_et_objets_emballes'">
               <h2 class="title">Colis et objets emballes</h2>
               <p>Entrez les dimensions et le poids du colis que vous souhaitez transporter</p>
-              <app-colis-objet-emballe-demenagement></app-colis-objet-emballe-demenagement>
-              <button class="btn-ajouter">Ajouter<i class="fa-solid fa-plus icon-add"></i></button>
+              <div #colisContainer class="colisContainer">
+                <app-colis-objet-emballe-demenagement></app-colis-objet-emballe-demenagement>
+                <i *ngIf="addedNewOne" class="fa-solid fa-xmark icon-x"></i>
+              </div>
+              <button class="btn-ajouter" (click)="createChildComponent()">Ajouter<i class="fa-solid fa-plus icon-add"></i></button>
              </ng-container>
         </div>
         <div class="horaire-wrapper">
-          <h2 class="title-horaire">Options logistiques</h2>
+          <h2 class="title title-horaire">Options logistiques</h2>
           <div class="section-wrapper">
               <div class="section enlevement">
                   <!-- Your "enlèvement" content here -->

@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap');
+
+.container{
+  height:100%;
+  // background-color: red;
+}
 .tab-container {
     display: flex;
     flex-direction: row;
@@ -6,8 +11,8 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    height: 100%;
-    margin-bottom: 40px;
+    height: fit-content;
+    margin-bottom: 90px;
     background-color: white;    
     color: white;
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccessAcountComponent } from './access-acount/access-acount.component';
 
 const appRoutes: Routes = [
   // Set the default route to '/users/demeFormFirst'
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
   {
     path:'transporteurs',
     loadChildren:() => import('./transporteur/transporteur.module').then(m => m.TransporteurModule),
-  }
+  },
+  {path:'access-acount',component:AccessAcountComponent}
   // Other routes for other features can be defined here
 ];
 

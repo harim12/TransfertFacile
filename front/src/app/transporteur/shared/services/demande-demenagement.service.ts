@@ -13,7 +13,7 @@ export class DemandeDemenagementService {
 
   setSelectedDemande(demande: any) {
     this.selectedDemandeSource.next(demande);
-   
+   console.log("clicked")
   }
 
  scrollToSingleComponent() {

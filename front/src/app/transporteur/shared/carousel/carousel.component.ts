@@ -1,4 +1,4 @@
-import { Component, Input , ElementRef, ViewChild } from '@angular/core';
+import { Component, Input , ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -34,6 +34,7 @@ export class CarouselComponent {
   nextSlide() {
     this.currentPosition -= this.slideWidth;
     this.updateSlidePosition();
+    console.log("next")
   }
 
   updateSlidePosition() {

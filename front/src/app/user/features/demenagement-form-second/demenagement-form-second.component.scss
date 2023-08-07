@@ -30,6 +30,7 @@
     background-color: white;
     padding-left: 40px;
     padding-top: 10px;
+    height: fit-content;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   }
@@ -68,7 +69,7 @@
   }
   
 //==================END OF THE LAYOUT STYLE
-  
+
 
 
 
@@ -181,6 +182,7 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: flex-start;
+      margin-top: -40px;
     }
  
   }
@@ -190,7 +192,7 @@
     font-family:'Prata',serif;
     padding-top: 17px;
       padding-left: 20px;
-      padding-bottom: -15px;
+      // padding-bottom: -15px;
   }
   
   .section{
@@ -238,11 +240,45 @@
   color: white;
   padding: 15px;
   border: none;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 .icon-add{
   margin-left: 10px;
 }
 
+.colis{
+  padding-bottom: 20px;
+}
+.colisContainer{
+  padding-bottom: 20px;
+}
+.icon-x{
+  font-size: 20px;
+  position: absolute;
+  top: 0px;
+  right: 50px;
+  
+}
+.colis-child{
+  position: relative;
+
+}
+.moto-container{
+  position: relative;
+}
+.moto-img{
+  position: absolute;
+  top: 42px;
+  width: 40px;
+}
+.moto-title{
+  padding-left: 40px;
+}
+.typeDem{
+  // padding-top: 60px !important;
+  // background-color: green;
+}
 
   @media (max-width: 900px) {
     .container{
@@ -270,6 +306,22 @@
       width: 100%;
       height: 40%;
     }
+    .btn-ajouter{
+      background-color: var(--primary_color);
+      color: white;
+      padding: 15px;
+      border: none;
+      padding-bottom: 20px;
+    }
+    .icon-add{
+      margin-left: 10px;
+    }
+    
+    .colis{
+      padding-bottom: 20px;
+    }
+  
+   
    
  }
 

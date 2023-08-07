@@ -21,6 +21,9 @@ import { DetailsVehiculeComponent } from './features/details-vehicule/details-ve
 import { DetailsMotDePasseComponent } from './features/details-mot-de-passe/details-mot-de-passe.component';
 import { DetailsPaimentComponent } from './features/details-paiment/details-paiment.component';
 import { FormsModule } from '@angular/forms';
+import { LoginTransporteurComponent } from './login-transporteur/login-transporteur.component';
+import { SignUpTransporteurComponent } from './sign-up-transporteur/sign-up-transporteur.component';
+import { AuthTransporteurComponent } from './auth-transporteur/auth-transporteur.component';
 
 
 
@@ -44,6 +47,9 @@ import { FormsModule } from '@angular/forms';
     DetailsVehiculeComponent,
     DetailsMotDePasseComponent,
     DetailsPaimentComponent,
+    LoginTransporteurComponent,
+    SignUpTransporteurComponent,
+    AuthTransporteurComponent,
     
   ],
   imports: [
