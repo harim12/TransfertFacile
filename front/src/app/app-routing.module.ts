@@ -4,13 +4,13 @@ import { AccessAcountComponent } from './access-acount/access-acount.component';
 
 const appRoutes: Routes = [
   // Set the default route to '/users/demeFormFirst'
-  { path: '', redirectTo: '/transporteurs/dashbord/demandes', pathMatch: 'full' },
+  // { path: '', redirectTo: '/transporteurs/dashbord/demandes', pathMatch: 'full' },
 
   // Lazy load the UserModule
-  {
-    path: 'users',
-    loadChildren: () => import('./user/user.module').then(m => m.UserModule),
-  },
+
+  { path: '', redirectTo: './user/user.module', pathMatch: 'full' },
+
+  
   {
     path:'transporteurs',
     loadChildren:() => import('./transporteur/transporteur.module').then(m => m.TransporteurModule),

@@ -1,2 +1,21 @@
-<button routerLink="/auth-user">login user</button>
-<button routerLink="/auth-transporteur">login tra</button>
+<div class="container">
+    <div class="left col ">
+        <div class="content">
+            <h2>Pour <span class="tran">Transporteur</span></h2>
+            <p class="text">Rejoignez notre réseau de transporteurs experts et facilitez les déménagements pour nos clients.</p>
+            <button class="btn btn-trans" routerLink="/auth-transporteur">Login </button>
+            <p  class="noAccount">Don't have an account?</p>
+            <a class="signup" routerLink="/signup-transporteur">sign up</a>
+        </div>
+        
+    </div>
+    <div class="right col ">
+        <div class="content">
+            <h2>Pour <span class="user" >Utilisateur</span></h2>
+            <p class="text">Préparez-vous à un déménagement en douceur avec notre service de confiance.</p>
+            <button class="btn btn-user" routerLink="/auth-user">Login</button>
+            <p class="noAccount">Don't have an account?</p>
+            <a class="signup" routerLink="/signup-user">sign up</a>
+        </div>
+    </div>
+</div>

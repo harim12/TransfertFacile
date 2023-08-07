@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './shared/navbar/navbar.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 import { HomeComponent } from './core/home/home.component';
 import { DemenagementFirstFormComponent } from './features/demenagement-first-form/demenagement-first-form.component';
 import { HomeDemenagementComponent } from './features/home-demenagement/home-demenagement.component';
@@ -20,7 +20,6 @@ import { AuthUserComponent } from './auth/auth-user/auth-user.component';
 
 @NgModule({
   declarations: [
-    NavbarComponent,
     HomeComponent,
     DemenagementFirstFormComponent,    
     HomeDemenagementComponent,
