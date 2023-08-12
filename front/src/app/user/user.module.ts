@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginUserComponent } from './auth/login-user/login-user.component';
 import { SignUpUserComponent } from './auth/sign-up-user/sign-up-user.component';
 import { AuthUserComponent } from './auth/auth-user/auth-user.component';
+import { AccessAcountComponent } from './access-acount/access-acount.component';
 
 
 
@@ -32,6 +33,9 @@ import { AuthUserComponent } from './auth/auth-user/auth-user.component';
     LoginUserComponent,
     SignUpUserComponent,
     AuthUserComponent,
+    NavbarComponent,
+    AccessAcountComponent,
+
   ],
   imports: [
     CommonModule,

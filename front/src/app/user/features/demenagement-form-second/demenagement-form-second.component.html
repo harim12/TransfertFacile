@@ -1,4 +1,5 @@
 
+<app-navbar></app-navbar>
 
 <div class="container">
 
@@ -6,7 +7,7 @@
     <div class="grid-container">
         <div class="typeDem">
              <ng-container  *ngIf="selectedOptionService.selectedOption=== 'meubles_et_electromenagers'">
-              <h2 class="title">Inventaire</h2>
+              <h2 class="title hidd">Inventaire</h2>
               <app-home-demenagement class="home"></app-home-demenagement>
              </ng-container>
              <ng-container *ngIf="selectedOptionService.selectedOption === 'voitures_et_autres_vehicules'">

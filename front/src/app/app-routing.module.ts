@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccessAcountComponent } from './access-acount/access-acount.component';
+import { AccessAcountComponent } from './user/access-acount/access-acount.component';
 
 const appRoutes: Routes = [
   // Set the default route to '/users/demeFormFirst'

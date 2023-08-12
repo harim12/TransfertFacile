@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./auth-user.component.scss']
 })
 export class AuthUserComponent {
+  displayLogin:boolean=true;
+  displaySignUp:boolean = false;
 
+  displaySignUpFunc(){
+    this.displaySignUp = true
+    this.displayLogin  = false
+  }
+  displayLoginFunc(){
+    this.displayLogin = true;
+    this.displaySignUp = false;
+  }
 }

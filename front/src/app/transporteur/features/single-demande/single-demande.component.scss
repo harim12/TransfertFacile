@@ -42,34 +42,29 @@ img{
 }
 
 
-/* Add necessary styling for the carousel container */
+
 .items-wrapper {
     width: 100%;
     overflow: hidden;
   }
   .app-carousel{
     width: 100%;
-    // height: fit-content;
-    // background-color: antiquewhite;
+
   }
   
-  /* Optional: Style the carousel navigation arrows */
   .slick-prev,
   .slick-next {
     font-size: 20px;
   }
   
-  /* Optional: Style the carousel navigation dots */
   .slick-dots li button:before {
     font-size: 10px;
     color: #fff;
   }
   
-  /* Style the items inside the carousel */
   .items{
     display: flex;
     flex-direction: row !important;
-    // background-color: red;
     
   }
   .icon{

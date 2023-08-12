@@ -1,2 +1,22 @@
-<button routerLink="/login-user">login</button>
-<button routerLink="/signup-user">signup</button>
+<app-navbar></app-navbar>
+<div class="container">
+   
+        <div class="content-wrapper">
+           
+                <div class="title">
+                    <h2>Easy Transfert</h2>
+                    <h3>Pour utilisateurs</h3>
+                    <p>Facilitez vos déplacements avec notre service de transfert.</p>
+                </div>
+                <div class="content">
+                    <div class="top">
+                        <button class="btn"  [class.inactive-button]="displayLogin" (click) ="displaySignUpFunc()">Sign up</button>
+                        <button class="btn" [class.inactive-button]="displaySignUp" (click)="displayLoginFunc()">Log in</button>
+                </div>
+                    
+                <app-login-user *ngIf="displayLogin"></app-login-user>
+                <app-sign-up-user *ngIf="displaySignUp"></app-sign-up-user>
+                </div>
+            </div>
+      
+</div>

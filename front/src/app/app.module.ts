@@ -5,14 +5,12 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserModule } from './user/user.module';
 import { TransporteurModule } from './transporteur/transporteur.module';
-import { AccessAcountComponent } from './access-acount/access-acount.component';
+import { AccessAcountComponent } from './user/access-acount/access-acount.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccessAcountComponent,
-    NavbarComponent
     
   ],
   imports: [
