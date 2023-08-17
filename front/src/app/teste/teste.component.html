@@ -1,0 +1,41 @@
+<div>
+    <h2>Add New Demande</h2>
+    <form (ngSubmit)="onSubmit1()">
+      <label for="demandeName">Demande Name:</label>
+      <input type="text" id="demandeName" name="demandeName" [(ngModel)]="newDemandeName" required>
+      <button type="submit">Add Demande</button>
+    </form>
+  </div>
+  
+  <div *ngIf="demandes.length > 0">
+    <h2>All Demandes</h2>
+    <ul>
+      <li *ngFor="let demande of demandes">{{ demande.type }}</li>
+    </ul>
+  </div>
+  
+  <div *ngIf="demandes.length === 0">
+    <p>No demandes available.</p>
+  </div>
+  
+
+  <div>
+    <h2>Add New price</h2>
+    <form (ngSubmit)="onSubmit2()">
+      <label for="demandeName">Demande Name:</label>
+      <input type="text" id="demandeName" name="demandeName" [(ngModel)]="newPriceSuggestion" required>
+      <button type="submit">Add Demande</button>
+    </form>
+  </div>
+  
+  <div *ngIf="demandes.length > 0">
+    <h2>All Price suggestions</h2>
+    <ul>
+      <li *ngFor="let demande of priceSuggestion">{{ demande.price }}</li>
+    </ul>
+  </div>
+  
+  <div *ngIf="demandes.length === 0">
+    <p>No demandes available.</p>
+  </div>
+  

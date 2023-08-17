@@ -7,10 +7,14 @@ import { UserModule } from './user/user.module';
 import { TransporteurModule } from './transporteur/transporteur.module';
 import { AccessAcountComponent } from './user/access-acount/access-acount.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { WebsocketService } from './services/websocket.service';
+import { TesteComponent } from './teste/teste.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TesteComponent,
     
   ],
   imports: [
@@ -18,9 +22,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppRoutingModule,
     HttpClientModule,
     UserModule,
-    TransporteurModule
+    TransporteurModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [WebsocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
