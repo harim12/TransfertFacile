@@ -7,7 +7,7 @@ import * as   Stomp  from "stompjs";
 })
 export class WebsocketService {
 
-  socket = new SockJS('http://localhost:8080/sba-websocket');
+  socket = new SockJS('http://localhost:8081/sba-websocket');
   stompClient = Stomp.over(this.socket);
   
   subscribe(topic:string,callback:any):void{
@@ -19,6 +19,7 @@ export class WebsocketService {
 
       //IF STOMP CLIENT IS NOT CONNECTED CONNECT AND SUBSCRIVE TO TOPIC
       this.stompClient.connect({},():any=>{
+          console.log("trying to connect")
           this.subscribeToTopic(topic,callback);
       })
 

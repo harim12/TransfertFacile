@@ -62,7 +62,7 @@
             <input class="horaire" type="date">
             <h2 class="title">Instructions spéciales</h2>
            
-            <input class="info-spec" type="text" placeholder="entrez vos informations spéciales">
+            <input class="info-spec" type="text" placeholder="entrez vos informations spéciales" [(ngModel)]="specialInformation">
 
             <h2 class="title">Ajouter des photos</h2>
             <div class="photo-donwload">
@@ -101,10 +101,15 @@
           </div>
         </div>
     
-      
+        
     
         
       </div>
-      <button class="btn-devis" routerLink="/devisResult">Recevoir des devis</button>
+      <button class="btn-devis" (click) = "addDemande()" >Recevoir des devis</button>
 </div>
+<!-- =========this needs to be put back in the button -->
+<!-- routerLink="/devisResult" -->
 
+<ul>
+  <li *ngFor="let demande of demandes">{{ demande.demandeName }}</li>
+</ul>

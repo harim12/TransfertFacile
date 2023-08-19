@@ -3,6 +3,8 @@ import { DemandeDemenagement } from '../../shared/models/demande.model';
 import { TypeLivraison } from '../../shared/models/typeLivraison.model';
 import { DemandeDemenagementService } from '../../shared/services/demande-demenagement.service';
 import { Route, Router } from '@angular/router';
+import { WebsocketService } from 'src/app/services/websocket.service';
+import { DemandesService } from 'src/app/user/shared/services/demandes.service';
 
 @Component({
   selector: 'app-list-demandes',
@@ -16,13 +18,39 @@ export class ListDemandesComponent {
     {horaire:'2023-06-22',depart:"sale jadida",arrivee:"rabat",typeLivraison:TypeLivraison.Moto},
     {horaire:'2023-08-10',depart:"oujda",arrivee:"saidiaa",typeLivraison:TypeLivraison.Voiture}
    ];
-  
-   constructor(private demandeDemenagementService:DemandeDemenagementService,private router:Router){
+   demandess:any[] = [];
+   constructor(private demandeDemenagementService:DemandeDemenagementService,
+              private router:Router,
+              private demandeService:DemandesService,
+              private webSocketService:WebsocketService){
    }
+
+   ngOnInit(){
+    this.getDemandes();
+   
+    
+
+    const demandeSubscription = this.webSocketService.subscribe('/topic/add-demande', () => {
+     
+      this.getDemandes();
+    });
+
+
+   }
+   
    onRowClicked(demande:DemandeDemenagement){
       this.demandeDemenagementService.setSelectedDemande(demande);
       // this.router.navigate(['/dashbord', 'single']);
-      
     }
+
+    getDemandes(): void {
+      this.demandeDemenagementService.getDemandes().subscribe(demandes => {
+       
+        if (demandes && demandes.length > 0) {
+          this.demandes[0].depart = demandes[demandes.length - 1].demandeName;
+        }
+      });
+    }
+
 
 }

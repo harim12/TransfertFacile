@@ -11,7 +11,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { MotoDemenagementComponent } from './features/moto-demenagement/moto-demenagement.component';
 import { VoitureDemenagementComponent } from './features/voiture-demenagement/voiture-demenagement.component';
 import { ColisObjetEmballeDemenagementComponent } from './features/colis-objet-emballe-demenagement/colis-objet-emballe-demenagement.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginUserComponent } from './auth/login-user/login-user.component';
 import { SignUpUserComponent } from './auth/sign-up-user/sign-up-user.component';
 import { AuthUserComponent } from './auth/auth-user/auth-user.component';
@@ -40,7 +40,9 @@ import { AccessAcountComponent } from './access-acount/access-acount.component';
   imports: [
     CommonModule,
     UserRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+
   ]
 })
 export class UserModule { }

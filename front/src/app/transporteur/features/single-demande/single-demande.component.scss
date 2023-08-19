@@ -95,21 +95,18 @@ img{
     margin-top: 15px;
     margin-bottom: 15px;
   }
-//   .item {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     gap: 10px;
-//     border-radius: 10px;
-//     border: 2px solid var(--primary_color);
-//     padding: 10px;
-//   }
-  
-//   .item span {
-//     font-weight: 500;
-//     font-size: 15px;
-//   }
-  
-//   .item i {
-//     color: var(--primary_color);
-//   }
+.price-row{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+  input{
+    padding: 15px 25px;
+  }
+  .btn{
+    background-color: var(--primary_color);
+  }
+ 
+}
