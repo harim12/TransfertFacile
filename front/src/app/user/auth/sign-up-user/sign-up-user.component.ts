@@ -37,7 +37,17 @@ export class SignUpUserComponent {
   
         this.authenticationService.registerUser(registrationDTO).subscribe(response => {
           console.log("GO VERIFY YOU EMAIL, GOO")
-        });
+        },
+        error=>{
+          if (error.error === 'Email already exists') {
+            alert("Email already exists")
+          }
+          else{
+            alert("somthing went wrong");
+          }
+        }
+        
+        );
       
     }
     }

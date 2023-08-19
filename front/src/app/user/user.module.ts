@@ -41,8 +41,7 @@ import { AccessAcountComponent } from './access-acount/access-acount.component';
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
   ]
 })
 export class UserModule { }

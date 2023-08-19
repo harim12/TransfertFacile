@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginUserComponent {
   loginForm!:FormGroup ;
-  
+ 
   constructor(
               private formBuilder:FormBuilder,
               private authenticationService:AuthenticationServiceService,
@@ -35,8 +35,15 @@ export class LoginUserComponent {
         );
   
         this.authenticationService.loginUser(registrationDTO).subscribe(response => {
-          console.log(response)
-          this.router.navigate(['/demeFormFirst'])
+          if(response.jwt==''){
+            alert("wrong credentials")
+          }
+          else{
+            this.router.navigate(['/demeFormFirst'])
+            localStorage.setItem("jwt",response.jwt)
+            localStorage.setItem("id",response.user.userId)
+            localStorage.setItem("email",response.user.email)
+          }
         });
       
     }
