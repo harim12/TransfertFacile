@@ -4,9 +4,9 @@
     width: 80%;
         font-family:'Prata',serif;
 
-    height: 470px;
+    height: 420px;
     margin:auto;
-    margin-top: -40px;
+    margin-top: 10px;
     // border-radius: 1.5em;
     // margin-top: 15px;
     // border: 1px solid black;
@@ -14,7 +14,7 @@
 }
 
 .sign {
-    padding-top: 50px;
+    // padding-top: 50px;
     color: var(--primary_color);
     font-family:'Prata',serif;
     font-weight: bold;
@@ -34,15 +34,16 @@ border-radius: 20px;
 outline: none;
 box-sizing: border-box;
 border: 2px solid rgba(0, 0, 0, 0.02);
-margin-bottom: 50px;
+// margin-bottom: 50px;
 // margin-left: 46px;
 text-align: center;
-margin-bottom: 27px;
+margin-bottom: 10px;
 font-family:'Prata',serif;
+margin-top: 10px;
 }
 
 form.form1 {
-    padding-top: 40px;
+    padding-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,8 +66,9 @@ form.form1 {
     margin-bottom: 50px;
     // margin-left: 46px;
     text-align: center;
-    margin-bottom: 27px;
+    margin-bottom: 10px;
     font-family:'Prata',serif;
+    margin-top: 10px;
 }
 
 
@@ -89,6 +91,7 @@ form.form1 {
     font-family:'Prata',serif;
     // margin-left: 35%;
     font-size: 13px;
+    margin-top: 10px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
 
@@ -105,6 +108,12 @@ a {
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: var(--primary_color);
     text-decoration: none
+}
+
+.text-danger{
+    color: red;
+    margin-top: -20px;
+    margin-bottom: 20px !important;
 }
 
 @media (max-width: 600px) {

@@ -34,6 +34,7 @@ export class LoginUserComponent {
           this.loginForm.value.password
         );
   
+      if(this.loginForm.valid){
         this.authenticationService.loginUser(registrationDTO).subscribe(response => {
           if(response.jwt==''){
             alert("wrong credentials")
@@ -44,7 +45,16 @@ export class LoginUserComponent {
             localStorage.setItem("id",response.user.userId)
             localStorage.setItem("email",response.user.email)
           }
-        });
+        },
+        error=>{
+          alert("somthing went wrong")
+        }
+        );
+      }
+          
+         
+        
+        
       
     }
 }
