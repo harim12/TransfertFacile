@@ -20,10 +20,11 @@ import { DetailsComponent } from './features/details/details.component';
 import { DetailsVehiculeComponent } from './features/details-vehicule/details-vehicule.component';
 import { DetailsMotDePasseComponent } from './features/details-mot-de-passe/details-mot-de-passe.component';
 import { DetailsPaimentComponent } from './features/details-paiment/details-paiment.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { AuthTransComponent } from './auth/auth-trans/auth-trans.component';
 import { LoginTransporteurComponent } from './auth/login-transporteur/login-transporteur.component';
 import { SignUpTransporteurComponent } from './auth/sign-up-transporteur/sign-up-transporteur.component';
+import { NavbarComponent } from './core/navbar/navbar.component';
 
 
 
@@ -51,7 +52,7 @@ import { SignUpTransporteurComponent } from './auth/sign-up-transporteur/sign-up
     AuthTransComponent,
     LoginTransporteurComponent,
     SignUpTransporteurComponent,
-
+    NavbarComponent
     
   ],
   imports: [
@@ -59,7 +60,8 @@ import { SignUpTransporteurComponent } from './auth/sign-up-transporteur/sign-up
     // Other transporteur-related imports
     TransporteurRoutingModule,
     SlickCarouselModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
 
 })

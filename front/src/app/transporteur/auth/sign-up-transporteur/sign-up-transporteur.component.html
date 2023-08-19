@@ -1,1 +1,45 @@
-<p>sign-up-transporteur works!</p>
+<div class="main">
+    <p class="sign" align="center">Sign in</p>
+    <form [formGroup]="registrationForm" class="form1">
+        <input formControlName="firstName" class="un" type="text" align="center" placeholder="Your first name">
+        <!-- Display error message for required first name -->
+        <div class="error-text" *ngIf="registrationForm.get('firstName')!.hasError('required') && (registrationForm.get('firstName')!.dirty || registrationForm.get('firstName')!.touched)">
+            <small class="text-danger">First name is required</small>
+        </div>
+
+        <input formControlName="lastName" class="un" type="text" align="center" placeholder="Your last name">
+        <!-- Display error message for required last name -->
+        <div class="error-text" *ngIf="registrationForm.get('lastName')!.hasError('required') && (registrationForm.get('lastName')!.dirty || registrationForm.get('lastName')!.touched)">
+            <small class="text-danger">Last name is required</small>
+        </div>
+
+        <input formControlName="phoneNumber" class="un" type="text" align="center" placeholder="Your phone number">
+        <!-- Display error message for required last name -->
+        <div class="error-text" *ngIf="registrationForm.get('phoneNumber')!.hasError('required') && (registrationForm.get('phoneNumber')!.dirty || registrationForm.get('phoneNumber')!.touched)">
+            <small class="text-danger">Last phone number is required</small>
+        </div>
+
+        <input formControlName="email" class="un" type="text" align="center" placeholder="Your email">
+        <!-- Display error message for required email -->
+        <div class="error-text" *ngIf="registrationForm.get('email')!.hasError('required') && (registrationForm.get('email')!.dirty || registrationForm.get('email')!.touched)">
+            <small class="text-danger">Email is required</small>
+        </div>
+        <!-- Display error message for invalid email format -->
+        <div class="error-text" *ngIf="registrationForm.get('email')!.hasError('email') && (registrationForm.get('email')!.dirty || registrationForm.get('email')!.touched)">
+            <small class="text-danger">Invalid email format</small>
+        </div>
+
+        <input formControlName="password" class="pass" type="password" align="center" placeholder="Your password">
+        <!-- Display error message for required password -->
+        <div class="error-text" *ngIf="registrationForm.get('password')!.hasError('required') && (registrationForm.get('password')!.dirty || registrationForm.get('password')!.touched)">
+            <small class="text-danger">Password is required</small>
+        </div>
+        <!-- Display error message for minimum password length -->
+        <div class="error-text" *ngIf="registrationForm.get('password')!.hasError('minlength') && (registrationForm.get('password')!.dirty || registrationForm.get('password')!.touched)">
+            <small class="text-danger">Password must be at least 6 characters long</small>
+        </div>
+
+        <button class="submit" align="center" (click)="registerTransporteur()">Sign in</button>
+       
+    </form>
+</div>

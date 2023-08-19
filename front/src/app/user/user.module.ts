@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { NavbarComponent } from '../transporteur/core/navbar/navbar.component';
 import { HomeComponent } from './core/home/home.component';
 import { DemenagementFirstFormComponent } from './features/demenagement-first-form/demenagement-first-form.component';
 import { HomeDemenagementComponent } from './features/home-demenagement/home-demenagement.component';
@@ -16,6 +16,7 @@ import { LoginUserComponent } from './auth/login-user/login-user.component';
 import { SignUpUserComponent } from './auth/sign-up-user/sign-up-user.component';
 import { AuthUserComponent } from './auth/auth-user/auth-user.component';
 import { AccessAcountComponent } from './access-acount/access-acount.component';
+import { NavbareComponent } from './core/navbare/navbare.component';
 
 
 
@@ -33,8 +34,9 @@ import { AccessAcountComponent } from './access-acount/access-acount.component';
     LoginUserComponent,
     SignUpUserComponent,
     AuthUserComponent,
-    NavbarComponent,
+    // NavbarComponent,
     AccessAcountComponent,
+    NavbareComponent,
 
   ],
   imports: [

@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserModule } from './user/user.module';
 import { TransporteurModule } from './transporteur/transporteur.module';
 import { AccessAcountComponent } from './user/access-acount/access-acount.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './transporteur/core/navbar/navbar.component';
 import { WebsocketService } from './services/websocket.service';
 import { TesteComponent } from './teste/teste.component';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     UserModule,
     TransporteurModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [WebsocketService],
   bootstrap: [AppComponent]

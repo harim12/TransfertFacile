@@ -1,2 +1,23 @@
-<button routerLink="/login-transporteur">login</button>
-<button routerLink="/signup-transporteur">signup</button>
+
+<app-navbar></app-navbar>
+<div class="container">
+   
+        <div class="content-wrapper">
+           
+                <div class="title">
+                    <h2>Easy Transfert</h2>
+                    <h3>Pour Transporteur</h3>
+                    <p>Proposez vos services de déménagement et augmentez vos gains!</p>
+                </div>
+                <div class="content">
+                    <div class="top">
+                        <button class="btn"  [class.inactive-button]="displayLogin" (click) ="displaySignUpFunc()">Sign up</button>
+                        <button class="btn" [class.inactive-button]="displaySignUp" (click)="displayLoginFunc()">Log in</button>
+                </div>
+                    
+                <app-login-transporteur *ngIf="displayLogin"></app-login-transporteur>
+                <app-sign-up-transporteur *ngIf="displaySignUp"></app-sign-up-transporteur>
+                </div>
+        </div>
+      
+</div>

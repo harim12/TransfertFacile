@@ -36,7 +36,7 @@ export class SignUpUserComponent {
         );
   
         this.authenticationService.registerUser(registrationDTO).subscribe(response => {
-          console.log("GO VERIFY YOU EMAIL, GOO")
+          alert("we have sent a verification link to your email")
         },
         error=>{
           if (error.error === 'Email already exists') {
@@ -50,7 +50,7 @@ export class SignUpUserComponent {
         );
       
     }
-    }
+}
 
 
 
