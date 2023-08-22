@@ -28,33 +28,35 @@
               <button class="btn-ajouter" (click)="createChildComponent()">Ajouter<i class="fa-solid fa-plus icon-add"></i></button>
              </ng-container>
         </div>
-        
-        <div class="horaire-wrapper">
+        <form [formGroup]="optionLogistiqueHomeForm">
+        <div class="horaire-wrapper"  *ngIf="selectedOptionService.selectedOption=== 'meubles_et_electromenagers'">
           <h2 class="title title-horaire">Options logistiques</h2>
           <div class="section-wrapper">
               <div class="section enlevement">
                   <!-- Your "enlèvement" content here -->
                   <p class="title-sec">Enlèvement</p>
-                  <input type="text" class="input"  placeholder="choisissez un type de propriété" >
-                  <input type="text" class="input"  placeholder="choisissez un étage">
+                  <input type="text" class="input"  placeholder="choisissez un type de propriété" formControlName="enlevementType" >
+                  <input type="text" class="input"  placeholder="choisissez un étage" formControlName="enlevementEtage">
                   <div class="row-checkbox">
-                  <input type="checkbox">
+                  <input type="checkbox" formControlName="enlevementAvecSansAssenceur">
                   <p>Avec ascenseur</p>
                   </div>
               </div>
               <div class="section Livraison">
                   <!-- Your "livraison" content here -->
                   <p class="title-sec">Livraison</p>
-                  <input type="text" class="input"  placeholder="chambre" >
-                  <input type="text" class="input"  placeholder="choisissez un étage" > 
+                  <input type="text" class="input"  placeholder="chambre" formControlName = "livraisonType" >
+                  <input type="text" class="input"  placeholder="choisissez un étage"  formControlName="livraisonEtage"> 
                   <div class="row-checkbox">
-                  <input type="checkbox">
+                  <input type="checkbox" formControlName="livraisonAvecSansAssenceur">
                   <p>Avec ascenseur</p>
                   </div>
               </div>
           </div>
           
       </div>
+    </form>
+
         <div class="wrapper-photos-horaire">
           <div class="section photos">
             <!-- Your "photos" content here -->

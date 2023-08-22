@@ -17,6 +17,7 @@ import { SignUpUserComponent } from './auth/sign-up-user/sign-up-user.component'
 import { AuthUserComponent } from './auth/auth-user/auth-user.component';
 import { AccessAcountComponent } from './access-acount/access-acount.component';
 import { NavbareComponent } from './core/navbare/navbare.component';
+import { ItemRowComponent } from './core/item-row/item-row.component';
 
 
 
@@ -37,6 +38,7 @@ import { NavbareComponent } from './core/navbare/navbare.component';
     // NavbarComponent,
     AccessAcountComponent,
     NavbareComponent,
+    ItemRowComponent,
 
   ],
   imports: [

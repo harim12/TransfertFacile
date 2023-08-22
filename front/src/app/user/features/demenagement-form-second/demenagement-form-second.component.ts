@@ -6,6 +6,7 @@ import { WebsocketService } from 'src/app/services/websocket.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DemenagementRequestVoiture } from '../../shared/models/DemenagementRequestVoiture.model';
 import { DemandeCommonProperties } from '../../shared/models/demandeCommonProperties.model';
+import { SelectedItemsHomeService } from '../../shared/services/selected-items-home.service';
 
 @Component({
   selector: 'app-demenagement-form-second',
@@ -19,9 +20,11 @@ export class DemenagementFormSecondComponent {
   demandeEntityForm!: FormGroup;
   childData:any;
   initialForm :any;
-
+  optionLogistiqueHomeForm!:FormGroup;
+  selectedHomeItems:any;
   demenagementEntityCar!:DemenagementRequestVoiture;
   demenagementEntityMoto:any;
+  
 
   @ViewChild('colisContainer', { read: ViewContainerRef }) colisContainer!: ViewContainerRef;
 
@@ -29,19 +32,27 @@ export class DemenagementFormSecondComponent {
               private componentFactoryResolver: ComponentFactoryResolver,
               private demandeService:DemandesService,
               private webSocketService:WebsocketService,
-              private formBuilder:FormBuilder
+              private formBuilder:FormBuilder,
+              private selectedItemsHomeService:SelectedItemsHomeService
               ) {}
 
 
   ngOnInit(){
 
     this.initialForm = history.state.formData;
-    console.log("form data==>",this.initialForm)
 
     this.demandeEntityForm = this.formBuilder.group({
-      horaire: ['', Validators.required],
-     
+      horaire: ['', Validators.required],   
     });
+
+    this.optionLogistiqueHomeForm= this.formBuilder.group({
+      enlevementType:['',Validators.required],
+      enlevementEtage:['',Validators.required],
+      enlevementAvecSansAssenceur:[false,Validators.required],
+      livraisonType:['',Validators.required],
+      livraisonEtage:['',Validators.required],
+      livraisonAvecSansAssenceur:[false,Validators.required],
+    })
   
    
   }
@@ -89,12 +100,19 @@ export class DemenagementFormSecondComponent {
   //         motoEtat: this.childData.motoEtat,
   //     }
   // }
+  this.selectedHomeItems = this.selectedItemsHomeService.getSelectedItems();
   const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
-
-
+  
     this.demandeService.addDemande(demenagementEntity).subscribe(response => {});
-    
+    console.log(this.optionLogistiqueHomeForm.value.enlevementAvecSansAssenceur)
+
+
+
+    console.log("this is option logistique form",this.demandeEntityForm.value);
+    console.log("this is the home select",this.selectedItemsHomeService.getSelectedItems())
   }
+
+  
    createDemenagementEntity(type: string, childData: any, initialForm: any, demandeEntityForm: any) {
     const commonProperties = new DemandeCommonProperties(
       initialForm.villeDepart,
@@ -109,7 +127,7 @@ export class DemenagementFormSecondComponent {
       return {
         ...commonProperties,
         specificDemande: {
-          ...commonProperties,
+          type: commonProperties.type,
           voitureType: childData.voitureType,
           voiturePrice: childData.voiturePrice,
           voitureEtat: childData.voitureEtat
@@ -119,13 +137,37 @@ export class DemenagementFormSecondComponent {
       return {
         ...commonProperties,
         specificDemande: {
-          ...commonProperties,
+          type: commonProperties.type,
           motoType: childData.motoType,
           motoPrice: childData.motoPrice,
           motoEtat: childData.motoEtat
         }
       };
-    } else {
+    } else if(type === 'house'){
+
+      let resultString = "";
+
+      for (const item of this.selectedHomeItems) {
+        if (item.isChecked) {
+          resultString += `${item.itemName} ${item.quantity}\n`;
+        }
+      }
+      return {
+        ...commonProperties,
+        specificDemande:{
+          type: commonProperties.type,
+          items:resultString,
+          enlevementType:this.optionLogistiqueHomeForm.value.enlevementType ,
+          enlevementEtage:this.optionLogistiqueHomeForm.value.enlevementEtage,
+          enlevementAvecSansAssenceur:false,
+          livraisonType:this.optionLogistiqueHomeForm.value.livraisonType,
+          livraisonEtage:this.optionLogistiqueHomeForm.value.livraisonEtage,
+          livraisonAvecSansAssenceur:true
+        }
+      }
+    }
+
+    else {
       throw new Error(`Invalid type: ${type}`);
     }
   }

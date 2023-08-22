@@ -1,0 +1,25 @@
+.col{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding-top: 4px;
+    padding-left: 15px;
+    margin-left: -20px;
+    align-items: center;
+    padding-bottom: 15px;
+    width: 100% !important;
+    margin-bottom: 15px;
+    background-color: #85C1C1;
+}
+
+.quantity-button{
+    padding: 7px;
+    border: none;
+    color: white;
+    background-color: var(--primary_color);
+}
+input{
+    width: 35px;
+    height: 18px;
+    margin-top: 4px;
+  }

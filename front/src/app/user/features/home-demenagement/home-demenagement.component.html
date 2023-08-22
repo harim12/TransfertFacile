@@ -44,210 +44,79 @@
 
   <div class="tab-content-wrapper">
     <div class="tab-content" [class.show]="activeTab === 0">
-      <div class="row">
-        <p>Canape 2 place</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Canape 3 place</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Fauteuil</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Table d'appoint</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Télevision</p>
-        <input type="checkbox">
-      </div>
-      
+        <app-item-row itemName="Canape 2 place"></app-item-row>
+        
+      <app-item-row itemName="Canape 3 place"></app-item-row>
+    <app-item-row itemName="Fauteuil"></app-item-row>
+    <app-item-row itemName="Table d'appoint"></app-item-row>
+    <app-item-row itemName="Télevision"></app-item-row>
+    <app-item-row itemName="Bureau"></app-item-row>
+
      
-      <div class="row last">
-        <p>Tableau</p>
-        <input type="checkbox">
-      </div>
+      
     </div>
     <div class="tab-content" [class.show]="activeTab === 1">
       
-      <div class="row">
-        <p>Table - 6 places</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Table salle à manger - 8/10 places</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p> Armoire</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Buffet</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Meuble</p>
-        <input type="checkbox">
-      </div>
-      <div class="row last">
-        <p>Tapis</p>
-        <input type="checkbox">
-      </div>
+      <app-item-row itemName="Table - 6 places"></app-item-row>
+      <app-item-row itemName="Table salle à manger - 8/10 places"></app-item-row>
+      <app-item-row itemName="Armoire"></app-item-row>
+      <app-item-row itemName="Buffet"></app-item-row>
+      <app-item-row itemName="Meuble"></app-item-row>
+      <app-item-row itemName="Tapis"></app-item-row>
+
     </div>
     
     <div class="tab-content" [class.show]="activeTab === 2">
-      <div class="row">
-        <p>Table de cuisine</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Chaises</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Frigo</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Frigo - congélateur</p>
-        <input type="checkbox">
-      </div>
-     
-      <div class="row">
-        <p>Machine à laver</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Four</p>
-        <input type="checkbox">
-      </div>
-      
-     
+      <app-item-row itemName="Table de cuisine"></app-item-row>
+      <app-item-row itemName="Chaises"></app-item-row>
+      <app-item-row itemName="Frigo"></app-item-row>
+      <app-item-row itemName="Frigo - congélateur"></app-item-row>
+      <app-item-row itemName="Machine à laver"></app-item-row>
+      <app-item-row itemName="Four"></app-item-row>
 
-     
+      
     </div>
 
     <div class="tab-content" [class.show]="activeTab === 3">
 
-      <div class="row">
-        <p>Bureau</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Chaise de bureau</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Piédestal</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Meuble d'archivage</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Ordinateur de bureau</p>
-        <input type="checkbox">
-      </div>
-      <div class="row last">
-        <p>Imprimante</p>
-        <input type="checkbox">
-      </div>
+      <app-item-row itemName="Bureau"></app-item-row>
+<app-item-row itemName="Chaise de bureau"></app-item-row>
+<app-item-row itemName="Piédestal"></app-item-row>
+<app-item-row itemName="Meuble d'archivage"></app-item-row>
+<app-item-row itemName="Ordinateur de bureau"></app-item-row>
+<app-item-row itemName="Imprimante"></app-item-row>
 
 
   
     </div>
     <div class="tab-content" [class.show]="activeTab === 4">
       
-      <div class="row">
-        <p>Lit double</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Lit simple</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Table de chevet</p>
-        <input type="checkbox">
-      </div>
-      
-      <div class="row">
-        <p> Garde-robe</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Coiffeuse</p>
-        <input type="checkbox">
-      </div>
-     
-     
-
-      <div class="row">
-        <p>Coiffeuse</p>
-        <input type="checkbox">
-      </div>
-      
+      <app-item-row itemName="Lit double"></app-item-row>
+      <app-item-row itemName="Lit simple"></app-item-row>
+      <app-item-row itemName="Table de chevet"></app-item-row>
+      <app-item-row itemName="Garde-robe"></app-item-row>
+      <app-item-row itemName="Coiffeuse"></app-item-row>
+   
     </div>
     <div class="tab-content" [class.show]="activeTab === 5">
       
-      <div class="row">
-        <p>Meubles de rangement</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Chaises salle à manger</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Miroir</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Baignoire</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Lavabo</p>
-        <input type="checkbox">
-      </div>
-      <div class="row last">
-        <p>Tapis</p>
-        <input type="checkbox">
-      </div>
+      <app-item-row itemName="Meubles de rangement"></app-item-row>
+      <app-item-row itemName="Chaises salle à manger"></app-item-row>
+      <app-item-row itemName="Miroir"></app-item-row>
+      <app-item-row itemName="Baignoire"></app-item-row>
+      <app-item-row itemName="Lavabo"></app-item-row>
+      <app-item-row itemName="Tapis"></app-item-row>
+
      
     </div>
     <div class="tab-content" [class.show]="activeTab === 6">
-      <div class="row">
-        <p>Table de jardin</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Chaises</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Parasol</p>
-        <input type="checkbox">
-      </div>
-      <div class="row">
-        <p>Banc</p>
-        <input type="checkbox">
-      </div>
-     
-      <div class="row">
-        <p>Barbecue</p>
-        <input type="checkbox">
-      </div>
-      <div class="row last" >
-        <p>TapiVélos</p>
-        <input type="checkbox">
-      </div>
-    
+      <app-item-row itemName="Table de jardin"></app-item-row>
+      <app-item-row itemName="Chaises"></app-item-row>
+      <app-item-row itemName="Parasol"></app-item-row>
+      <app-item-row itemName="Banc"></app-item-row>
+      <app-item-row itemName="Barbecue"></app-item-row>
+      <app-item-row itemName="TapiVélos"></app-item-row>
+
     </div>
   </div>
 

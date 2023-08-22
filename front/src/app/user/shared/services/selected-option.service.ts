@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SelectedOptionService {
-  selectedOption: string = 'house'; // Par défaut, l'option est "home"
+  selectedOption: string = 'meubles_et_electromenagers'; // Par défaut, l'option est "home"
   constructor() { }
 }
