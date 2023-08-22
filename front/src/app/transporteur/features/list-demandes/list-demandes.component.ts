@@ -13,10 +13,10 @@ import { DemandesService } from 'src/app/user/shared/services/demandes.service';
 })
 export class ListDemandesComponent {
    demandes:DemandeDemenagement[] = [
-    {horaire:"2023-06-11",depart:"oujda hay andalous",arrivee:"saidiaa",typeLivraison:TypeLivraison.Maison},
-    {horaire:'2023-09-30',depart:"rabat kamra",arrivee:"casa aid diab",typeLivraison:TypeLivraison.Voiture},
-    {horaire:'2023-06-22',depart:"sale jadida",arrivee:"rabat",typeLivraison:TypeLivraison.Moto},
-    {horaire:'2023-08-10',depart:"oujda",arrivee:"saidiaa",typeLivraison:TypeLivraison.Voiture}
+    // {horaire:"2023-06-11",depart:"oujda hay andalous",arrivee:"saidiaa",typeLivraison:TypeLivraison.Maison},
+    // {horaire:'2023-09-30',depart:"rabat kamra",arrivee:"casa aid diab",typeLivraison:TypeLivraison.Voiture},
+    // {horaire:'2023-06-22',depart:"sale jadida",arrivee:"rabat",typeLivraison:TypeLivraison.Moto},
+    // {horaire:'2023-08-10',depart:"oujda",arrivee:"saidiaa",typeLivraison:TypeLivraison.Voiture}
    ];
    demandess:any[] = [];
    constructor(private demandeDemenagementService:DemandeDemenagementService,
@@ -26,14 +26,16 @@ export class ListDemandesComponent {
    }
 
    ngOnInit(){
-    this.getDemandes();
    
     
 
     const demandeSubscription = this.webSocketService.subscribe('/topic/add-demande', () => {
      
       this.getDemandes();
+      console.log(this.demandess)
     });
+    this.getDemandes();
+   
 
 
    }
@@ -46,9 +48,8 @@ export class ListDemandesComponent {
     getDemandes(): void {
       this.demandeDemenagementService.getDemandes().subscribe(demandes => {
        
-        if (demandes && demandes.length > 0) {
-          this.demandes[0].depart = demandes[demandes.length - 1].demandeName;
-        }
+       this.demandess = demandes;
+
       });
     }
 

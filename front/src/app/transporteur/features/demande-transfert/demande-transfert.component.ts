@@ -16,6 +16,7 @@ export class DemandeTransfertComponent {
     // Subscribe to the selectedDemande changes
     this.demandeDemenagementService.selectedDemande$.subscribe((demande) => {
       this.selectedDemande = demande;
+      
     });
   
   }

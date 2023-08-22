@@ -3,6 +3,8 @@ import { SelectedOptionService } from '../../shared/services/selected-option.ser
 import { ColisObjetEmballeDemenagementComponent } from '../colis-objet-emballe-demenagement/colis-objet-emballe-demenagement.component';
 import { DemandesService } from '../../shared/services/demandes.service';
 import { WebsocketService } from 'src/app/services/websocket.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DemenagementRequestVoiture } from '../../shared/models/DemenagementRequestVoiture.model';
 
 @Component({
   selector: 'app-demenagement-form-second',
@@ -12,8 +14,13 @@ import { WebsocketService } from 'src/app/services/websocket.service';
 export class DemenagementFormSecondComponent {
 
   addedNewOne:boolean = false;
-  demandes:any[] = [];
   specialInformation: string = ''; // Variable to store the entered special information
+  demandeEntityForm!: FormGroup;
+  childData:any;
+  initialForm :any;
+
+  demenagementEntityCar!:DemenagementRequestVoiture;
+
 
   @ViewChild('colisContainer', { read: ViewContainerRef }) colisContainer!: ViewContainerRef;
 
@@ -21,16 +28,31 @@ export class DemenagementFormSecondComponent {
               private componentFactoryResolver: ComponentFactoryResolver,
               private demandeService:DemandesService,
               private webSocketService:WebsocketService,
+              private formBuilder:FormBuilder
               ) {}
 
 
   ngOnInit(){
-    const demandeSubscription = this.webSocketService.subscribe('/topic/add-demande', () => {
+
+    this.initialForm = history.state.formData;
+    console.log("form data==>",this.initialForm)
+
+    this.demandeEntityForm = this.formBuilder.group({
+      // ... other form controls
+      horaire: ['', Validators.required],
      
-      this.getDemandes();
     });
-    this.getDemandes();
+  
+   
   }
+
+  handleSelectedOptions(selectedOptions: any) {
+    this.childData = selectedOptions;
+    console.log("this is child data",this.childData);
+  }
+
+
+
 
   createChildComponent() {
     const childComponentFactory = this.componentFactoryResolver.resolveComponentFactory(ColisObjetEmballeDemenagementComponent);
@@ -40,25 +62,27 @@ export class DemenagementFormSecondComponent {
   }
 
   addDemande(): void {
-    const demandeEntity: any = {
-      // Create a DemandeEntity object with necessary properties
-      // You might need to populate these properties based on your use case
+  this.demenagementEntityCar= {
+      villeDepart:this.initialForm.villeDepart,
+      villeArrivee:this.initialForm.villeArrivee,
+      adresseDepart:this.initialForm.adresseDepart,
+      adresseArrivee:this.initialForm.adresseArrivee,
+      horaire:this.demandeEntityForm.value.horaire,
+      specificDemande:{
+          type:this.initialForm.type,
+          voitureType: this.childData.voitureType,
+          voiturePrice:this.childData.voiturePrice,
+          voitureEtat: this.childData.voitureEtat,
+      }
+  }
 
-      demandeName: this.specialInformation,
-    };
-
-    this.demandeService.addDemande(demandeEntity).subscribe(response => {
-      console.log(response); // Display the response from the backend
-      this.demandeService.notifyNewDemand(response); // Notify other components
+    this.demandeService.addDemande(this.demenagementEntityCar).subscribe(response => {
+      // this.demandeService.notifyNewDemand(response); 
     });
     
   }
 
   
 
-  getDemandes(): void {
-    this.demandeService.getDemandes().subscribe(demandes => {
-      this.demandes = demandes; // Display the array of demandes from the backend
-    });
-  }
+  
 }

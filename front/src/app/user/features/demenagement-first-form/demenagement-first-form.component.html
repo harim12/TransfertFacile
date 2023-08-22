@@ -2,7 +2,7 @@
 <div class="container">
     <div class="form-section">
         <h2>Déménagez sans stress ! </h2>
-        <form>
+        <form [formGroup]="initialForm" (ngSubmit)="onSubmit()">
             <div class="custom-select"  [class.open]="isOpen" (click)="toggleDropdown()">
                 <label class="input1" for="input1">Que déménagez-vous ?</label>
                 <span class="selected-option">{{ selectedOption?.label || 'Meubles et Électroménagers' }}</span>
@@ -17,12 +17,12 @@
                 
               <div class="column">
                   <label for="input3">Ville de départ</label>
-                  <input type="text" id="input3" name="input3" placeholder="Oujda">
+                  <input type="text" id="input3" name="input3" placeholder="Oujda" formControlName="villeDepart">
                 </div>
     
                 <div class="column sec-col">
                   <label for="input4">Ville d'arrivée</label>
-                  <input type="text" id="input4" name="input4" placeholder="Casablanca">
+                  <input type="text" id="input4" name="input4" placeholder="Casablanca" formControlName="villeArrivee">
                 </div>
     
             </div>
@@ -30,18 +30,19 @@
                 
                 <div class="column">
                     <label for="input3">Adresse de départ</label>
-                    <input type="text" id="input3" name="input3" placeholder="Oujda hay el andalous">
+                    <input type="text" id="input3" name="input3" placeholder="Oujda hay el andalous" formControlName="adresseDepart">
                   </div>
       
                   <div class="column sec-col">
                     <label for="input4">Adresse d'arrivée</label>
-                    <input type="text" id="input4" name="input4" placeholder="Oujda sidi maafa">
+                    <input type="text" id="input4" name="input4" placeholder="Oujda sidi maafa"  formControlName="adresseArrivee">
                   </div>
       
               </div>
-            <button type="submit" routerLink="/demeFormSecond" class="btn-devise">Obtenir un devis</button>
+            <button type="submit" (click)="navigateToNextComponent()" routerLink="/demeFormSecond"  class="btn-devise">Obtenir un devis</button>
           </form> 
     </div>
+      
     
         <div class="image-container">
             <img src="./../../../assets/landingPageImg.jpg" alt="#">

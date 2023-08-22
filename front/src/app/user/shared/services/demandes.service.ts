@@ -19,6 +19,7 @@ export class DemandesService {
   }
 
   addDemande(demandeEntity: any): Observable<any> {
+    console.log("adding new demande")
     return this.http.post<any>(`${this.baseUrl}/demande/add`, demandeEntity);
   }
 

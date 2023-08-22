@@ -34,11 +34,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor ="let demande of demandes" (click) = "onRowClicked(demande)">
+              <tr *ngFor ="let demande of demandess" (click) = "onRowClicked(demande)">
                 <td>{{demande.horaire}}</td>
-                <td>{{demande.depart}}</td>
-                <td>{{demande.arrivee}}</td>
-                <td>{{demande.typeLivraison}}</td>
+                <td>{{demande.villeDepart}}</td>
+                <td>{{demande.villeArrivee}}</td>
+                <td>{{demande.specificDemande.type}}</td>
               </tr>
              
             

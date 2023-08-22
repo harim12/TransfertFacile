@@ -2,7 +2,7 @@
 
 <div class="container">
 
-
+<form  [formGroup]="demandeEntityForm" >
     <div class="grid-container">
         <div class="typeDem">
              <ng-container  *ngIf="selectedOptionService.selectedOption=== 'meubles_et_electromenagers'">
@@ -11,7 +11,7 @@
              </ng-container>
              <ng-container *ngIf="selectedOptionService.selectedOption === 'voitures_et_autres_vehicules'">
               <h2 class="title"> Transport de voiture</h2>
-              <app-voiture-demenagement></app-voiture-demenagement>
+              <app-voiture-demenagement (selectedOptionsEvent)="handleSelectedOptions($event)"></app-voiture-demenagement>
              </ng-container>  
              <ng-container class="moto-container" *ngIf="selectedOptionService.selectedOption === 'motos'">
               <img class="moto-img" src="./../../../../assets/moto (1).png" alt="">
@@ -28,13 +28,14 @@
               <button class="btn-ajouter" (click)="createChildComponent()">Ajouter<i class="fa-solid fa-plus icon-add"></i></button>
              </ng-container>
         </div>
+        
         <div class="horaire-wrapper">
           <h2 class="title title-horaire">Options logistiques</h2>
           <div class="section-wrapper">
               <div class="section enlevement">
                   <!-- Your "enlèvement" content here -->
                   <p class="title-sec">Enlèvement</p>
-                  <input type="text" class="input"  placeholder="choisissez un type de propriété">
+                  <input type="text" class="input"  placeholder="choisissez un type de propriété" >
                   <input type="text" class="input"  placeholder="choisissez un étage">
                   <div class="row-checkbox">
                   <input type="checkbox">
@@ -44,8 +45,8 @@
               <div class="section Livraison">
                   <!-- Your "livraison" content here -->
                   <p class="title-sec">Livraison</p>
-                  <input type="text" class="input"  placeholder="chambre">
-                  <input type="text" class="input"  placeholder="choisissez un étage">
+                  <input type="text" class="input"  placeholder="chambre" >
+                  <input type="text" class="input"  placeholder="choisissez un étage" > 
                   <div class="row-checkbox">
                   <input type="checkbox">
                   <p>Avec ascenseur</p>
@@ -58,10 +59,10 @@
           <div class="section photos">
             <!-- Your "photos" content here -->
             <h2 class="horaire-title title">Horaire</h2>
-            <input class="horaire" type="date">
+            <input class="horaire" type="date" formControlName="horaire">
             <h2 class="title">Instructions spéciales</h2>
            
-            <input class="info-spec" type="text" placeholder="entrez vos informations spéciales" [(ngModel)]="specialInformation">
+            <input class="info-spec" type="text" placeholder="entrez vos informations spéciales" >
 
             <h2 class="title">Ajouter des photos</h2>
             <div class="photo-donwload">
@@ -104,11 +105,8 @@
     
         
       </div>
-      <button class="btn-devis" (click) = "addDemande()" >Recevoir des devis</button>
+      <button class="btn-devis" type="submit" (click) = "addDemande()" >Recevoir des devis</button>
+    </form>
 </div>
 <!-- =========this needs to be put back in the button -->
 <!-- routerLink="/devisResult" -->
-
-<ul>
-  <li *ngFor="let demande of demandes">{{ demande.demandeName }}</li>
-</ul>
