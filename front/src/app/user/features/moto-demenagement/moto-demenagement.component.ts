@@ -1,4 +1,5 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-moto-demenagement',
@@ -16,13 +17,25 @@ export class MotoDemenagementComponent {
     { label: 'Moto seconde main', value: 'Moto seconde main'},
     { label: 'Moto seconde main mais hors état de marche', value: 'Moto seconde main mais hors état de marche' },
   ];
+  @Output() selectedOptionsEvent = new EventEmitter<any>();
+
   
              
   selectedOption1: any;
   selectedOption2:any;
   isOpenSelect1 = false;
   isOpenSelect2 = false;
+  eventEmit1=false;
+  eventEmit2 = false;
+  motoTypeForm!:FormGroup;
   
+  constructor(private formBuilder:FormBuilder){}
+
+  ngOnInit(){
+    this.motoTypeForm =  this.formBuilder.group({
+      motoType: ['', Validators.required],
+    });
+  }  
 
   toggleDropdown(selectOption:string): void {
     if(selectOption=='select1'){
@@ -36,12 +49,23 @@ export class MotoDemenagementComponent {
     if(selectOption=='select1'){
       this.selectedOption1 = option;
       this.closeDropdown('select1');
+      this.eventEmit1 = true;
     }
     else{
       this.selectedOption2 = option;
       this.closeDropdown('select2');
+      this.eventEmit2 = true;
     }
     
+    if(this.eventEmit1 && this.eventEmit2){
+      const selectedOptionsObject = {
+        motoType:this.motoTypeForm.value.voitureType,
+        motoPrice: this.selectedOption1.label,
+        motoEtat: this.selectedOption2.label
+      };
+      console.log("helloo from condition ")
+      this.emitSelectedOptions(selectedOptionsObject)
+    }
   }
 
   closeDropdown(selectOption:string): void {
@@ -64,5 +88,8 @@ export class MotoDemenagementComponent {
     if (!customSelectElement2.contains(targetElement)) {
       this.isOpenSelect2 = false; // Close the dropdown if clicked outside
     }
+  }
+  emitSelectedOptions(selectedOptions: any) {
+    this.selectedOptionsEvent.emit(selectedOptions);
   }
 }

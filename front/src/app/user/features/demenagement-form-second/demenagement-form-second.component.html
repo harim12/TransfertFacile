@@ -16,7 +16,7 @@
              <ng-container class="moto-container" *ngIf="selectedOptionService.selectedOption === 'motos'">
               <img class="moto-img" src="./../../../../assets/moto (1).png" alt="">
               <h2 class="title moto-title"> Transport de moto</h2>
-              <app-moto-demenagement></app-moto-demenagement>
+              <app-moto-demenagement (selectedOptionsEvent)="handleSelectedOptions($event)"></app-moto-demenagement>
              </ng-container>
              <ng-container class="colis" *ngIf="selectedOptionService.selectedOption === 'colis_et_objets_emballes'">
               <h2 class="title">Colis et objets emballes</h2>

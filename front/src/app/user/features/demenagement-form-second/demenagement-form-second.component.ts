@@ -5,6 +5,7 @@ import { DemandesService } from '../../shared/services/demandes.service';
 import { WebsocketService } from 'src/app/services/websocket.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DemenagementRequestVoiture } from '../../shared/models/DemenagementRequestVoiture.model';
+import { DemandeCommonProperties } from '../../shared/models/demandeCommonProperties.model';
 
 @Component({
   selector: 'app-demenagement-form-second',
@@ -20,7 +21,7 @@ export class DemenagementFormSecondComponent {
   initialForm :any;
 
   demenagementEntityCar!:DemenagementRequestVoiture;
-
+  demenagementEntityMoto:any;
 
   @ViewChild('colisContainer', { read: ViewContainerRef }) colisContainer!: ViewContainerRef;
 
@@ -38,7 +39,6 @@ export class DemenagementFormSecondComponent {
     console.log("form data==>",this.initialForm)
 
     this.demandeEntityForm = this.formBuilder.group({
-      // ... other form controls
       horaire: ['', Validators.required],
      
     });
@@ -62,26 +62,74 @@ export class DemenagementFormSecondComponent {
   }
 
   addDemande(): void {
-  this.demenagementEntityCar= {
-      villeDepart:this.initialForm.villeDepart,
-      villeArrivee:this.initialForm.villeArrivee,
-      adresseDepart:this.initialForm.adresseDepart,
-      adresseArrivee:this.initialForm.adresseArrivee,
-      horaire:this.demandeEntityForm.value.horaire,
-      specificDemande:{
-          type:this.initialForm.type,
-          voitureType: this.childData.voitureType,
-          voiturePrice:this.childData.voiturePrice,
-          voitureEtat: this.childData.voitureEtat,
-      }
-  }
+  // this.demenagementEntityCar= {
+  //     villeDepart:this.initialForm.villeDepart,
+  //     villeArrivee:this.initialForm.villeArrivee,
+  //     adresseDepart:this.initialForm.adresseDepart,
+  //     adresseArrivee:this.initialForm.adresseArrivee,
+  //     horaire:this.demandeEntityForm.value.horaire,
+  //     specificDemande:{
+  //         type:this.initialForm.type,
+  //         voitureType: this.childData.voitureType,
+  //         voiturePrice:this.childData.voiturePrice,
+  //         voitureEtat: this.childData.voitureEtat,
+  //     }
+  // }
 
-    this.demandeService.addDemande(this.demenagementEntityCar).subscribe(response => {
-      // this.demandeService.notifyNewDemand(response); 
-    });
+  // this.demenagementEntityMoto = {
+  //   villeDepart:this.initialForm.villeDepart,
+  //     villeArrivee:this.initialForm.villeArrivee,
+  //     adresseDepart:this.initialForm.adresseDepart,
+  //     adresseArrivee:this.initialForm.adresseArrivee,
+  //     horaire:this.demandeEntityForm.value.horaire,
+  //     specificDemande:{
+  //         type:this.initialForm.type,
+  //         motoType: this.childData.motoType,
+  //         motoPrice:this.childData.motoPrice,
+  //         motoEtat: this.childData.motoEtat,
+  //     }
+  // }
+  const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
+
+
+    this.demandeService.addDemande(demenagementEntity).subscribe(response => {});
     
   }
-
+   createDemenagementEntity(type: string, childData: any, initialForm: any, demandeEntityForm: any) {
+    const commonProperties = new DemandeCommonProperties(
+      initialForm.villeDepart,
+      initialForm.villeArrivee,
+      initialForm.adresseDepart,
+      initialForm.adresseArrivee,
+      demandeEntityForm.value.horaire,
+      initialForm.type
+    );
+  
+    if (type === 'car') {
+      return {
+        ...commonProperties,
+        specificDemande: {
+          ...commonProperties,
+          voitureType: childData.voitureType,
+          voiturePrice: childData.voiturePrice,
+          voitureEtat: childData.voitureEtat
+        }
+      };
+    } else if (type === 'moto') {
+      return {
+        ...commonProperties,
+        specificDemande: {
+          ...commonProperties,
+          motoType: childData.motoType,
+          motoPrice: childData.motoPrice,
+          motoEtat: childData.motoEtat
+        }
+      };
+    } else {
+      throw new Error(`Invalid type: ${type}`);
+    }
+  }
+  
   
 
   

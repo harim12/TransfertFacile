@@ -1,8 +1,10 @@
 <div class="container">
     <div class="content">
         <div class="row first-row">
-            <label >Entrer marque et modèle</label>
-            <input type="text" placeholder="temax">
+            <form  [formGroup]="motoTypeForm">
+                <label >Entrer marque et modèle</label>
+                <input type="text" placeholder="temax" formControlName="motoType">
+            </form> 
         </div>
         <div class="row">
             <div class="custom-select1"  id ="custom-select" [class.open]="isOpenSelect1" (click)="toggleDropdown('select1')">
