@@ -41,10 +41,9 @@ export class LoginTransporteurComponent {
             alert("wrong credentials")
           }
           else{
-            this.router.navigate(['/demeFormFirst'])
-            localStorage.setItem("jwt",response.jwt)
-            localStorage.setItem("id",response.user.userId)
-            localStorage.setItem("email",response.user.email)
+            this.router.navigate(['/transporteurs'])
+            localStorage.setItem("jwtTransporteur",response.jwt)
+            localStorage.setItem("emailTransporteur",response.user.email)
           }
         },
         error=>{

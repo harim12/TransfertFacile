@@ -9,11 +9,11 @@ import { SingleDemandeComponent } from './features/single-demande/single-demande
 import { AuthTransComponent } from './auth/auth-trans/auth-trans.component';
 import { LoginTransporteurComponent } from './auth/login-transporteur/login-transporteur.component';
 import { SignUpTransporteurComponent } from './auth/sign-up-transporteur/sign-up-transporteur.component';
-
+import {TransporteurAuthGuardService} from './shared/services/transporteur-auth-guard.service'
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashbord', pathMatch: 'full' },
-  { path: 'dashbord', component: DashbordComponent, children: [
+  { path: 'dashbord', component: DashbordComponent, canActivate:  [TransporteurAuthGuardService], children: [
     { path: '', redirectTo: 'demandes', pathMatch: 'full' },
     { path: 'demandes', component: DemandeTransfertComponent },
     { path: 'projet', component: ProjetTransfertComponent },

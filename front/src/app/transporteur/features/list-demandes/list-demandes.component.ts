@@ -12,12 +12,7 @@ import { DemandesService } from 'src/app/user/shared/services/demandes.service';
   styleUrls: ['./list-demandes.component.scss']
 })
 export class ListDemandesComponent {
-   demandes:DemandeDemenagement[] = [
-    // {horaire:"2023-06-11",depart:"oujda hay andalous",arrivee:"saidiaa",typeLivraison:TypeLivraison.Maison},
-    // {horaire:'2023-09-30',depart:"rabat kamra",arrivee:"casa aid diab",typeLivraison:TypeLivraison.Voiture},
-    // {horaire:'2023-06-22',depart:"sale jadida",arrivee:"rabat",typeLivraison:TypeLivraison.Moto},
-    // {horaire:'2023-08-10',depart:"oujda",arrivee:"saidiaa",typeLivraison:TypeLivraison.Voiture}
-   ];
+   
    demandess:any[] = [];
    constructor(private demandeDemenagementService:DemandeDemenagementService,
               private router:Router,
@@ -35,14 +30,15 @@ export class ListDemandesComponent {
       console.log(this.demandess)
     });
     this.getDemandes();
-   
+    
 
 
    }
    
    onRowClicked(demande:DemandeDemenagement){
+
       this.demandeDemenagementService.setSelectedDemande(demande);
-      // this.router.navigate(['/dashbord', 'single']);
+      
     }
 
     getDemandes(): void {
@@ -52,6 +48,8 @@ export class ListDemandesComponent {
 
       });
     }
+
+    
 
 
 }

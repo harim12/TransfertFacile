@@ -27,6 +27,10 @@ export class DemandesService {
     return this.http.get<any[]>(`${this.baseUrl}/demande/get`);
   }
 
+  getDemandeById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/demande/get/${id}`);
+  }
+
   notifyNewDemand(demande: any) {
     this.demandesSubject.next([...this.demandesSubject.getValue(), demande]);
   }

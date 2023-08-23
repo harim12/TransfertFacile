@@ -41,9 +41,9 @@ export class LoginUserComponent {
           }
           else{
             this.router.navigate(['/demeFormFirst'])
-            localStorage.setItem("jwt",response.jwt)
-            localStorage.setItem("id",response.user.userId)
-            localStorage.setItem("email",response.user.email)
+            localStorage.setItem("jwtUser",response.jwt)
+            localStorage.setItem("idUser",response.user.userId)
+            localStorage.setItem("emailUser",response.user.email)
           }
         },
         error=>{
