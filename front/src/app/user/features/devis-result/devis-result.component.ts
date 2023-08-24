@@ -1,9 +1,10 @@
 import {HttpClient} from '@angular/common/http';
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DemandeService} from 'src/app/services/demande.service';
 import {DemandesService} from '../../shared/services/demandes.service';
 import {WebsocketService} from 'src/app/services/websocket.service';
+import { PriceSuggestionServiceService } from '../../shared/services/price-suggestion-service.service';
 
 @Component({selector: 'app-devis-result', templateUrl: './devis-result.component.html', styleUrls: ['./devis-result.component.scss']})
 export class DevisResultComponent {
@@ -16,7 +17,9 @@ export class DevisResultComponent {
                 private route : ActivatedRoute,
                 private http : HttpClient,  
                 private demandeService : DemandesService, 
-                private webSocketService : WebsocketService) {}
+                private webSocketService : WebsocketService,
+                private suggestionService: PriceSuggestionServiceService,
+                private router:Router) {}
 
     ngOnInit() {
         this.route.queryParams.subscribe(params => {
@@ -31,10 +34,7 @@ export class DevisResultComponent {
             console.log("this is from subscirption:===>",this.fetchPriceSuggestions(this.demandeId))
             
         });
-        window.addEventListener('load', () => {
-          this.initializePayPal();
-          window.paypal.Buttons().render(this.paymentRef.nativeElement)
-        });
+       
     }
 
     fetchPriceSuggestions(demandeId : number) {
@@ -43,12 +43,9 @@ export class DevisResultComponent {
             console.log("this is the price suggestion", priceSuggestions);
         });
     }
-
-    initializePayPal(): void {
-      if (typeof paypal !== 'undefined') {
-        // You can now use the PayPal object
-        console.log(paypal);
-      }
+    bookNow(suggestion: any) {
+      this.suggestionService.setSelectedSuggestion(suggestion);
+      this.router.navigate(['/hondaDetail'])
     }
 
 }

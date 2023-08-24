@@ -10,6 +10,7 @@ import { MotoDemenagementComponent } from './features/moto-demenagement/moto-dem
 import { LoginUserComponent } from './auth/login-user/login-user.component';
 import { SignUpUserComponent } from './auth/sign-up-user/sign-up-user.component';
 import { AuthUserComponent } from './auth/auth-user/auth-user.component';
+import { ConfirmationPaimentComponent } from './features/confirmation-paiment/confirmation-paiment.component';
 
 const routes: Routes = [
   // Set the default route to DemenagementFirstFormComponent
@@ -18,10 +19,14 @@ const routes: Routes = [
   { path: 'demeFormFirst', component: DemenagementFirstFormComponent },
   { path: 'demeFormSecond', component: DemenagementFormSecondComponent },
   { path: 'devisResult', component: DevisResultComponent },
-  { path: 'hondaDetail/:priceSuggestionId', component: HondaDetailComponent },
+  { path: 'hondaDetail', component: HondaDetailComponent },
   { path: 'login-user',component:LoginUserComponent},
   { path: 'signup-user',component:SignUpUserComponent},
-  { path: 'auth-user',component:AuthUserComponent}
+  { path: 'auth-user',component:AuthUserComponent},
+  { path: 'confirmation',component:ConfirmationPaimentComponent}
+
+
+  
 
   // You can add more routes here if needed
 ];

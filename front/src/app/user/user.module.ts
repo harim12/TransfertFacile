@@ -18,6 +18,7 @@ import { AuthUserComponent } from './auth/auth-user/auth-user.component';
 import { AccessAcountComponent } from './access-acount/access-acount.component';
 import { NavbareComponent } from './core/navbare/navbare.component';
 import { ItemRowComponent } from './core/item-row/item-row.component';
+import { ConfirmationPaimentComponent } from './features/confirmation-paiment/confirmation-paiment.component';
 
 
 
@@ -39,6 +40,7 @@ import { ItemRowComponent } from './core/item-row/item-row.component';
     AccessAcountComponent,
     NavbareComponent,
     ItemRowComponent,
+    ConfirmationPaimentComponent,
 
   ],
   imports: [

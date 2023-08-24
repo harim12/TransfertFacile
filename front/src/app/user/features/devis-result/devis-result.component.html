@@ -17,7 +17,7 @@
             </div>
             <div class="row">
               <p class="rating price">{{ suggestion.priceSuggestion }} dh</p>
-              <a class="btn-book" [routerLink]="['/hondaDetail', suggestion.id]">Book now</a>
+              <a class="btn-book" (click)="bookNow(suggestion)">Book now</a>
             </div>
           </div>
         </div>
