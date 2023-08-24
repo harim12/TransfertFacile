@@ -104,12 +104,7 @@ export class DemenagementFormSecondComponent {
   const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
   
     this.demandeService.addDemande(demenagementEntity).subscribe(response => {});
-    console.log(this.optionLogistiqueHomeForm.value.enlevementAvecSansAssenceur)
-
-
-
-    console.log("this is option logistique form",this.demandeEntityForm.value);
-    console.log("this is the home select",this.selectedItemsHomeService.getSelectedItems())
+    
   }
 
   

@@ -17,15 +17,21 @@ export class DemandeDemenagementService {
 
   setSelectedDemande(demande: any) {
     this.selectedDemandeSource.next(demande);
-   console.log("clicked")
+   console.log("demande pased",demande)
   }
 
  scrollToSingleComponent() {
     this.singleElementRef?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-
   getDemandes(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/demande/get`);
+  }
+
+  getTransporteurInfo(email:any): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/transporteur/get/${email}/info`);
+  }
+  addPriceSuggestion(priceSuggestionObject: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/price-suggestion/add`, priceSuggestionObject);
   }
 }

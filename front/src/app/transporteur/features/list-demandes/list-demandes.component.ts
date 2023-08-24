@@ -31,8 +31,6 @@ export class ListDemandesComponent {
     });
     this.getDemandes();
     
-
-
    }
    
    onRowClicked(demande:DemandeDemenagement){

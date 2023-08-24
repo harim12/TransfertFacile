@@ -7,10 +7,10 @@
     <div class="adresse-details">
         <div class="adresse"></div>
         <!-- ETAGE IF HOUSE -->
-        <div class="from">
+        <div class="from" >
             <p class="title">From</p>
             <div class="from-content">
-                <p><i class="fa-solid fa-location-dot icon"></i>{{demande?.depart}}</p>
+                <p><i class="fa-solid fa-location-dot icon"></i>{{demande?.demandeId}}</p>
                 <div class="from etage">
                     <p><i class="fa-solid fa-stairs icon"></i>premier étage</p>
                     <p><i class="fa-solid fa-elevator icon"></i>Avec assenceur</p>
@@ -20,7 +20,7 @@
         <div class="to">
             <p  class="title">To</p>
            <div class="to-content">
-                <p><i class="fa-solid fa-location-dot icon"></i>{{demande?.arrivee}}</p>
+                <p><i class="fa-solid fa-location-dot icon"></i>{{demande?.villeArrivee}}</p>
                 <div class="to etage">
                     <p><i class="fa-solid fa-stairs icon"></i>2 ème étage</p>
                     <p><i class="fa-solid fa-elevator icon"></i>Sans assenceur</p>
@@ -47,7 +47,10 @@
     </div>
     </div>
     <div class="price-row">
-        <input type="text" placeholder="enter the price suggested">
-        <input type="submit" class="btn">
-    </div>
+        <form [formGroup]="priceSuggestedForm" (ngSubmit)="addPriceSuggestion()">
+          <input type="text" placeholder="enter the price suggested" formControlName="priceSuggested">
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+      
 </div>
