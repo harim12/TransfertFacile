@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DemenagementRequestVoiture } from '../../shared/models/DemenagementRequestVoiture.model';
 import { DemandeCommonProperties } from '../../shared/models/demandeCommonProperties.model';
 import { SelectedItemsHomeService } from '../../shared/services/selected-items-home.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-demenagement-form-second',
@@ -33,7 +34,8 @@ export class DemenagementFormSecondComponent {
               private demandeService:DemandesService,
               private webSocketService:WebsocketService,
               private formBuilder:FormBuilder,
-              private selectedItemsHomeService:SelectedItemsHomeService
+              private selectedItemsHomeService:SelectedItemsHomeService,
+              private router:Router
               ) {}
 
 
@@ -103,8 +105,10 @@ export class DemenagementFormSecondComponent {
   this.selectedHomeItems = this.selectedItemsHomeService.getSelectedItems();
   const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
   
-    this.demandeService.addDemande(demenagementEntity).subscribe(response => {});
-    
+    this.demandeService.addDemande(demenagementEntity).subscribe(response => {
+      this.router.navigate(['/devisResult'], { queryParams: { demandeId: response.demandeId } });
+      console.log("this is the id in the demandeSecond===>",response.demandeId)
+    });
   }
 
   

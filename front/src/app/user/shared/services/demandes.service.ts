@@ -34,4 +34,7 @@ export class DemandesService {
   notifyNewDemand(demande: any) {
     this.demandesSubject.next([...this.demandesSubject.getValue(), demande]);
   }
+  getPriceSuggestionsByDemandeId(demandeId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/price-suggestion/get/${demandeId}`);
+  }
 }
