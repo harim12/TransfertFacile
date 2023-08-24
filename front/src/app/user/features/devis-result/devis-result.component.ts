@@ -1,5 +1,5 @@
 import {HttpClient} from '@angular/common/http';
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {DemandeService} from 'src/app/services/demande.service';
 import {DemandesService} from '../../shared/services/demandes.service';
@@ -9,8 +9,9 @@ import {WebsocketService} from 'src/app/services/websocket.service';
 export class DevisResultComponent {
     demandeId !: number;
     priceSuggestions : any[] = [];
-    // You need to define PriceSuggestionEntity interface or class
-    // add-price-suggestion
+    
+    @ViewChild('paymentRef',{static:true}) paymentRef!:ElementRef;
+
     constructor(
                 private route : ActivatedRoute,
                 private http : HttpClient,  
@@ -30,7 +31,10 @@ export class DevisResultComponent {
             console.log("this is from subscirption:===>",this.fetchPriceSuggestions(this.demandeId))
             
         });
-       
+        window.addEventListener('load', () => {
+          this.initializePayPal();
+          window.paypal.Buttons().render(this.paymentRef.nativeElement)
+        });
     }
 
     fetchPriceSuggestions(demandeId : number) {
@@ -38,6 +42,13 @@ export class DevisResultComponent {
             this.priceSuggestions = priceSuggestions;
             console.log("this is the price suggestion", priceSuggestions);
         });
+    }
+
+    initializePayPal(): void {
+      if (typeof paypal !== 'undefined') {
+        // You can now use the PayPal object
+        console.log(paypal);
+      }
     }
 
 }

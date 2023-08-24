@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'demeFormFirst', component: DemenagementFirstFormComponent },
   { path: 'demeFormSecond', component: DemenagementFormSecondComponent },
   { path: 'devisResult', component: DevisResultComponent },
-  { path: 'hondaDetail', component: HondaDetailComponent },
+  { path: 'hondaDetail/:priceSuggestionId', component: HondaDetailComponent },
   { path: 'login-user',component:LoginUserComponent},
   { path: 'signup-user',component:SignUpUserComponent},
   { path: 'auth-user',component:AuthUserComponent}
