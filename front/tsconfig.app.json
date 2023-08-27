@@ -8,7 +8,8 @@
   "files": [
     "src/main.ts",
     "src/polyfills.ts",
-    "src/global.d.ts"
+    "src/global.d.ts",
+    "src/node-geocoder.d.ts"
   ],
   "include": [
     "src/**/*.d.ts"

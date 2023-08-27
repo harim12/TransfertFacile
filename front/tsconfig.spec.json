@@ -9,7 +9,8 @@
   },
   "files": [
     "src/polyfills.ts",
-    "src/global.d.ts"
+    "src/global.d.ts",
+    "src/node-geocoder.d.ts"
   ],
   "include": [
     "src/**/*.spec.ts",
