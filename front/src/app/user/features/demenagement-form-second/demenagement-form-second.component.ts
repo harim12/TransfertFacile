@@ -12,6 +12,7 @@ import { LatLngTuple, Map, latLngBounds, marker, polyline, tileLayer } from 'lea
 import * as NodeGeocoder from 'node-geocoder';
 import { latLng, LatLngBounds } from 'leaflet';
 import { HttpClient } from '@angular/common/http';
+import { ColisSelectedOptionService } from '../../shared/services/colis-selected-option.service';
 @Component({
   selector: 'app-demenagement-form-second',
   templateUrl: './demenagement-form-second.component.html',
@@ -40,6 +41,7 @@ export class DemenagementFormSecondComponent {
   endAddress = 'rabat'
   distance!:number;
   idColis = 'colis-1'; 
+  sendDataAgainFromChild=true;
 
   @ViewChild('colisContainer', { read: ViewContainerRef }) colisContainer!: ViewContainerRef;
 
@@ -50,7 +52,8 @@ export class DemenagementFormSecondComponent {
               private formBuilder:FormBuilder,
               private selectedItemsHomeService:SelectedItemsHomeService,
               private router:Router,
-              private http:HttpClient
+              private http:HttpClient,
+              private colisService:ColisSelectedOptionService
               ) {}
 
 
@@ -151,22 +154,22 @@ export class DemenagementFormSecondComponent {
 }
 
 // Calculate the distance between two points using Haversine formula
-toRadians(degrees: number): number {
-  return degrees * (Math.PI / 180);
-}
+  toRadians(degrees: number): number {
+    return degrees * (Math.PI / 180);
+  }
 
-calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
-  const R = 6371; // Radius of the Earth in kilometers
-  const dLat = this.toRadians(lat2 - lat1);
-  const dLon = this.toRadians(lon2 - lon1);
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(this.toRadians(lat1)) * Math.cos(this.toRadians(lat2)) *
-    Math.sin(dLon / 2) * Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  const distance = R * c; // Distance in kilometers
-  return distance;
-}
+  calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
+    const R = 6371; // Radius of the Earth in kilometers
+    const dLat = this.toRadians(lat2 - lat1);
+    const dLon = this.toRadians(lon2 - lon1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(this.toRadians(lat1)) * Math.cos(this.toRadians(lat2)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const distance = R * c; // Distance in kilometers
+    return distance;
+  }
 
 
 
@@ -175,6 +178,12 @@ calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): numbe
     console.log("this is child data",this.childData);
   }
 
+  handleFormData( form: FormGroup) {
+    
+    console.log("this is the parent componetn FORM+++> ",form)
+    // console.log("this is the parent componetn SELECTED+++> ",selectedOption)
+    // Do something with the form and selectedOption in the parent component
+  }
 
 
 
@@ -189,6 +198,7 @@ calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): numbe
     const idNumber = parseInt(this.idColis.split('-')[1]);
     this.idColis = `colis-${idNumber + 1}`;
     console.log("id in parent",this.idColis);
+    childComponentRef.instance.formDataEmitter.subscribe((val :any)=>console.log("subscribe)))))))",val))
   }
 
 
@@ -223,10 +233,10 @@ calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): numbe
     const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
     const imageFile =this.selectedImageFile;
     console.log("demande entity ====>",demenagementEntity)
-    
+    this.colisService.deleteColisList();
     this.demandeService.addDemande(demenagementEntity, imageFile,this.selectedSecondImage,this.selectedThirdImage)
     .subscribe(response => {
-      // this.router.navigate(['/devisResult'], { queryParams: { demandeId: response.demandeId } });
+      this.router.navigate(['/devisResult'], { queryParams: { demandeId: response.demandeId } });
     });
   }
   uploadDataAndImage() {
@@ -250,7 +260,7 @@ calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): numbe
 }
 
    createDemenagementEntity(type: string, childData: any, initialForm: any, demandeEntityForm: any) {
-   
+  
     const commonProperties = new DemandeCommonProperties(
       initialForm.villeDepart,
       initialForm.villeArrivee,
@@ -304,6 +314,16 @@ calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): numbe
           livraisonAvecSansAssenceur:true
         }
       }
+    } else if(type ==='colis'){
+        let colisListObject = this.colisService.getColisList();
+        console.log(colisListObject)
+        return {
+          ...commonProperties,
+          specificDemande:{
+            type:"colis",
+            ...colisListObject
+          }
+        }
     }
 
     else {

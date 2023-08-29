@@ -1,6 +1,6 @@
 <!-- <app-navbar></app-navbar> -->
 
-<div class="container">
+<div class="container" [formGroup] = "colisForm">
     <div class="content">
         
         <div class="row">
@@ -18,15 +18,15 @@
         <div class="row2">
             <div class="left">
                 <div class="col">
-                    <input class="input" type="text" placeholder="L">
+                    <input class="input" type="text" placeholder="L" formControlName="colisLargeur">
                     <label class="dim">Largeur</label>
                 </div>
                 <div class="col">
-                    <input class="input" type="text" placeholder="P">
+                    <input class="input" type="text" placeholder="P" formControlName="colisProfondeur">
                     <label  class="dim">Profondeur</label>
                 </div>
                 <div class="col">
-                    <input class="input" type="text" placeholder="H">
+                    <input class="input" type="text" placeholder="H" formControlName="colisHauteur">
                     <label  class="dim">Hauteur</label>
                 </div>
                 <div class="col">
@@ -47,7 +47,7 @@
             </div>
             <div class="right-container">
                 <div class="right">  
-                    <input type="text" class="inpuut">
+                    <input type="text" class="inpuut" formControlName="colisPoids">
                     <div class="kg">
                         <p>Kg</p>
                     </div>
