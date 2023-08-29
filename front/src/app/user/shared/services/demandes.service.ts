@@ -18,11 +18,23 @@ export class DemandesService {
     return this.http.get<string>(`${this.baseUrl}/demande/`);
   }
 
-  addDemande(demandeEntity: any): Observable<any> {
-    console.log("adding new demande")
-    return this.http.post<any>(`${this.baseUrl}/demande/add`, demandeEntity);
+  // addDemande(demandeEntity: any): Observable<any> {
+  //   const formData = new FormData();
+  //   formData.append('demenagementEntity', JSON.stringify(demandeEntity));
+  //   return this.http.post<any>(`${this.baseUrl}/demande/add`, demandeEntity);
+  // }
+
+  addDemande(demenagementEntity: any, imageFile: File,imageSecondFile:File,imageThirdFile:File) {
+    const formData = new FormData();
+    formData.append('testeEntity', JSON.stringify(demenagementEntity));
+    formData.append('image1', imageFile);
+    formData.append('image2',imageSecondFile);
+    formData.append('image3',imageThirdFile);
+    console.log("this is the form data from the backend",formData.get("testeEntity"))
+    return this.http.post<any>(`${this.baseUrl}/demande/addTeste`, formData);
   }
 
+  
   getDemandes(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/demande/get`);
   }

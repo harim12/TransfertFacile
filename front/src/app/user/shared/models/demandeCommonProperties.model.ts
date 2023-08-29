@@ -5,6 +5,8 @@ export class DemandeCommonProperties {
       public adresseDepart: string,
       public adresseArrivee: string,
       public horaire: string,
-      public type: string
+      // public firstImageUrl:string,
+      // public secondImageUrl:string,
+      // public thirdImageUrl:string,
     ) {}
   }

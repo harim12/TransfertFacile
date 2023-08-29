@@ -39,11 +39,11 @@
     <div >
         <p class="title">Images</p>
         <div class="images">
-            <img src="./../../../../assets/bugatti.jpg" alt="">
-        <img src="./../../../../assets/bugatti.jpg" alt="">
-        <!-- <img src="./../../../../assets/bugatti.jpg" alt=""> -->
-        <img src="./../../../../assets/bugatti.jpg" alt="">
-        </div>
+            <img [src]="'../../../../assets/' + (demande?.firstImageUrl ? getFileNameFromPath(demande?.firstImageUrl) : '')" alt="">
+            <img [src]="'../../../../assets/' + (demande?.secondImageUrl ? getFileNameFromPath(demande?.secondImageUrl) : '')" alt="">
+            <!-- <img src="{{ demande?.secondImageUrl }}" alt=""> -->
+<img [src]="'../../../../assets/' + (demande?.thirdImageUrl ? getFileNameFromPath(demande?.thirdImageUrl) : '')" alt="">
+    </div>
     </div>
     </div>
     <div class="price-row">

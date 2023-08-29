@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { LatLngTuple, Map, latLngBounds, marker, polyline, tileLayer } from 'leaflet';
 import * as NodeGeocoder from 'node-geocoder';
 import { latLng, LatLngBounds } from 'leaflet';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-demenagement-form-second',
   templateUrl: './demenagement-form-second.component.html',
@@ -24,6 +25,10 @@ export class DemenagementFormSecondComponent {
   childData:any;
   initialForm :any;
   optionLogistiqueHomeForm!:FormGroup;
+  selectedImageFile!: File  ;
+  selectedSecondImage!: File ;
+  selectedThirdImage!: File ;
+
   selectedHomeItems:any;
   demenagementEntityCar!:DemenagementRequestVoiture;
   demenagementEntityMoto:any;
@@ -42,7 +47,8 @@ export class DemenagementFormSecondComponent {
               private webSocketService:WebsocketService,
               private formBuilder:FormBuilder,
               private selectedItemsHomeService:SelectedItemsHomeService,
-              private router:Router
+              private router:Router,
+              private http:HttpClient
               ) {}
 
 
@@ -74,7 +80,7 @@ export class DemenagementFormSecondComponent {
      this.initMap();
   }
 
-
+  
   private initMap(): void {
     // Replace this with your access token
     const accessToken = 'pk.7b2e13aa2974c728148b2aa271d4d324';
@@ -177,33 +183,90 @@ calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): numbe
     // Vous pouvez interagir avec la nouvelle instance du composant fils ici si nécessaire
   }
 
-  addDemande(): void {
 
-  this.selectedHomeItems = this.selectedItemsHomeService.getSelectedItems();
-  const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
+
   
-    this.demandeService.addDemande(demenagementEntity).subscribe(response => {
-      this.router.navigate(['/devisResult'], { queryParams: { demandeId: response.demandeId } });
-      console.log("this is the id in the demandeSecond===>",response.demandeId)
-    });
+  uploadImage(image: File): string {
+    const imageName = image.name; // Get the original image name
+    const imageUrl = `assets/images/${imageName}`; // Simulate the path
+    return imageUrl;
   }
 
+  onFileChange(event: any, imageType: string) {
+    if (event.target.files && event.target.files.length > 0) {
+      const selectedImage = event.target.files[0];
   
+      if (imageType === 'first') {
+        this.selectedImageFile = selectedImage;
+      } 
+      else if (imageType === 'second') {
+        this.selectedSecondImage = selectedImage;
+      } else if (imageType === 'third') {
+        this.selectedThirdImage = selectedImage;
+      }
+    }
+    
+  }
+
+  // addDemande(): void {
+
+  //   this.selectedHomeItems = this.selectedItemsHomeService.getSelectedItems();
+  //   const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
+    
+  //     this.demandeService.addDemande(demenagementEntity).subscribe(response => {
+  //       this.router.navigate(['/devisResult'], { queryParams: { demandeId: response.demandeId } });
+  //       console.log("this is the id in the demandeSecond===>",response.demandeId)
+  //     });
+  //   }
+  addDemande(): void {
+    this.selectedHomeItems = this.selectedItemsHomeService.getSelectedItems();
+    const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
+    const imageFile =this.selectedImageFile;
+    console.log("demande entity ====>",demenagementEntity)
+    
+    this.demandeService.addDemande(demenagementEntity, imageFile,this.selectedSecondImage,this.selectedThirdImage)
+    .subscribe(response => {
+      // this.router.navigate(['/devisResult'], { queryParams: { demandeId: response.demandeId } });
+    });
+  }
+  uploadDataAndImage() {
+    const testData = {
+      villeDepart: 'Your Ville Depart',
+    };
+
+    const formData = new FormData();
+    formData.append('testeEntity', JSON.stringify(testData)); // Use 'testeEntity'
+
+    formData.append('image', this.selectedImageFile);
+
+    this.http.post('http://localhost:8081/demande/addTeste', formData).subscribe(
+      response => {
+        console.log('Upload successful:', response);
+      },
+      error => {
+        console.error('Error uploading data:', error);
+      }
+    );
+}
+
    createDemenagementEntity(type: string, childData: any, initialForm: any, demandeEntityForm: any) {
+   
     const commonProperties = new DemandeCommonProperties(
       initialForm.villeDepart,
       initialForm.villeArrivee,
       initialForm.adresseDepart,
       initialForm.adresseArrivee,
       demandeEntityForm.value.horaire,
-      initialForm.type
+      // this.selectedFirstImage,
+
+
     );
   
     if (type === 'car') {
       return {
         ...commonProperties,
         specificDemande: {
-          type: commonProperties.type,
+          type: "car",
           voitureType: childData.voitureType,
           voiturePrice: childData.voiturePrice,
           voitureEtat: childData.voitureEtat
@@ -213,7 +276,7 @@ calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): numbe
       return {
         ...commonProperties,
         specificDemande: {
-          type: commonProperties.type,
+          type: "moto",
           motoType: childData.motoType,
           motoPrice: childData.motoPrice,
           motoEtat: childData.motoEtat
@@ -231,7 +294,7 @@ calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): numbe
       return {
         ...commonProperties,
         specificDemande:{
-          type: commonProperties.type,
+          type: "house",
           items:resultString,
           enlevementType:this.optionLogistiqueHomeForm.value.enlevementType ,
           enlevementEtage:this.optionLogistiqueHomeForm.value.enlevementEtage,
