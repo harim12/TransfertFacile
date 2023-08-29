@@ -39,6 +39,8 @@ export class DemenagementFormSecondComponent {
   startAddress = 'Oujda';
   endAddress = 'rabat'
   distance!:number;
+  idColis = 'colis-1'; 
+
   @ViewChild('colisContainer', { read: ViewContainerRef }) colisContainer!: ViewContainerRef;
 
   constructor(public selectedOptionService:SelectedOptionService,
@@ -180,17 +182,15 @@ calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): numbe
     const childComponentFactory = this.componentFactoryResolver.resolveComponentFactory(ColisObjetEmballeDemenagementComponent);
     const childComponentRef = this.colisContainer.createComponent(childComponentFactory);
     this.addedNewOne = true
-    // Vous pouvez interagir avec la nouvelle instance du composant fils ici si nécessaire
+    // Pass the idColis as an input to the child component
+    childComponentRef.instance.id = this.idColis;
+        
+    // Generate the next idColis for the next component
+    const idNumber = parseInt(this.idColis.split('-')[1]);
+    this.idColis = `colis-${idNumber + 1}`;
+    console.log("id in parent",this.idColis);
   }
 
-
-
-  
-  uploadImage(image: File): string {
-    const imageName = image.name; // Get the original image name
-    const imageUrl = `assets/images/${imageName}`; // Simulate the path
-    return imageUrl;
-  }
 
   onFileChange(event: any, imageType: string) {
     if (event.target.files && event.target.files.length > 0) {

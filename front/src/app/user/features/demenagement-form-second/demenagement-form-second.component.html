@@ -22,7 +22,7 @@
               <h2 class="title">Colis et objets emballes</h2>
               <p>Entrez les dimensions et le poids du colis que vous souhaitez transporter</p>
               <div #colisContainer class="colisContainer">
-                <app-colis-objet-emballe-demenagement></app-colis-objet-emballe-demenagement>
+                <app-colis-objet-emballe-demenagement [id]="idColis"></app-colis-objet-emballe-demenagement>
                 <i *ngIf="addedNewOne" class="fa-solid fa-xmark icon-x"></i>
               </div>
               <button class="btn-ajouter" (click)="createChildComponent()">Ajouter<i class="fa-solid fa-plus icon-add"></i></button>
