@@ -34,7 +34,12 @@ export class DemenagementFirstFormComponent {
       adresseDepart: ['', Validators.required],
       adresseArrivee: ['', Validators.required]
     });
-  }
+    console.log("inside onInit")
+    const storedFormData = localStorage.getItem('formData');
+    if (storedFormData) {
+      this.initialForm.patchValue(JSON.parse(storedFormData));
+    }
+    }
 
   get type() { return this.initialForm.get('type'); }
   get villeDepart() { return this.initialForm.get('villeDepart'); }
@@ -74,6 +79,8 @@ export class DemenagementFirstFormComponent {
   navigateToNextComponent() {
     if (this.initialForm.valid) {
       const formData = this.initialForm.value;
+      localStorage.setItem('formData', JSON.stringify(formData));
+    
       this.router.navigate(['/demeFormSecond'], { state: { formData } });
     }
   }
