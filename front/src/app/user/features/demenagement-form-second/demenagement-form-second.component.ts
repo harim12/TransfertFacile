@@ -42,7 +42,7 @@ export class DemenagementFormSecondComponent {
   distance!:number;
   idColis = 'colis-1'; 
   sendDataAgainFromChild=true;
-
+  selectedOption!:any;
   @ViewChild('colisContainer', { read: ViewContainerRef }) colisContainer!: ViewContainerRef;
 
   constructor(public selectedOptionService:SelectedOptionService,
@@ -54,7 +54,12 @@ export class DemenagementFormSecondComponent {
               private router:Router,
               private http:HttpClient,
               private colisService:ColisSelectedOptionService
-              ) {}
+              ) {
+                const storedSelectedOption = localStorage.getItem('selectedOption');
+                if (storedSelectedOption) {
+                  this.selectedOption = storedSelectedOption;
+                }
+              }
 
 
   ngOnInit(){
@@ -66,7 +71,8 @@ export class DemenagementFormSecondComponent {
     
 
     this.demandeEntityForm = this.formBuilder.group({
-      horaire: ['', Validators.required],   
+      horaire: ['', Validators.required],
+      informationSpecial:['']   
     });
 
     this.optionLogistiqueHomeForm= this.formBuilder.group({
@@ -77,6 +83,9 @@ export class DemenagementFormSecondComponent {
       livraisonEtage:['',Validators.required],
       livraisonAvecSansAssenceur:[false,Validators.required],
     })
+
+  
+
   
    
   }
@@ -232,6 +241,7 @@ export class DemenagementFormSecondComponent {
     this.selectedHomeItems = this.selectedItemsHomeService.getSelectedItems();
     const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
     const imageFile =this.selectedImageFile;
+    
     console.log("demande entity ====>",demenagementEntity)
     this.colisService.deleteColisList();
     this.demandeService.addDemande(demenagementEntity, imageFile,this.selectedSecondImage,this.selectedThirdImage)
@@ -331,7 +341,9 @@ export class DemenagementFormSecondComponent {
     }
   }
   
-  
+
+ 
+
 
   
 }

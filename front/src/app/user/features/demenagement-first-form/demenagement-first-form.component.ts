@@ -36,9 +36,7 @@ export class DemenagementFirstFormComponent {
     });
     console.log("inside onInit")
     const storedFormData = localStorage.getItem('formData');
-    if (storedFormData) {
-      this.initialForm.patchValue(JSON.parse(storedFormData));
-    }
+   
     }
 
   get type() { return this.initialForm.get('type'); }
@@ -49,7 +47,6 @@ export class DemenagementFirstFormComponent {
 
   onSubmit() {
     if (this.initialForm.valid) {
-      // Do something with the form data, such as sending it to the backend
       console.log(this.initialForm.value);
       // Redirect to the next page using Angular Router
       // this.router.navigate(['/demeFormSecond']);
@@ -70,6 +67,7 @@ export class DemenagementFirstFormComponent {
     }
     console.log(this.initialForm.value.type)
     this.closeDropdown();
+    localStorage.setItem('selectedOption', option.value);
   }
 
   closeDropdown(): void {
@@ -79,7 +77,6 @@ export class DemenagementFirstFormComponent {
   navigateToNextComponent() {
     if (this.initialForm.valid) {
       const formData = this.initialForm.value;
-      localStorage.setItem('formData', JSON.stringify(formData));
     
       this.router.navigate(['/demeFormSecond'], { state: { formData } });
     }
