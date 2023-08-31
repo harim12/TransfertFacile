@@ -10,6 +10,7 @@
     margin-top: 1rem;
     border-radius: 20px;
     background-color: #ffffff;
+    padding-bottom: 20px;
     // position: relative;
   }
   
@@ -90,6 +91,7 @@ img {
     display: flex;
     flex-direction: column;
     width: 45%;
+    padding-bottom: 0px;
 }
   
 
@@ -159,11 +161,18 @@ img {
       font-size: 16px;
       margin-top: 20px !important;
       width: 90%;
-      margin-bottom: 20px;
+      margin-bottom: 50px !important;
   }
   
 
-  
+  .text-danger{
+    color: red;
+    margin-top: 10px;
+
+    margin-bottom: -10px !important;
+    // margin-bottom: 20px !important;
+
+}
   
   /* Media queries for responsiveness */
 
@@ -176,7 +185,7 @@ img {
         min-height: 620px;
     }
     .form-section h2{
-        margin-top: -5px;
+      margin-top: 20px;
     }
     .row {
         display: flex;

@@ -28,7 +28,7 @@ export class DemenagementFirstFormComponent {
 
   ngOnInit(){
     this.initialForm = this.formBuilder.group({
-      type: [null, Validators.required],
+      type: ['meubles_et_electromenagers', Validators.required],
       villeDepart: ['', Validators.required],
       villeArrivee: ['', Validators.required],
       adresseDepart: ['', Validators.required],

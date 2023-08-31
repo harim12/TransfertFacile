@@ -18,12 +18,15 @@
               <div class="column">
                   <label for="input3">Ville de départ</label>
                   <input type="text" id="input3" name="input3" placeholder="Oujda" formControlName="villeDepart">
-                </div>
+                    <small *ngIf="initialForm.get('villeDepart')!.hasError('required') && (initialForm.get('villeDepart')!.dirty || initialForm.get('villeDepart')!.touched)" class="text-danger">Ville de départ is required</small>
+              </div>
+             
     
                 <div class="column sec-col">
                   <label for="input4">Ville d'arrivée</label>
                   <input type="text" id="input4" name="input4" placeholder="Casablanca" formControlName="villeArrivee">
-                </div>
+                  <small *ngIf="initialForm.get('villeArrivee')!.hasError('required') && (initialForm.get('villeArrivee')!.dirty || initialForm.get('villeArrivee')!.touched)" class="text-danger">Ville d'arrivée is required</small>
+              </div>
     
             </div>
             <div class="row">
@@ -31,13 +34,15 @@
                 <div class="column">
                     <label for="input3">Adresse de départ</label>
                     <input type="text" id="input3" name="input3" placeholder="Oujda hay el andalous" formControlName="adresseDepart">
-                  </div>
-      
+                    <small *ngIf="initialForm.get('adresseDepart')!.hasError('required') && (initialForm.get('adresseDepart')!.dirty || initialForm.get('adresseDepart')!.touched)" class="text-danger">Adresse de départ is required</small>
+                </div>
                   <div class="column sec-col">
                     <label for="input4">Adresse d'arrivée</label>
                     <input type="text" id="input4" name="input4" placeholder="Oujda sidi maafa"  formControlName="adresseArrivee">
-                  </div>
-      
+                    <small *ngIf="initialForm.get('adresseArrivee')!.hasError('required') && (initialForm.get('adresseArrivee')!.dirty || initialForm.get('adresseArrivee')!.touched)" class="text-danger">Adresse d'arrivée is required</small>
+
+                </div>
+
               </div>
             <button type="submit" (click)="navigateToNextComponent()" class="btn-devise">Obtenir un devis</button>
           </form> 

@@ -36,7 +36,10 @@
                   <!-- Your "enlèvement" content here -->
                   <p class="title-sec">Enlèvement</p>
                   <input type="text" class="input"  placeholder="choisissez un type de propriété" formControlName="enlevementType" >
+                  <small *ngIf="optionLogistiqueHomeForm.get('enlevementType')!.hasError('required') && (optionLogistiqueHomeForm.get('enlevementType')!.dirty || optionLogistiqueHomeForm.get('enlevementType')!.touched)" class="text-danger">Type d'enlèvement requis</small>
                   <input type="text" class="input"  placeholder="choisissez un étage" formControlName="enlevementEtage">
+                  <small  *ngIf="optionLogistiqueHomeForm.get('enlevementEtage')!.hasError('required') && (optionLogistiqueHomeForm.get('enlevementEtage')!.dirty || optionLogistiqueHomeForm.get('enlevementEtage')!.touched)" class="text-danger">Étage d'enlèvement requis</small>
+
                   <div class="row-checkbox">
                   <input type="checkbox" formControlName="enlevementAvecSansAssenceur">
                   <p>Avec ascenseur</p>
@@ -46,15 +49,23 @@
                   <!-- Your "livraison" content here -->
                   <p class="title-sec">Livraison</p>
                   <input type="text" class="input"  placeholder="chambre" formControlName = "livraisonType" >
+                  <small class="text-danger" *ngIf="optionLogistiqueHomeForm.get('livraisonType')!.hasError('required') && (optionLogistiqueHomeForm.get('livraisonType')!.dirty || optionLogistiqueHomeForm.get('livraisonType')!.touched)">Type de livraison requis</small>
+ 
                   <input type="text" class="input"  placeholder="choisissez un étage"  formControlName="livraisonEtage"> 
+                  <small *ngIf="optionLogistiqueHomeForm.get('livraisonEtage')!.hasError('required') && (optionLogistiqueHomeForm.get('livraisonEtage')!.dirty || optionLogistiqueHomeForm.get('livraisonEtage')!.touched)" class="text-danger">Étage de livraison requis</small>
                   <div class="row-checkbox">
-                  <input type="checkbox" formControlName="livraisonAvecSansAssenceur">
+                    <input type="checkbox" formControlName="livraisonAvecSansAssenceur">
                   <p>Avec ascenseur</p>
                   </div>
               </div>
           </div>
           
-      </div>
+        
+        
+    </div>
+    <!-- Adding validation message for 'enlevementEtage' control -->
+    <div>
+    </div>
     </form>
 
         <div class="wrapper-photos-horaire">
@@ -62,6 +73,9 @@
             <!-- Your "photos" content here -->
             <h2 class="horaire-title title">Horaire</h2>
             <input class="horaire" type="date" formControlName="horaire">
+            <small *ngIf="demandeEntityForm.get('horaire')!.hasError('required') && (demandeEntityForm.get('horaire')!.dirty || demandeEntityForm.get('horaire')!.touched)" class="text-danger">horaire de livraison est requis</small>
+
+
             <h2 class="title">Instructions spéciales</h2>
            
             <input class="info-spec" type="text" placeholder="entrez vos informations spéciales" formControlName="informationSpecial" >
