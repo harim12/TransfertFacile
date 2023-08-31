@@ -29,12 +29,12 @@ export class ColisSelectedOptionService {
     }
     for (let [key, value] of Object.entries(this.colisList)) {
       console.log(value);
-      colisListObject.colisType +=" "+value.options.colisType;
-      colisListObject.colisLargeur +=" " +value.form.colisLargeur;
-      colisListObject.colisProfondeur +=" " +value.form.colisProfondeur;
-      colisListObject.colisHauteur +=" " +value.form.colisHauteur;
-      colisListObject.colisPoids +=" " +value.form.colisPoids;
-      colisListObject.colisUnite +=" " +value.options.colisUnite;
+      colisListObject.colisType +=value.options.colisType +",";
+      colisListObject.colisLargeur += value.form.colisLargeur +",";
+      colisListObject.colisProfondeur += value.form.colisProfondeur +",";
+      colisListObject.colisHauteur += value.form.colisHauteur+ ",";
+      colisListObject.colisPoids += value.form.colisPoids +",";
+      colisListObject.colisUnite +=value.options.colisUnite +"," ;
       
       
     }

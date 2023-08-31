@@ -308,11 +308,24 @@ export class DemenagementFormSecondComponent {
 
       let resultString = "";
 
+      const groupedItems: { [location: string]: string[] } = {};
+
       for (const item of this.selectedHomeItems) {
-        if (item.isChecked) {
-          resultString += `${item.itemName} ${item.quantity}\n`;
-        }
+          if (item.isChecked) {
+              if (!groupedItems[item.typeFourniture]) {
+                  groupedItems[item.typeFourniture] = [];
+              }
+              groupedItems[item.typeFourniture].push(`${item.itemName} ${item.quantity}`);
+          }
       }
+      
+      
+      for (const location in groupedItems) {
+          if (groupedItems.hasOwnProperty(location)) {
+              resultString += `${location}:{${groupedItems[location].join(',')}}`;
+          }
+      }
+      
       return {
         ...commonProperties,
         specificDemande:{

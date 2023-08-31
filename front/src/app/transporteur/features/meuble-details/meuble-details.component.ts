@@ -9,6 +9,6 @@ export class MeubleDetailsComponent {
   @Input() meubleDemande: any | undefined;
 
   ngOnInit(){
-    console.log("this is in moto demande",this.meubleDemande);
+    console.log("this is in meuble demande",this.meubleDemande);
   }
 }

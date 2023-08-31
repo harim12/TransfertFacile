@@ -8,13 +8,17 @@ import { SelectedItemsHomeService } from '../../shared/services/selected-items-h
 })
 export class ItemRowComponent {
   @Input() itemName: string = '';
+  @Input() typeFourniture:string = '';
   isChecked: boolean = false;
-  quantity: number = 0;
+  quantity: number = 1;
   constructor(private selectedItemsSerivce:SelectedItemsHomeService){}
 
-  toggleQuantityControls() {
+  ngOnInit(){
+  }
+
+  toggleQuantityControls(typeFourniture:string) {
     if (!this.isChecked) {
-      this.quantity = 0;
+      this.quantity = 1;
     }
   
     // Find the item in the array
@@ -26,7 +30,8 @@ export class ItemRowComponent {
       this.selectedItemsSerivce.addItem({
         itemName: this.itemName,
         isChecked: this.isChecked,
-        quantity: this.quantity
+        quantity: this.quantity,
+        typeFourniture:typeFourniture
       });
           console.log(this.selectedItemsSerivce.getSelectedItems()    )
 

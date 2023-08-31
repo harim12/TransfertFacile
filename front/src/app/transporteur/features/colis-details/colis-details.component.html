@@ -1,1 +1,32 @@
-<p>colis-details works!</p>
+
+
+<div class="content">
+   <div class="colis" *ngFor="let colis of colisList">
+    <div class="row">
+        <p>colisType: &nbsp;</p>
+        <p>{{colis?.colisType}}</p>
+    </div>
+    <div class="row">
+        <p>colis Hauteur: &nbsp;</p>
+        <p>{{colis?.colisHauteur}}</p>
+    </div>
+    <div class="row">
+        <p>colis Poids: &nbsp;</p>
+        <p>{{colis?.colisPoids}}</p>
+    </div>
+    <div class="row">
+        <p>colis Largeur: &nbsp;</p>
+        <p>{{colis?.colisLargeur}}</p>
+    </div>
+    <div class="row">
+        <p>colis Profondeur: &nbsp;</p>
+        <p>{{colis?.colisProfondeur}}</p>
+    </div>
+    <div class="row">
+        <p>colis Unite: &nbsp;</p>
+        <p>{{colis?.colisUnite}}</p>
+    </div>
+   </div>
+
+
+</div>
