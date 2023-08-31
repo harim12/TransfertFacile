@@ -79,7 +79,6 @@ export class SingleDemandeComponent {
   
   getFileNameFromPath(absolutePath: string): string {
     const parts = absolutePath.split("\\");
-    console.log("this is the image:==================>",parts[parts.length - 1])
     return parts[parts.length - 1];
   }
   

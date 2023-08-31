@@ -25,6 +25,10 @@ import { AuthTransComponent } from './auth/auth-trans/auth-trans.component';
 import { LoginTransporteurComponent } from './auth/login-transporteur/login-transporteur.component';
 import { SignUpTransporteurComponent } from './auth/sign-up-transporteur/sign-up-transporteur.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
+import { CarDetailsComponent } from './features/car-details/car-details.component';
+import { MotoDetailsComponent } from './features/moto-details/moto-details.component';
+import { ColisDetailsComponent } from './features/colis-details/colis-details.component';
+import { MeubleDetailsComponent } from './features/meuble-details/meuble-details.component';
 
 
 
@@ -52,7 +56,11 @@ import { NavbarComponent } from './core/navbar/navbar.component';
     AuthTransComponent,
     LoginTransporteurComponent,
     SignUpTransporteurComponent,
-    NavbarComponent
+    NavbarComponent,
+    CarDetailsComponent,
+    MotoDetailsComponent,
+    ColisDetailsComponent,
+    MeubleDetailsComponent
     
   ],
   imports: [
