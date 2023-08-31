@@ -277,6 +277,8 @@ export class DemenagementFormSecondComponent {
       initialForm.adresseDepart,
       initialForm.adresseArrivee,
       demandeEntityForm.value.horaire,
+      this.distance.toFixed(2),
+      this.demandeEntityForm.value.informationSpecial
       // this.selectedFirstImage,
 
 

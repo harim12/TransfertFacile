@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-moto-details',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./moto-details.component.scss']
 })
 export class MotoDetailsComponent {
+  @Input() motoDemande: any | undefined;
 
+  ngOnInit(){
+    console.log("this is in moto demande",this.motoDemande);
+  }
 }

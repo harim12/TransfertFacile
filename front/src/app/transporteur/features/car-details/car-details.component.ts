@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-car-details',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./car-details.component.scss']
 })
 export class CarDetailsComponent {
+  @Input() carDemande: any | undefined;
 
+  ngOnInit(){
+    console.log("this is in car demande",this.carDemande);
+  }
 }

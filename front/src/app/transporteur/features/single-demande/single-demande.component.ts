@@ -65,17 +65,7 @@ export class SingleDemandeComponent {
   
     // Note: Code here will run before the subscription block completes, so avoid placing any code here that relies on the data from the subscription.
   }
-  convertToRelativePath(absolutePath: string): string {
-    const assetsPath = "/assets"; // Change this to match your assets directory structure
-    const index = absolutePath.lastIndexOf(assetsPath);
-    
-    if (index !== -1) {
-      console.log("../../../../.." + absolutePath.substring(index))
-      return "../../../../.." + absolutePath.substring(index);
-    }
-  
-    return ""; // Return an empty string if the path doesn't match the expected structure
-  }
+ 
   
   getFileNameFromPath(absolutePath: string): string {
     const parts = absolutePath.split("\\");

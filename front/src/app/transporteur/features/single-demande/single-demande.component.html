@@ -1,4 +1,4 @@
-<div class="container" >
+<!-- <div class="container" >
     <div class="content">
         <h2 class="title">Projet detail {{demande?.specificDemande.type}}</h2>
         <div class="items">
@@ -6,7 +6,6 @@
         </div>
     <div class="adresse-details">
         <div class="adresse"></div>
-        <!-- ETAGE IF HOUSE -->
         <div class="from" >
             <p class="title">From</p>
             <div class="from-content">
@@ -32,25 +31,37 @@
             
         </div>
     </div>
-    <div class="special-details">
-        <p class="title">Special details</p>
-        <p>This is my special details</p>
+   
+   
     </div>
-    <div >
-        <p class="title">Images</p>
-        <div class="images">
-            <img [src]="'../../../../assets/' + (demande?.firstImageUrl ? getFileNameFromPath(demande?.firstImageUrl) : '')" alt="">
-            <img [src]="'../../../../assets/' + (demande?.secondImageUrl ? getFileNameFromPath(demande?.secondImageUrl) : '')" alt="">
-            <!-- <img src="{{ demande?.secondImageUrl }}" alt=""> -->
-<img [src]="'../../../../assets/' + (demande?.thirdImageUrl ? getFileNameFromPath(demande?.thirdImageUrl) : '')" alt="">
-    </div>
-    </div>
-    </div>
-    <div class="price-row">
-        <form [formGroup]="priceSuggestedForm" (ngSubmit)="addPriceSuggestion()">
-          <input type="text" placeholder="enter the price suggested" formControlName="priceSuggested">
-          <button type="submit" class="btn">Submit</button>
-        </form>
-      </div>
+    
       
+</div> -->
+
+<app-car-details *ngIf="demande?.specificDemande.type=='car'" [carDemande]="demande"></app-car-details>
+<app-moto-details *ngIf="demande?.specificDemande.type=='moto'" [motoDemande]="demande"></app-moto-details>
+<app-colis-details *ngIf="demande?.specificDemande.type=='colis'" [colisDemande]="demande"></app-colis-details>
+<app-meuble-details *ngIf="demande?.specificDemande.type=='meuble'" [meubleDemande]="demande"></app-meuble-details>
+
+
+<div class="special-details">
+    <p class="title">Special details</p>
+    <p>This is my special details</p>
+</div>
+
+
+<div >
+    <p class="title">Images</p>
+    <div class="images">
+        <img [src]="'../../../../assets/' + (demande?.firstImageUrl ? getFileNameFromPath(demande?.firstImageUrl) : '')" alt="">
+        <img [src]="'../../../../assets/' + (demande?.secondImageUrl ? getFileNameFromPath(demande?.secondImageUrl) : '')" alt="">
+        <img [src]="'../../../../assets/' + (demande?.thirdImageUrl ? getFileNameFromPath(demande?.thirdImageUrl) : '')" alt="">
+    </div>
+</div>
+
+<div class="price-row">
+    <form [formGroup]="priceSuggestedForm" (ngSubmit)="addPriceSuggestion()">
+      <input type="text" placeholder="enter the price suggested" formControlName="priceSuggested">
+      <button type="submit" class="btn">Submit</button>
+    </form>
 </div>
