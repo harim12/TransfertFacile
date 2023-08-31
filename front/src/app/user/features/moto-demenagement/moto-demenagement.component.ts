@@ -59,7 +59,7 @@ export class MotoDemenagementComponent {
     
     if(this.eventEmit1 && this.eventEmit2){
       const selectedOptionsObject = {
-        motoType:this.motoTypeForm.value.voitureType,
+        motoType:this.motoTypeForm.value.motoType,
         motoPrice: this.selectedOption1.label,
         motoEtat: this.selectedOption2.label
       };
