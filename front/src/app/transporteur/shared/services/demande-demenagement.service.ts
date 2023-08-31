@@ -26,6 +26,9 @@ export class DemandeDemenagementService {
   getDemandes(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/demande/get`);
   }
+  getProjects(email:any):Observable<any[]>{
+    return this.http.get<any[]>(`${this.baseUrl}/project/get/${email}`)
+  }
 
   getTransporteurInfo(email:any): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/transporteur/get/${email}/info`);

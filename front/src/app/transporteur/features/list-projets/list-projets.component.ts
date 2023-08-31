@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ProjetDemenagement } from '../../shared/models/projet.model';
 import { TypeLivraison } from '../../shared/models/typeLivraison.model';
 import { ProjetDemenagementService } from '../../shared/services/projet-demenagement.service';
+import { WebsocketService } from 'src/app/services/websocket.service';
+import { DemandeDemenagementService } from '../../shared/services/demande-demenagement.service';
 
 @Component({
   selector: 'app-list-projets',
@@ -9,18 +11,45 @@ import { ProjetDemenagementService } from '../../shared/services/projet-demenage
   styleUrls: ['./list-projets.component.scss']
 })
 export class ListProjetsComponent {
-  projets:ProjetDemenagement[] = [
-    {demande:{horaire:"2023-06-11",depart:"oujda hay andalous",arrivee:"saidiaa",typeLivraison:TypeLivraison.Maison},userDemanding:{name:'ghita sakhrawi ',phoneNumber:6634145}},
-    {demande:{horaire:"2023-09-11",depart:"rabat",arrivee:"sale",typeLivraison:TypeLivraison.Moto},userDemanding:{name:'ayoub moufti',phoneNumber:6634145}},
-    {demande:{horaire:"2023-05-11",depart:"sale",arrivee:"casablanca",typeLivraison:TypeLivraison.Maison},userDemanding:{name:'hicham kharob',phoneNumber:6634145}},
+  projets:any[] = [
+   
 
    ];
+   
+
+    transporteurEmail:string = '';
   
-   constructor(private projetDemenagementService:ProjetDemenagementService){
+   constructor(
+              private projetDemenagementService:ProjetDemenagementService,
+              private webSocketService:WebsocketService,
+              private demandeDemenagementService:DemandeDemenagementService){
+   }
+
+   ngOnInit(){
+   
+    this.transporteurEmail = localStorage.getItem('emailTransporteur') || ''; // Assign an empty string if null
+
+    const demandeSubscription = this.webSocketService.subscribe('/topic/add-project', () => {
+     
+      this.getDemandes();
+      console.log(this.projets)
+    });
+    this.getDemandes();
+
    }
    onRowClicked(project:ProjetDemenagement){
       this.projetDemenagementService.setSelectedDemande(project);
       // this.router.navigate(['/dashbord', 'single']);
       
     }
+
+    getDemandes(): void {
+      this.demandeDemenagementService.getProjects(this.transporteurEmail).subscribe(projets => {
+       
+       this.projets = projets;
+      //  console.log(this.projets)
+
+      });
+    }
+
 }
