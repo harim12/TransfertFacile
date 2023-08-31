@@ -1,1 +1,13 @@
-<p>meuble-details works!</p>
+<div class="content">
+    <div *ngFor="let category of meubleItems | keyvalue">
+        <div class="card">
+          <div class="card-header">{{ category.key }}</div>
+          <div class="card-body">
+            <ul>
+              <li *ngFor="let item of category.value">{{ item }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+</div>
