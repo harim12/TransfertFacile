@@ -37,10 +37,9 @@
             <tbody>
               <tr *ngFor ="let projet of projets" (click)="onRowClicked(projet)">
                 <td><img src="./../../../../assets/OIP.jpeg" alt="#"></td>
-                <!-- <td>{{projet.userDemanding.name}}</td>
-                <td>{{projet.userDemanding.phoneNumber}}</td>
-                <td>{{projet.demande.typeLivraison}}</td>
-                <td>{{projet.demande.typeLivraison}}</td> -->
+                <td>{{projet.userFirstName}} {{projet.userLastName}}</td>
+                <td>{{projet.userPhoneNumber}}</td>
+
               </tr>
              
             
