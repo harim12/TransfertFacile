@@ -30,7 +30,7 @@ export class ConfirmationPaimentComponent {
       (response: any) => {
         this.userInfo = response;
         const project ={
-          priceAndId: this.priceSuggestedAndPaymentConfirmationId,
+          // priceAndId: this.priceSuggestedAndPaymentConfirmationId,
           userFirstName:this.userInfo.firstName,
           userLastName:this.userInfo.lastName,
           userPhoneNumber:this.userInfo.phoneNumber,
