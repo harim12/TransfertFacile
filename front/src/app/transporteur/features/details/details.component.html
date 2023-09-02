@@ -8,7 +8,7 @@
             </div>
             <div class="right right-btns">
                 <button  class="btn btn-left">Cancel</button>
-                <button  class="btn btn-right">Save</button>
+                <button  (click)="updateTransporteur()" class="btn btn-right">Save</button>
             </div>
         </div>
         <div class="row">
@@ -25,7 +25,7 @@
                 <p class="label">Email</p>
             </div>
             <div class="right">
-                <input type="text" class="input" placeholder="" formControlName = "email">
+                <input type="text" class="input" placeholder="" formControlName = "email" [disabled]="true">
             </div>
         </div>
         <div class="row row-photo">
@@ -43,7 +43,7 @@
                     </div>
                     <div class="bottom">
                         <p><span>Click to upload </span>or drag and drop</p>
-                        <!-- <input type="fi"> -->
+                        <input type="file"(change)="onFileChange($event)">
                       
                     </div>
                 </div>

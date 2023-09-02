@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -14,5 +14,16 @@ export class ProfileService {
   getTransporteurPersonalInfo(email: any): Observable<any> {
     const url = `${this.baseUrl}/get/${email}/personal-info`;
     return this.http.get<any>(url);
+  }
+  updateTransporteurInfo(transporteurData: any,image: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('testeEntity', JSON.stringify(transporteurData));
+    formData.append('image', image);
+
+    
+    return this.http.put<any>(
+      `${this.baseUrl}/update`,
+      formData
+    );
   }
 }
