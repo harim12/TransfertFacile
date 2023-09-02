@@ -1,5 +1,5 @@
 <div class="container">
-    
+    <form [formGroup]="transporteurForm">
     <div class="content-wrapper">
         <div class=" first-row">
             <div class="left">
@@ -16,8 +16,8 @@
                 <p class="label">Name </p>
             </div>
             <div class="right righ-inputs">
-                <input type="text"  class="half-input-left" placeholder="rim">
-                <input type="text" class="half-input-right" placeholder="hassani">
+                <input type="text"  class="half-input-left" placeholder="" formControlName="firstName">
+                <input type="text" class="half-input-right" placeholder="" formControlName="lastName">
             </div>
         </div>
         <div class="row">
@@ -25,7 +25,7 @@
                 <p class="label">Email</p>
             </div>
             <div class="right">
-                <input type="text" class="input" placeholder="hassaniidrissirim190@gmail.com">
+                <input type="text" class="input" placeholder="" formControlName = "email">
             </div>
         </div>
         <div class="row row-photo">
@@ -34,7 +34,7 @@
                 <p class="mini-label">This will be displayed in your profile</p>
             </div>
             <div class="center">
-                <img class="img" src="./../../../../assets/profile.png" alt="#">
+                <img [src]="'../../../assets/' + (transporteurInfo?.imageUrl ? getFileNameFromPath(transporteurInfo?.imageUrl) : '')" alt="">
             </div>
             <div class="right upload-image">
                 <div class="content">
@@ -43,6 +43,7 @@
                     </div>
                     <div class="bottom">
                         <p><span>Click to upload </span>or drag and drop</p>
+                        <!-- <input type="fi"> -->
                       
                     </div>
                 </div>
@@ -53,8 +54,9 @@
                 <p class="label">City</p>
             </div>
             <div class="right">
-                <input type="text" class="input" placeholder="fes">
+                <input type="text" class="input" placeholder="" formControlName="city">
             </div>
         </div>
     </div>
+    </form>
 </div>
