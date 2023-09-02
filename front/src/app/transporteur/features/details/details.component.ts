@@ -32,26 +32,19 @@ export class DetailsComponent implements OnInit {
       city: ['']
     });
   
-    // Retrieve and update transporteur data
     this.fetchAndPatchTransporteurData(email);
   
-    // Subscribe to form value changes
     this.transporteurForm.valueChanges.subscribe((updatedData) => {
-      // Handle form value changes here if needed
     });
 
-    // Subscribe to WebSocket updates
     this.webSocketService.subscribe('/topic/update-transporteur', () => {
-      // When a WebSocket update is received, fetch and patch transporteur data
       this.fetchAndPatchTransporteurData(email);
     });
   }
 
   fetchAndPatchTransporteurData(email: string): void {
     this.transporteurService.getTransporteurPersonalInfo(email).subscribe((data) => {
-      // Update the form controls with the fetched data
       this.updateTransporteurForm(data);
-      // Assign the fetched data to your class variable for reference
       this.transporteurInfo = data;
       console.log(this.transporteurInfo);
     });
@@ -89,7 +82,6 @@ export class DetailsComponent implements OnInit {
     const parts = absolutePath.split("\\");
     return parts[parts.length - 1];
   }
-// Add these event handlers
 onDragOver(event: DragEvent): void {
   event.preventDefault();
   this.dragging = true;

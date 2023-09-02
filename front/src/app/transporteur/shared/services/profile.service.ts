@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProfileService {
+  
 
   private baseUrl = 'http://localhost:8081/transporteur';
 
@@ -22,8 +23,16 @@ export class ProfileService {
 
     
     return this.http.put<any>(
-      `${this.baseUrl}/update`,
+      `${this.baseUrl}/update-personal-info`,
       formData
     );
+  }
+  getTransporteurPaimentInfo(email:any):Observable<any>{
+    const url = `${this.baseUrl}/get/${email}/paiment-info`;
+    return this.http.get<any>(url);
+  }
+  updateTransporteurPaimentInfo(data: any): Observable<any> {
+    const url = `${this.baseUrl}/update/paiment-info`;
+    return this.http.put(url, data);
   }
 }
