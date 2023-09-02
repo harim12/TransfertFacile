@@ -12,6 +12,7 @@ export class DetailsComponent implements OnInit {
   transporteurInfo: any = {};
   transporteurForm!: FormGroup;
   selectedImageProfile!: File;
+  dragging: boolean = false;
   displayedImageUrl: string | null = null;
 
   constructor(
@@ -88,11 +89,37 @@ export class DetailsComponent implements OnInit {
     const parts = absolutePath.split("\\");
     return parts[parts.length - 1];
   }
+// Add these event handlers
+onDragOver(event: DragEvent): void {
+  event.preventDefault();
+  this.dragging = true;
+  console.log("I am dragging")
+}
+
+onDrop(event: DragEvent): void {
+  event.preventDefault();
+  console.log("I am dropping")
+  this.dragging = false;
+
+  const files = event.dataTransfer?.files;
+  if (files && files.length > 0) {
+    const selectedImage = files[0];
+
+    // Read the selected image and convert it to a data URL
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.displayedImageUrl = e.target.result; // Update the displayed image URL
+      this.selectedImageProfile = selectedImage;
+    };
+    reader.readAsDataURL(selectedImage);
+  }
+}
 
   onFileChange(event: any) {
     if (event.target.files && event.target.files.length > 0) {
       const selectedImage = event.target.files[0];
       this.selectedImageProfile = selectedImage;
+    
     }
   }
 }

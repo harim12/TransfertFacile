@@ -35,13 +35,15 @@
             </div>
             <div class="center">
                 <img [src]="'../../../assets/' + (transporteurInfo?.imageUrl ? getFileNameFromPath(transporteurInfo?.imageUrl) : '')" alt="">
+                <!-- <img [src]="displayedImageUrl" alt=""> -->
+
             </div>
             <div class="right upload-image">
                 <div class="content">
                     <div class="top">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                     </div>
-                    <div class="bottom">
+                    <div class="bottom" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
                         <p><span>Click to upload </span>or drag and drop</p>
                         <input type="file"(change)="onFileChange($event)">
                       
