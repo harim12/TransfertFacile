@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ProfileService } from '../../shared/services/profile.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { ProfileService } from '../../shared/services/profile.service';
 })
 export class DetailsMotDePasseComponent {
   passwordForm!:FormGroup;
+  submitted = false;
+  passwordsMatch = false;
   constructor(private fb:FormBuilder,private transporteurService: ProfileService,
     ){}
   ngOnInit(){
@@ -19,25 +21,41 @@ export class DetailsMotDePasseComponent {
       email:[localStorage.getItem("emailTransporteur")],
       
     }
-    //,
-    // {
-    //   validators: this.passwordMatchValidator // Add custom validator
-    // }
+    ,
+    {
+      validators: this.passwordMatchValidator // Add custom validator
+    }
     );
   }
 
-   passwordMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
+  passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const newPassword = control.get('newPassword');
-    const verifyNewPassword = control.get('verifyNewPassword');
+    const confirmNewPassword = control.get('newMatchingPassword');
   
-    if (newPassword && verifyNewPassword && newPassword.value !== verifyNewPassword.value) {
+    if (newPassword && confirmNewPassword && newPassword.value !== confirmNewPassword.value) {
       return { passwordMismatch: true };
     }
   
     return null;
   }
+  checkPasswordMatch() {
+   // Check if passwordForm and its controls exist before accessing their values
+if (this.passwordForm) {
+  const newPassword = this.passwordForm.get('newPassword')?.value;
+  const newMatchingPassword = this.passwordForm.get('newMatchingPassword')?.value;
+
+  if (newPassword !== undefined && newMatchingPassword !== undefined) {
+    // Now you can safely use newPassword and newMatchingPassword
+    this.passwordsMatch = newPassword === newMatchingPassword;
+  }
+}
+
+  }
+  
 
   changePassword() {
+    this.checkPasswordMatch()
+    this.submitted = true;
     //if (this.passwordForm.valid) {
       const { email, oldPassword, newPassword } = this.passwordForm.value;
   
@@ -49,6 +67,7 @@ export class DetailsMotDePasseComponent {
       console.log("this is the password data",passwordData)
 
       // Call the updatePassword method from your service
+     if(this.passwordsMatch){
       this.transporteurService.updatePassword(passwordData).subscribe(
         (response) => {
           
@@ -66,6 +85,7 @@ export class DetailsMotDePasseComponent {
           console.error('Error updating password:', error);
         }
       );
+     }
     // } else {
     //   // Form is invalid, handle it accordingly (e.g., show error messages)
     //   console.log('Form is invalid. Passwords do not match.');
