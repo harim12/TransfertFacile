@@ -124,6 +124,9 @@ input::placeholder{
     color: rgb(116, 112, 112);
     margin-left: 10px;
 }
+.error-message{
+    color: red;
+}
 @media (max-width:768px){
     .container{
         margin-left: 0px !important;

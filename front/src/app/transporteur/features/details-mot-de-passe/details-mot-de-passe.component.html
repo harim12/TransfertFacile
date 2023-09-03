@@ -35,10 +35,11 @@
                 <div class="right">
                     <input type="text" class="input" placeholder="" formControlName="newMatchingPassword">
                 </div>
-                <div *ngIf="submitted && passwordForm.hasError('passwordMismatch')" class="error-message">
-                    Passwords do not match. Please check your new password and verification.
-                  </div>
+                
             </div>
+            <div *ngIf="submitted && passwordForm.hasError('passwordMismatch')" class="error-message">
+                Passwords do not match. Please check your new password and verification.
+              </div>
         </div>
     </form>
 </div>
