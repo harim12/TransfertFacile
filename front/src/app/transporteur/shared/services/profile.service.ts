@@ -35,4 +35,8 @@ export class ProfileService {
     const url = `${this.baseUrl}/update/paiment-info`;
     return this.http.put(url, data);
   }
+  updatePassword(passwordData: any): Observable<any> {
+    const url = `${this.baseUrl}/update-password`;
+    return this.http.put<any>(url, passwordData, { responseType: 'json' });
+  }
 }

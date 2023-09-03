@@ -1,40 +1,44 @@
 <div class="container">
-    
-    <div class="content-wrapper">
-        <div class=" first-row">
-            <div class="left">
-                <p class="title">Password</p>
-                <p class="second-line">Please enter your current password to change it</p>
+    <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+        <div class="content-wrapper">
+            <div class=" first-row">
+                <div class="left">
+                    <p class="title">Password</p>
+                    <p class="second-line">Please enter your current password to change it</p>
+                </div>
+                <div class="right right-btns">
+                    <button class="btn btn-left">Cancel</button>
+                    <button type="submit" class="btn btn-right">Save</button>
+                </div>
             </div>
-            <div class="right right-btns">
-                <button  class="btn btn-left">Cancel</button>
-                <button  class="btn btn-right">Save</button>
+            <div class="row">
+                <div class="left">
+                    <p class="label">Current password </p>
+                </div>
+                <div class="right righ-inputs">
+                    <input type="password" class="input" placeholder="" formControlName="oldPassword">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <p class="label">New password</p>
+                </div>
+                <div class="right">
+                    <input type="text" class="input" placeholder=""  formControlName="newPassword">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="left">
+                    <p class="label">Confirm new password</p>
+                </div>
+                <div class="right">
+                    <input type="text" class="input" placeholder="" formControlName="newMatchingPassword">
+                </div>
+                <div *ngIf="passwordForm.hasError('mismatch')" class="error-message">
+                    Passwords do not match. Please check your new password and verification.
+                  </div>
             </div>
         </div>
-        <div class="row">
-            <div class="left">
-                <p class="label">Current password </p>
-            </div>
-            <div class="right righ-inputs">
-                <input type="password" class="input" placeholder="*******************">
-            </div>
-        </div>
-        <div class="row">
-            <div class="left">
-                <p class="label">New password</p>
-            </div>
-            <div class="right">
-                <input type="text" class="input" placeholder="*******************">
-            </div>
-        </div>
-       
-        <div class="row">
-            <div class="left">
-                <p class="label">Confirm new password</p>
-            </div>
-            <div class="right">
-                <input type="text" class="input" placeholder="*******************">
-            </div>
-        </div>
-    </div>
+    </form>
 </div>

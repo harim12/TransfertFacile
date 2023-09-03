@@ -6,7 +6,7 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
-  activeTab: number = 3;
+  activeTab: number = 2;
   isNonResponsive: boolean = true;
 
   ngOnInit() {
