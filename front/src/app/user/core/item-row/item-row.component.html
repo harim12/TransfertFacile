@@ -1,5 +1,5 @@
 <div class="col">
-    <span class="quantity" *ngIf="quantity!=0">*({{ quantity }})</span>
+    <span class="quantity" *ngIf="quantity!=1 && quantity!=0">*({{ quantity }})</span>
     <p>{{ itemName }}</p>
     <div class="quantity-controls" *ngIf="isChecked">
         <button class="quantity-button minus" (click)="decreaseQuantity()">-</button>

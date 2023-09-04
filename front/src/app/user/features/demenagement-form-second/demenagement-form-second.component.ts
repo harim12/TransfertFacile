@@ -43,6 +43,7 @@ export class DemenagementFormSecondComponent {
   idColis = 'colis-1'; 
   sendDataAgainFromChild=true;
   selectedOption!:any;
+  
   @ViewChild('colisContainer', { read: ViewContainerRef }) colisContainer!: ViewContainerRef;
 
   constructor(public selectedOptionService:SelectedOptionService,
@@ -227,28 +228,51 @@ export class DemenagementFormSecondComponent {
     
   }
 
-  // addDemande(): void {
-
-  //   this.selectedHomeItems = this.selectedItemsHomeService.getSelectedItems();
-  //   const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
-    
-  //     this.demandeService.addDemande(demenagementEntity).subscribe(response => {
-  //       this.router.navigate(['/devisResult'], { queryParams: { demandeId: response.demandeId } });
-  //       console.log("this is the id in the demandeSecond===>",response.demandeId)
-  //     });
-  //   }
+  
   addDemande(): void {
     this.selectedHomeItems = this.selectedItemsHomeService.getSelectedItems();
-    const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
-    const imageFile =this.selectedImageFile;
     
-    console.log("demande entity ====>",demenagementEntity)
-    this.colisService.deleteColisList();
-    this.demandeService.addDemande(demenagementEntity, imageFile,this.selectedSecondImage,this.selectedThirdImage)
-    .subscribe(response => {
-      this.router.navigate(['/devisResult'], { queryParams: { demandeId: response.demandeId } });
-    });
+    // Check if all required data is defined
+    if (
+      this.initialForm &&
+      this.initialForm.type &&
+      this.demandeEntityForm.value.horaire
+    ) {
+      if((this.initialForm.type=='car' || this.initialForm.type =='moto' )&&this.childData){
+        const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
+        if (demenagementEntity !==null) {
+          const imageFile = this.selectedImageFile;
+          
+          this.colisService.deleteColisList();
+          
+          this.demandeService.addDemande(demenagementEntity, imageFile, this.selectedSecondImage, this.selectedThirdImage)
+            .subscribe(response => {
+              this.router.navigate(['/devisResult'], { queryParams: { demandeId: response.demandeId } });
+            });
+        }
+      }else if((this.initialForm.type=='house' || this.initialForm.type =='colis' )){
+        const demenagementEntity = this.createDemenagementEntity(this.initialForm.type, this.childData, this.initialForm, this.demandeEntityForm);
+        if (demenagementEntity !==null) {
+          const imageFile = this.selectedImageFile;
+          
+          this.colisService.deleteColisList();
+          
+          this.demandeService.addDemande(demenagementEntity, imageFile, this.selectedSecondImage, this.selectedThirdImage)
+            .subscribe(response => {
+              this.router.navigate(['/devisResult'], { queryParams: { demandeId: response.demandeId } });
+            });
+        }
+      }
+      else {
+        alert('Please fill in all required information');
+      }
+      // Check if demenagementEntity is defined
+      
+    } else {
+      alert('Please fill in all required information');
+    }
   }
+  
   uploadDataAndImage() {
     const testData = {
       villeDepart: 'Your Ville Depart',
@@ -284,7 +308,17 @@ export class DemenagementFormSecondComponent {
 
     );
   
-    if (type === 'car') {
+     if (type === 'car') {
+      // Check if any property in the 'car' object is null
+      if (
+        childData.voitureType === null ||
+        childData.voiturePrice === null ||
+        childData.voitureEtat === null
+      ) {
+        alert('Please fill in all required car information');
+        return null; // Return null to indicate validation failure
+      }
+    
       return {
         ...commonProperties,
         specificDemande: {
@@ -294,7 +328,8 @@ export class DemenagementFormSecondComponent {
           voitureEtat: childData.voitureEtat
         }
       };
-    } else if (type === 'moto') {
+    }
+    else if (type === 'moto') {
       return {
         ...commonProperties,
         specificDemande: {
@@ -304,53 +339,111 @@ export class DemenagementFormSecondComponent {
           motoEtat: childData.motoEtat
         }
       };
-    } else if(type === 'house'){
+    }
+    //  else if(type === 'house'){
 
+    //   let resultString = "";
+
+    //   const groupedItems: { [location: string]: string[] } = {};
+
+    //   for (const item of this.selectedHomeItems) {
+    //       if (item.isChecked) {
+    //           if (!groupedItems[item.typeFourniture]) {
+    //               groupedItems[item.typeFourniture] = [];
+    //           }
+    //           groupedItems[item.typeFourniture].push(`${item.itemName} ${item.quantity}`);
+    //       }
+    //   }
+      
+      
+    //   for (const location in groupedItems) {
+    //       if (groupedItems.hasOwnProperty(location)) {
+    //           resultString += `${location}:{${groupedItems[location].join(',')}}`;
+    //       }
+    //   }
+      
+    //   console.log("creating the house object++++++>",resultString)
+    //   return {
+    //     ...commonProperties,
+    //     specificDemande:{
+    //       type: "house",
+    //       items:resultString,
+    //       enlevementType:this.optionLogistiqueHomeForm.value.enlevementType ,
+    //       enlevementEtage:this.optionLogistiqueHomeForm.value.enlevementEtage,
+    //       enlevementAvecSansAssenceur:false,
+    //       livraisonType:this.optionLogistiqueHomeForm.value.livraisonType,
+    //       livraisonEtage:this.optionLogistiqueHomeForm.value.livraisonEtage,
+    //       livraisonAvecSansAssenceur:true
+    //     }
+    //   }
+    // }
+    else if (type === 'house') {
       let resultString = "";
-
+    
       const groupedItems: { [location: string]: string[] } = {};
-
+    
       for (const item of this.selectedHomeItems) {
-          if (item.isChecked) {
-              if (!groupedItems[item.typeFourniture]) {
-                  groupedItems[item.typeFourniture] = [];
-              }
-              groupedItems[item.typeFourniture].push(`${item.itemName} ${item.quantity}`);
+        if (item.isChecked) {
+          if (!groupedItems[item.typeFourniture]) {
+            groupedItems[item.typeFourniture] = [];
           }
+          groupedItems[item.typeFourniture].push(`${item.itemName} ${item.quantity}`);
+        }
       }
-      
-      
+    
       for (const location in groupedItems) {
-          if (groupedItems.hasOwnProperty(location)) {
-              resultString += `${location}:{${groupedItems[location].join(',')}}`;
-          }
+        if (groupedItems.hasOwnProperty(location)) {
+          resultString += `${location}:{${groupedItems[location].join(',')}}`;
+        }
       }
-      
+    
+      // Check if resultString or any form value is null
+      if (
+        resultString === "" ||
+        this.optionLogistiqueHomeForm.value.enlevementType === "" ||
+        this.optionLogistiqueHomeForm.value.enlevementEtage === "" ||
+        this.optionLogistiqueHomeForm.value.livraisonType === "" ||
+        this.optionLogistiqueHomeForm.value.livraisonEtage === ""
+      ) {
+        alert('Please fill in all required information');
+        return null; // Return null to indicate validation failure
+      }
       return {
         ...commonProperties,
-        specificDemande:{
+        specificDemande: {
           type: "house",
-          items:resultString,
-          enlevementType:this.optionLogistiqueHomeForm.value.enlevementType ,
-          enlevementEtage:this.optionLogistiqueHomeForm.value.enlevementEtage,
-          enlevementAvecSansAssenceur:false,
-          livraisonType:this.optionLogistiqueHomeForm.value.livraisonType,
-          livraisonEtage:this.optionLogistiqueHomeForm.value.livraisonEtage,
-          livraisonAvecSansAssenceur:true
+          items: resultString,
+          enlevementType: this.optionLogistiqueHomeForm.value.enlevementType,
+          enlevementEtage: this.optionLogistiqueHomeForm.value.enlevementEtage,
+          enlevementAvecSansAssenceur: false,
+          livraisonType: this.optionLogistiqueHomeForm.value.livraisonType,
+          livraisonEtage: this.optionLogistiqueHomeForm.value.livraisonEtage,
+          livraisonAvecSansAssenceur: true
         }
       }
-    } else if(type ==='colis'){
-        let colisListObject = this.colisService.getColisList();
-        console.log(colisListObject)
+    }
+    
+    else if (type === 'colis') {
+      const colisListObject = this.colisService.getColisList();
+      
+      // Check if colisListObject has all properties set to empty strings
+      const isColisObjectEmpty = Object.values(colisListObject).every(value => value === '');
+    
+      if (isColisObjectEmpty) {
+        alert('Please fill in colis information');
+        return null; // Return null to indicate validation failure
+      } else {
+        console.log(colisListObject);
         return {
           ...commonProperties,
-          specificDemande:{
-            type:"colis",
+          specificDemande: {
+            type: "colis",
             ...colisListObject
           }
-        }
+        };
+      }
     }
-
+    
     else {
       throw new Error(`Invalid type: ${type}`);
     }
@@ -358,6 +451,136 @@ export class DemenagementFormSecondComponent {
   
 
  
+  // createDemenagementEntity(type: string, childData: any, initialForm: any, demandeEntityForm: any) {
+
+  //   // Define a function to check if all required attributes are defined
+  //   const areAllAttributesDefined = () => {
+  //     if (type === 'car') {
+  //       return (
+  //         childData.voitureType !== undefined &&
+  //         childData.voiturePrice !== undefined &&
+  //         childData.voitureEtat !== undefined
+  //       );
+  //     } else if (type === 'moto') {
+  //       return (
+  //         childData.motoType !== undefined &&
+  //         childData.motoPrice !== undefined &&
+  //         childData.motoEtat !== undefined
+  //       );
+  //     } else if (type === 'house') {
+  //       return (
+  //         this.optionLogistiqueHomeForm.value.enlevementType !== undefined &&
+  //         this.optionLogistiqueHomeForm.value.enlevementEtage !== undefined &&
+  //         // Add checks for all other required attributes in the 'house' type here
+  //         // For example:
+  //         this.optionLogistiqueHomeForm.value.enlevementAvecSansAssenceur !== undefined &&
+  //         this.optionLogistiqueHomeForm.value.livraisonType !== undefined &&
+  //         this.optionLogistiqueHomeForm.value.livraisonEtage !== undefined &&
+  //         this.optionLogistiqueHomeForm.value.livraisonAvecSansAssenceur !== undefined
+  //       );
+  //     }
+  //     else if (type === 'colis') {
+  //       const colisListObject = this.colisService.getColisList();
+  //       return (
+  //         colisListObject.colisType !== undefined &&
+  //         colisListObject.colisLargeur !== undefined &&
+  //         colisListObject.colisProfondeur !== undefined &&
+  //         colisListObject.colisHauteur !== undefined &&
+  //         colisListObject.colisUnite !== undefined &&
+  //         colisListObject.colisPoids !== undefined
+  //       );
+  //     }
+  //      else {
+  //       throw new Error(`Invalid type: ${type}`);
+  //     }
+  //   };
+  
+  //   // Check if all required attributes are defined
+  //   if (!areAllAttributesDefined()) {
+  //     // Show an alert or perform any desired error handling
+  //     alert('Please fill in all required information');
+  //     return null; // Return null to indicate validation failure
+  //   }
+  
+  //   // Create the demenagementEntity as before
+  //   const commonProperties = new DemandeCommonProperties(
+  //     initialForm.villeDepart,
+  //     initialForm.villeArrivee,
+  //     initialForm.adresseDepart,
+  //     initialForm.adresseArrivee,
+  //     demandeEntityForm.value.horaire,
+  //     this.distance.toFixed(2),
+  //     this.demandeEntityForm.value.informationSpecial
+  //   );
+  
+  //   if (type === 'car') {
+  //     return {
+  //       ...commonProperties,
+  //       specificDemande: {
+  //         type: "car",
+  //         voitureType: childData.voitureType,
+  //         voiturePrice: childData.voiturePrice,
+  //         voitureEtat: childData.voitureEtat
+  //       }
+  //     };
+  //   } else if (type === 'moto') {
+  //     return {
+  //       ...commonProperties,
+  //       specificDemande: {
+  //         type: "moto",
+  //         motoType: childData.motoType,
+  //         motoPrice: childData.motoPrice,
+  //         motoEtat: childData.motoEtat
+  //       }
+  //     };
+  //   } else if(type === 'house'){
+  //     let resultString = "";
+  
+  //     const groupedItems: { [location: string]: string[] } = {};
+  
+  //     for (const item of this.selectedHomeItems) {
+  //         if (item.isChecked) {
+  //             if (!groupedItems[item.typeFourniture]) {
+  //                 groupedItems[item.typeFourniture] = [];
+  //             }
+  //             groupedItems[item.typeFourniture].push(`${item.itemName} ${item.quantity}`);
+  //         }
+  //     }
+  
+  //     for (const location in groupedItems) {
+  //         if (groupedItems.hasOwnProperty(location)) {
+  //             resultString += `${location}:{${groupedItems[location].join(',')}}`;
+  //         }
+  //     }
+  
+  //     return {
+  //       ...commonProperties,
+  //       specificDemande:{
+  //         type: "house",
+  //         items:resultString,
+  //         enlevementType:this.optionLogistiqueHomeForm.value.enlevementType,
+  //         enlevementEtage:this.optionLogistiqueHomeForm.value.enlevementEtage,
+  //         enlevementAvecSansAssenceur:false,
+  //         livraisonType:this.optionLogistiqueHomeForm.value.livraisonType,
+  //         livraisonEtage:this.optionLogistiqueHomeForm.value.livraisonEtage,
+  //         livraisonAvecSansAssenceur:true
+  //       }
+  //     }
+  //   } else if(type ==='colis'){
+  //     let colisListObject = this.colisService.getColisList();
+  //     console.log(colisListObject)
+  //     return {
+  //       ...commonProperties,
+  //       specificDemande:{
+  //         type:"colis",
+  //         ...colisListObject
+  //       }
+  //     }
+  //   } else {
+  //     throw new Error(`Invalid type: ${type}`);
+  //   }
+  // }
+  
 
 
   

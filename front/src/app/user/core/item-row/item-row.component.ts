@@ -18,7 +18,7 @@ export class ItemRowComponent {
 
   toggleQuantityControls(typeFourniture:string) {
     if (!this.isChecked) {
-      this.quantity = 1;
+      this.quantity = 0;
     }
   
     // Find the item in the array
@@ -62,6 +62,9 @@ export class ItemRowComponent {
       if (selectedItemIndex !== -1) {
         this.selectedItemsSerivce.getSelectedItems()[selectedItemIndex].quantity = this.quantity;
       }
+    }
+    if(this.quantity==0){
+      this.isChecked = false
     }
     console.log(this.selectedItemsSerivce.getSelectedItems())
   }
