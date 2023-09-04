@@ -39,4 +39,8 @@ export class ProfileService {
     const url = `${this.baseUrl}/update-password`;
     return this.http.put<any>(url, passwordData, { responseType: 'json' });
   }
+  getTransporteurVehiculeInfo(email: any): Observable<any> {
+    const url = `${this.baseUrl}/get/${email}/vehicule-info`;
+    return this.http.get<any>(url);
+  }
 }

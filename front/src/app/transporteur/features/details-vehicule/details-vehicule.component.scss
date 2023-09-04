@@ -214,6 +214,13 @@ img{
   .hidden-input {
     display: none;
   }
+
+  .vehicleImg{
+    width: 70%;
+    // height: 90%;
+    height: 120px;
+    border-radius: 0px !important;
+  }
   
 @media (max-width:768px){
     .container{

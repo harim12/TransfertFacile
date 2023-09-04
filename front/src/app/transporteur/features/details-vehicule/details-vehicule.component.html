@@ -1,5 +1,5 @@
 <div class="container">
-    <form >
+    <form [formGroup]="transporteurForm">
     <div class="content-wrapper">
         <div class=" first-row">
             <div class="left">
@@ -26,14 +26,7 @@
                               </div>
             <div class="right upload-image">
                 <div class="content">
-                    <!-- <div class="top">
-                        <i class="fa-solid fa-cloud-arrow-up"></i>
-                    </div>
-                    <div class="bottom" >
-                        <p><span>Click to upload </span>or drag and drop</p>
-                        <input type="file">
-                      
-                    </div> -->
+                    <img class="vehicleImg" [src]="'../../../assets/' + (transporteurInfo?.imageVehiculeUrl ? getFileNameFromPath(transporteurInfo?.imageVehiculeUrl) : '')" alt="">
                 </div>
             </div>
         </div>
@@ -42,7 +35,7 @@
                 <p class="label">driver license </p>
             </div>
             <div class="right">
-                <input type="text"  class="input" placeholder="" >
+                <input type="text"  class="input" placeholder="" formControlName="driverLiscence">
             </div>
         </div>
         <div class="row">
@@ -50,7 +43,7 @@
                 <p class="label"> national identity card number </p>
             </div>
             <div class="right">
-                <input type="text"  class="input" placeholder="" >
+                <input type="text"  class="input" placeholder="" formControlName="nationalIdentity" >
             </div>
         </div>
         <div class="row">
@@ -58,7 +51,7 @@
                 <p class="label">vehicle registration number</p>
             </div>
             <div class="right">
-                <input type="text" class="input" placeholder=""  >
+                <input type="text" class="input" placeholder=""  formControlName="vehiculeRegistrationNumber" >
             </div>
         </div>
        
