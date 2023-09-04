@@ -43,4 +43,16 @@ export class ProfileService {
     const url = `${this.baseUrl}/get/${email}/vehicule-info`;
     return this.http.get<any>(url);
   }
+
+  updateTransporteurVehiculeInfo(transporteurData: any,image: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('testeEntity', JSON.stringify(transporteurData));
+    formData.append('image', image);
+
+    
+    return this.http.put<any>(
+      `${this.baseUrl}/update-vehicule-info`,
+      formData
+    );
+  }
 }

@@ -11,6 +11,8 @@ import { WebsocketService } from 'src/app/services/websocket.service';
 export class DetailsVehiculeComponent {
   transporteurForm!: FormGroup;
   transporteurInfo!:any;
+  selectedVehiculeImage!: File;
+  email!:string;
 
   constructor(
     private transporteurService: ProfileService,
@@ -19,7 +21,7 @@ export class DetailsVehiculeComponent {
   ) {}
 
  ngOnInit(): void {
-    const email = localStorage.getItem("emailTransporteur") || '';
+     this.email = localStorage.getItem("emailTransporteur") || '';
     
     // Initialize the form
     this.transporteurForm = this.fb.group({
@@ -29,14 +31,16 @@ export class DetailsVehiculeComponent {
       email: ['']
     });
   
-    this.fetchAndPatchTransporteurData(email);
   
     this.transporteurForm.valueChanges.subscribe((updatedData) => {
     });
 
     this.webSocketService.subscribe('/topic/update-transporteur', () => {
-      this.fetchAndPatchTransporteurData(email);
+      console.log("listning to backend")
+      this.fetchAndPatchTransporteurData(this.email);
     });
+    this.fetchAndPatchTransporteurData(this.email);
+
   }
 
 
@@ -61,5 +65,32 @@ export class DetailsVehiculeComponent {
   getFileNameFromPath(absolutePath: string): string {
     const parts = absolutePath.split("\\");
     return parts[parts.length - 1];
+  }
+
+  updateTransporteur() {
+    console.log("inside update")
+    if (this.transporteurForm.valid && this.selectedVehiculeImage) {
+      const updatedData = this.transporteurForm.value;
+      this.transporteurService
+        .updateTransporteurVehiculeInfo(updatedData, this.selectedVehiculeImage)
+        .subscribe(
+          (response) => {
+            this.fetchAndPatchTransporteurData(this.email)
+            console.log('Update successful', response);
+          },
+          (error) => {
+            // Handle any errors that may occur during the update
+            console.error('Update error', error);
+          }
+        );
+    }
+  }
+
+  onFileChange(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+      const selectedImage = event.target.files[0];
+      this.selectedVehiculeImage = selectedImage;
+    
+    }
   }
 }

@@ -8,7 +8,7 @@
             </div>
             <div class="right right-btns">
                 <button  class="btn btn-left">Cancel</button>
-                <button  class="btn btn-right">Save</button>
+                <button  (click)="updateTransporteur()" class="btn btn-right">Save</button>
             </div>
         </div>
         <div class="row row-photo">
@@ -22,7 +22,7 @@
                 <label for="fileInput" class="custom-file-input">
                     <i class="fa-solid fa-camera"></i>
                   </label>
-                  <input type="file" id="fileInput" class="hidden-input">
+                  <input type="file" (change)="onFileChange($event)" id="fileInput" class="hidden-input">
                               </div>
             <div class="right upload-image">
                 <div class="content">
