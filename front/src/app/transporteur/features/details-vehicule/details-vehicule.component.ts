@@ -35,10 +35,9 @@ export class DetailsVehiculeComponent {
     this.transporteurForm.valueChanges.subscribe((updatedData) => {
     });
 
-    this.webSocketService.subscribe('/topic/update-transporteur', () => {
-      console.log("listning to backend")
-      this.fetchAndPatchTransporteurData(this.email);
-    });
+    // this.webSocketService.subscribe('/topic/update-vehicule-info', () => {
+    //   this.fetchAndPatchTransporteurData(this.email);
+    // });
     this.fetchAndPatchTransporteurData(this.email);
 
   }

@@ -30,21 +30,19 @@ export class DetailsPaimentComponent {
       city: ['']
     });
 
-    this.webSocketService.subscribe('/topic/update-transporteur', () => {
-      console.log("subscription")
-      this.fetchingTransporteurPaimentData();
-    });
+    // this.webSocketService.subscribe('/topic/update-paiment-info', () => {
+    //   console.log("subscription'''''''''''''''''''''''''''''''''")
+    //   this.fetchingTransporteurPaimentData();
+    // });
     this.fetchingTransporteurPaimentData();
   }
 
   fetchingTransporteurPaimentData() {
-    console.log("fetching data======>")
     const email = localStorage.getItem("emailTransporteur") || '';
 
     this.transporteurService.getTransporteurPaimentInfo(email).subscribe(
       (data) => {
         // Handle the data received from the API
-        console.log('Payment info:', data);
 
         // Use patchValue to initialize the form with the fetched data
         this.paimentInfoForm.patchValue({
@@ -75,7 +73,6 @@ export class DetailsPaimentComponent {
     });
   }
   updateTransporteur() {
-    console.log("inside update")
     if (this.paimentInfoForm.valid ) {
       const updatedData = this.paimentInfoForm.value;
       this.transporteurService

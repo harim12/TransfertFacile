@@ -14,7 +14,7 @@ export class DetailsComponent implements OnInit {
   selectedImageProfile!: File;
   dragging: boolean = false;
   displayedImageUrl: string | null = null;
-
+  email!:string;
   constructor(
     private transporteurService: ProfileService,
     private fb: FormBuilder,
@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const email = localStorage.getItem("emailTransporteur") || '';
+     this.email = localStorage.getItem("emailTransporteur") || '';
     
     // Initialize the form
     this.transporteurForm = this.fb.group({
@@ -32,17 +32,18 @@ export class DetailsComponent implements OnInit {
       city: ['']
     });
   
-    this.fetchAndPatchTransporteurData(email);
   
-    this.transporteurForm.valueChanges.subscribe((updatedData) => {
-    });
+   
+    // this.webSocketService.subscribe('/topic/update-personal-info', () => {
+    //   console.log("inside the subscription88888888888888888888")
+    //   this.fetchAndPatchTransporteurData(email);
+    // });
+    this.fetchAndPatchTransporteurData(this.email);
 
-    this.webSocketService.subscribe('/topic/update-transporteur', () => {
-      this.fetchAndPatchTransporteurData(email);
-    });
   }
 
   fetchAndPatchTransporteurData(email: string): void {
+    console.log("fetching data")
     this.transporteurService.getTransporteurPersonalInfo(email).subscribe((data) => {
       this.updateTransporteurForm(data);
       this.transporteurInfo = data;
@@ -68,7 +69,7 @@ export class DetailsComponent implements OnInit {
         .subscribe(
           (response) => {
             // Handle the successful update, if needed
-            console.log('Update successful', response);
+            this.fetchAndPatchTransporteurData(this.email);
           },
           (error) => {
             // Handle any errors that may occur during the update
