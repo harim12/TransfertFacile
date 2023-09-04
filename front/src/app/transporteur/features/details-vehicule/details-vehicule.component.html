@@ -1,1 +1,68 @@
-<p>details-vehicule works!</p>
+<div class="container">
+    <form >
+    <div class="content-wrapper">
+        <div class=" first-row">
+            <div class="left">
+                <p class="title">Vehicule info</p>
+                <p class="second-line">Update your photo and vehicule details here</p>
+            </div>
+            <div class="right right-btns">
+                <button  class="btn btn-left">Cancel</button>
+                <button  class="btn btn-right">Save</button>
+            </div>
+        </div>
+        <div class="row row-photo">
+            <div class="left">
+                <p class="label">image of your vehicle</p>
+                <p class="mini-label">This will be displayed in your profile</p>
+            </div>
+            <div class="center">
+                <!-- <img [src]="'../../../assets/' + (transporteurInfo?.imageUrl ? getFileNameFromPath(transporteurInfo?.imageUrl) : '')" alt=""> -->
+                <!-- <img [src]="displayedImageUrl" alt=""> -->
+                <label for="fileInput" class="custom-file-input">
+                    <i class="fa-solid fa-camera"></i>
+                  </label>
+                  <input type="file" id="fileInput" class="hidden-input">
+                              </div>
+            <div class="right upload-image">
+                <div class="content">
+                    <!-- <div class="top">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    </div>
+                    <div class="bottom" >
+                        <p><span>Click to upload </span>or drag and drop</p>
+                        <input type="file">
+                      
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="left">
+                <p class="label">driver license </p>
+            </div>
+            <div class="right">
+                <input type="text"  class="input" placeholder="" >
+            </div>
+        </div>
+        <div class="row">
+            <div class="left">
+                <p class="label"> national identity card number </p>
+            </div>
+            <div class="right">
+                <input type="text"  class="input" placeholder="" >
+            </div>
+        </div>
+        <div class="row">
+            <div class="left">
+                <p class="label">vehicle registration number</p>
+            </div>
+            <div class="right">
+                <input type="text" class="input" placeholder=""  >
+            </div>
+        </div>
+       
+       
+    </div>
+    </form>
+</div>
