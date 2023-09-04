@@ -29,7 +29,7 @@ export class ListProjetsComponent {
    
     this.transporteurEmail = localStorage.getItem('emailTransporteur') || ''; // Assign an empty string if null
 
-    const demandeSubscription = this.webSocketService.subscribe('/topic/add-project', () => {
+    const demandeSubscription = this.webSocketService.subscribe('/topic/change', () => {
      
       this.getDemandes();
       console.log(this.projets)

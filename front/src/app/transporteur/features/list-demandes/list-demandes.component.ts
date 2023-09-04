@@ -24,7 +24,7 @@ export class ListDemandesComponent {
    
     
 
-    const demandeSubscription = this.webSocketService.subscribe('/topic/add-demande', () => {
+    const demandeSubscription = this.webSocketService.subscribe('/topic/change', () => {
      
       this.getDemandes();
       console.log(this.demandess)

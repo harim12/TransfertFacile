@@ -1,6 +1,9 @@
 <div class="container">
-    <div class="left">
+    <div class="left" (click)="redirectToNotification()">
         <i class="fa-solid fa-bell icon"></i>
+        <div class="point" *ngIf="isNotification">
+
+        </div>
     </div>
     <div class="center">
        

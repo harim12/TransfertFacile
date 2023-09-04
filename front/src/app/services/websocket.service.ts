@@ -26,10 +26,10 @@ export class WebsocketService {
 
   }
 
-  private subscribeToTopic(topic:string,callback:any):void{
-      this.stompClient.subscribe(topic,():any=>{
-        console.log("subscribing to client")
-          callback();
-      })
+  private subscribeToTopic(topic: string, callback: any): void {
+    this.stompClient.subscribe(topic, (message:any) => {
+      // const messageContent = JSON.parse(message.body); // Assuming the message content is in JSON format
+      callback(message);
+    });
   }
 }
