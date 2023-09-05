@@ -39,4 +39,5 @@ export class DemandeDemenagementService {
   addPriceSuggestion(priceSuggestionObject: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/price-suggestion/add`, priceSuggestionObject);
   }
+  
 }

@@ -47,5 +47,9 @@ export class DevisResultComponent {
       this.suggestionService.setSelectedSuggestion(suggestion);
       this.router.navigate(['/hondaDetail'])
     }
-
+    getFileNameFromPath(absolutePath: string): string {
+        const parts = absolutePath.split("\\");
+        return parts[parts.length - 1];
+      }
+      
 }

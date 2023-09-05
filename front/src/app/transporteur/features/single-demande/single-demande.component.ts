@@ -42,7 +42,7 @@ export class SingleDemandeComponent {
       const priceSuggestionObject = {
         "firstName": transporteurData.firstName,
         "lastName": transporteurData.lastName,
-        "carType": transporteurData.carType,
+        "vehiculeImageUrl": transporteurData.vehiculeImageUrl,
         "demandeID": this.demande.demandeId,
         "email": transporteurEmail,
         "priceSuggestion": this.priceSuggestedForm.value.priceSuggested
