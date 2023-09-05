@@ -34,7 +34,7 @@
                 <p class="mini-label">This will be displayed in your profile</p>
             </div>
             <div class="center">
-                <img [src]="'../../../assets/' + (transporteurInfo?.imageUrl ? getFileNameFromPath(transporteurInfo?.imageUrl) : '')" alt="">
+                <img [src]="userUploadedImageUrl ? userUploadedImageUrl : ('../../../assets/' + (transporteurInfo?.imageUrl ? getFileNameFromPath(transporteurInfo?.imageUrl) : ''))" alt="">
                 <!-- <img [src]="displayedImageUrl" alt=""> -->
 
             </div>

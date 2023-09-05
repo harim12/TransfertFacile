@@ -15,6 +15,8 @@ export class DetailsComponent implements OnInit {
   dragging: boolean = false;
   displayedImageUrl: string | null = null;
   email!:string;
+  userUploadedImageUrl: string | ArrayBuffer | null = null; // Initialize with null
+
   constructor(
     private transporteurService: ProfileService,
     private fb: FormBuilder,
@@ -103,16 +105,32 @@ onDrop(event: DragEvent): void {
     reader.onload = (e: any) => {
       this.displayedImageUrl = e.target.result; // Update the displayed image URL
       this.selectedImageProfile = selectedImage;
+      this.userUploadedImageUrl = e.target?.result as string | ArrayBuffer | null;
+
     };
     reader.readAsDataURL(selectedImage);
   }
 }
 
-  onFileChange(event: any) {
-    if (event.target.files && event.target.files.length > 0) {
-      const selectedImage = event.target.files[0];
-      this.selectedImageProfile = selectedImage;
+  // onFileChange(event: any) {
+  //   if (event.target.files && event.target.files.length > 0) {
+  //     const selectedImage = event.target.files[0];
+  //     this.selectedImageProfile = selectedImage;
     
+  //   }
+  // }
+
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const selectedImage = event.target.files[0];
+        this.selectedImageProfile = selectedImage;
+        this.userUploadedImageUrl = e.target?.result as string | ArrayBuffer | null;
+      };
+      reader.readAsDataURL(file);
     }
   }
+  
 }
