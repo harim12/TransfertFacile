@@ -24,6 +24,7 @@ export class MeubleDetailsComponent {
             // Store the items in the categorizedItems object with the original category name
             categorizedItems[category] = itemsArray;
         }
+        console.log(this.meubleDemande)
         this.meubleItems = categorizedItems
     }
     

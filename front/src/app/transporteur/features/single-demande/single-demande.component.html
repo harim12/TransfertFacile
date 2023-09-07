@@ -8,25 +8,15 @@
         
     <div class="adresse-details">
         <div class="adresse"></div>
-        <div class="from" >
-            <p class="title">From</p>
-            <div class="from-content">
-                <p><i class="fa-solid fa-location-dot icon"></i>{{demande?.villeDepart}}</p>
-                <!-- <div class="from etage">
-                    <p><i class="fa-solid fa-stairs icon"></i>premier étage</p>
-                    <p><i class="fa-solid fa-elevator icon"></i>Avec assenceur</p>
-                </div> -->
+        <div class="row">
+            <div class="from col" >
+                <p class="title">From</p>
+                <p><i class="fa-solid fa-location-dot icon"></i>{{demande?.villeDepart}}</p>   
             </div>
-        </div>
-        <div class="to">
-            <p  class="title">To</p>
-           <div class="to-content">
+            <div class="to col">
+                <p  class="title">To</p>
                 <p><i class="fa-solid fa-location-dot icon"></i>{{demande?.villeArrivee}}</p>
-                <!-- <div class="to etage">
-                    <p><i class="fa-solid fa-stairs icon"></i>2 ème étage</p>
-                    <p><i class="fa-solid fa-elevator icon"></i>Sans assenceur</p>
-                </div> -->
-           </div>
+            </div>
         </div>
         <!-- <div class="etage">
             

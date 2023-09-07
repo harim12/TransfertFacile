@@ -75,6 +75,15 @@ img{
     font-size: 15px;
     color: var(--primary_color);
   }
+  .row{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    // align-items: center;
+    gap: 70px;
+    // margin-left: -20px;
+  }
   .from{
     margin-bottom: 20px;
   }

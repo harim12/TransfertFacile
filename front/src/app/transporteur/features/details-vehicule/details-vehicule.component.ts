@@ -24,7 +24,6 @@ export class DetailsVehiculeComponent {
  ngOnInit(): void {
      this.email = localStorage.getItem("emailTransporteur") || '';
     
-    // Initialize the form
     this.transporteurForm = this.fb.group({
       driverLiscence: [''],
       nationalIdentity: [''],
@@ -36,9 +35,7 @@ export class DetailsVehiculeComponent {
     this.transporteurForm.valueChanges.subscribe((updatedData) => {
     });
 
-    // this.webSocketService.subscribe('/topic/update-vehicule-info', () => {
-    //   this.fetchAndPatchTransporteurData(this.email);
-    // });
+   
     this.fetchAndPatchTransporteurData(this.email);
 
   }
