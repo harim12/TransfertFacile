@@ -2,15 +2,17 @@
 .card {
   border: 1px solid #ccc;
   margin: 10px;
-  width: 300px;
+  width: auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Style for the card header */
 .card-header {
-  background-color: #f0f0f0;
+  background-color: var(--primary_color);
+  color: white;
   padding: 8px;
   font-weight: bold;
+  text-align: center;
 }
 
 /* Style for the card body */
@@ -20,7 +22,7 @@
 
 /* Style for the list items */
 ul {
-  list-style: none;
+  list-style: none !important;
   margin: 0;
   padding: 0;
 }
@@ -29,6 +31,7 @@ li {
   margin-bottom: 5px;
   padding-left: 20px;
   position: relative;
+  list-style: none !important;
 }
 
 /* Style for the bullet points */
