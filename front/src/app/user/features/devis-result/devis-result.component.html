@@ -8,9 +8,9 @@
     <div class="content-section">
         <div class="card" *ngFor="let suggestion of priceSuggestions">
           <div class="card-header">
-            <img class="image-honda" [src]="'../../../../assets/' + getFileNameFromPath(suggestion.vehiculeImageUrl)" alt="">
+            <img [src]="'../../../../assets/' + (suggestion?.vehiculeImageUrl ? getFileNameFromPath(suggestion?.vehiculeImageUrl) : '')" alt="">
+          </div>           
 
-          </div>
           <div class="card-body">
             <div class="row">
               <p class="name">{{ suggestion.firstName }} {{ suggestion.lastName }}</p>
