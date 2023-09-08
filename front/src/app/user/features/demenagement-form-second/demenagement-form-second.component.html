@@ -86,7 +86,12 @@
                 <i class="fa-solid fa-image"></i>
                 <p>Glissez la photo ici</p>
                 <a href="#">Télécharger</a>
-                <input type="file" (change)="onFileChange($event, 'first')"  >
+
+                <label for="fileInput" class="custom-file-input">
+                  <i class="fa-solid fa-camera"></i>
+                </label>
+                <input type="file"(change)="onFileChange($event, 'first')" id="fileInput" class="hidden-input">
+
               </div>
               <div class="photo">
                 <i class="fa-solid fa-image"></i>

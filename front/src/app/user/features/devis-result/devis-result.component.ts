@@ -5,6 +5,7 @@ import {DemandeService} from 'src/app/services/demande.service';
 import {DemandesService} from '../../shared/services/demandes.service';
 import {WebsocketService} from 'src/app/services/websocket.service';
 import { PriceSuggestionServiceService } from '../../shared/services/price-suggestion-service.service';
+import { DemandeIDService } from '../../shared/services/demande-id.service';
 
 @Component({selector: 'app-devis-result', templateUrl: './devis-result.component.html', styleUrls: ['./devis-result.component.scss']})
 export class DevisResultComponent {
@@ -19,6 +20,7 @@ export class DevisResultComponent {
                 private demandeService : DemandesService, 
                 private webSocketService : WebsocketService,
                 private suggestionService: PriceSuggestionServiceService,
+                private demandeIdService:DemandeIDService,
                 private router:Router) {}
 
     ngOnInit() {
@@ -44,8 +46,23 @@ export class DevisResultComponent {
         });
     }
     bookNow(suggestion: any) {
+        this.demandeIdService.setDemandeId(this.demandeId);
+
       this.suggestionService.setSelectedSuggestion(suggestion);
-      this.router.navigate(['/hondaDetail'])
+
+      const jwtTransporteur = localStorage.getItem('jwtUser');
+
+    if (jwtTransporteur) {
+        this.router.navigate(['/hondaDetail'])
+    } else {
+      alert("you need to login first")
+      let url=  '/devisResult/'+this.demandeId;  
+      this.router.navigate([url]);
+     
+    }
+
+
+      
     }
     getFileNameFromPath(absolutePath: string): string {
         const parts = absolutePath.split("\\");

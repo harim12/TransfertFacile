@@ -11,6 +11,7 @@ import { LoginUserComponent } from './auth/login-user/login-user.component';
 import { SignUpUserComponent } from './auth/sign-up-user/sign-up-user.component';
 import { AuthUserComponent } from './auth/auth-user/auth-user.component';
 import { ConfirmationPaimentComponent } from './features/confirmation-paiment/confirmation-paiment.component';
+import { UserAuthGuard } from './shared/services/user-auth.guard';
 
 const routes: Routes = [
   // Set the default route to DemenagementFirstFormComponent
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'demeFormFirst', component: DemenagementFirstFormComponent },
   { path: 'demeFormSecond', component: DemenagementFormSecondComponent },
   { path: 'devisResult', component: DevisResultComponent },
-  { path: 'hondaDetail', component: HondaDetailComponent },
+  { path: 'hondaDetail',canActivate:  [UserAuthGuard], component: HondaDetailComponent },
   { path: 'login-user',component:LoginUserComponent},
   { path: 'signup-user',component:SignUpUserComponent},
   { path: 'auth-user',component:AuthUserComponent},
