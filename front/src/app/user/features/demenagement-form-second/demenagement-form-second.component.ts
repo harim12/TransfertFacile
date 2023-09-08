@@ -33,7 +33,6 @@ export class DemenagementFormSecondComponent {
   selectedHomeItems:any;
   demenagementEntityCar!:DemenagementRequestVoiture;
   demenagementEntityMoto:any;
-  address = " Oujda, Pachalik d'Oujda, Préfecture d'Oujda-Angad, Oriental, Maroc"
   latitude: number | undefined;
   longitude: number | undefined;
   map:any;
@@ -340,43 +339,7 @@ export class DemenagementFormSecondComponent {
         }
       };
     }
-    //  else if(type === 'house'){
-
-    //   let resultString = "";
-
-    //   const groupedItems: { [location: string]: string[] } = {};
-
-    //   for (const item of this.selectedHomeItems) {
-    //       if (item.isChecked) {
-    //           if (!groupedItems[item.typeFourniture]) {
-    //               groupedItems[item.typeFourniture] = [];
-    //           }
-    //           groupedItems[item.typeFourniture].push(`${item.itemName} ${item.quantity}`);
-    //       }
-    //   }
-      
-      
-    //   for (const location in groupedItems) {
-    //       if (groupedItems.hasOwnProperty(location)) {
-    //           resultString += `${location}:{${groupedItems[location].join(',')}}`;
-    //       }
-    //   }
-      
-    //   console.log("creating the house object++++++>",resultString)
-    //   return {
-    //     ...commonProperties,
-    //     specificDemande:{
-    //       type: "house",
-    //       items:resultString,
-    //       enlevementType:this.optionLogistiqueHomeForm.value.enlevementType ,
-    //       enlevementEtage:this.optionLogistiqueHomeForm.value.enlevementEtage,
-    //       enlevementAvecSansAssenceur:false,
-    //       livraisonType:this.optionLogistiqueHomeForm.value.livraisonType,
-    //       livraisonEtage:this.optionLogistiqueHomeForm.value.livraisonEtage,
-    //       livraisonAvecSansAssenceur:true
-    //     }
-    //   }
-    // }
+  
     else if (type === 'house') {
       let resultString = "";
     
@@ -451,135 +414,7 @@ export class DemenagementFormSecondComponent {
   
 
  
-  // createDemenagementEntity(type: string, childData: any, initialForm: any, demandeEntityForm: any) {
-
-  //   // Define a function to check if all required attributes are defined
-  //   const areAllAttributesDefined = () => {
-  //     if (type === 'car') {
-  //       return (
-  //         childData.voitureType !== undefined &&
-  //         childData.voiturePrice !== undefined &&
-  //         childData.voitureEtat !== undefined
-  //       );
-  //     } else if (type === 'moto') {
-  //       return (
-  //         childData.motoType !== undefined &&
-  //         childData.motoPrice !== undefined &&
-  //         childData.motoEtat !== undefined
-  //       );
-  //     } else if (type === 'house') {
-  //       return (
-  //         this.optionLogistiqueHomeForm.value.enlevementType !== undefined &&
-  //         this.optionLogistiqueHomeForm.value.enlevementEtage !== undefined &&
-  //         // Add checks for all other required attributes in the 'house' type here
-  //         // For example:
-  //         this.optionLogistiqueHomeForm.value.enlevementAvecSansAssenceur !== undefined &&
-  //         this.optionLogistiqueHomeForm.value.livraisonType !== undefined &&
-  //         this.optionLogistiqueHomeForm.value.livraisonEtage !== undefined &&
-  //         this.optionLogistiqueHomeForm.value.livraisonAvecSansAssenceur !== undefined
-  //       );
-  //     }
-  //     else if (type === 'colis') {
-  //       const colisListObject = this.colisService.getColisList();
-  //       return (
-  //         colisListObject.colisType !== undefined &&
-  //         colisListObject.colisLargeur !== undefined &&
-  //         colisListObject.colisProfondeur !== undefined &&
-  //         colisListObject.colisHauteur !== undefined &&
-  //         colisListObject.colisUnite !== undefined &&
-  //         colisListObject.colisPoids !== undefined
-  //       );
-  //     }
-  //      else {
-  //       throw new Error(`Invalid type: ${type}`);
-  //     }
-  //   };
-  
-  //   // Check if all required attributes are defined
-  //   if (!areAllAttributesDefined()) {
-  //     // Show an alert or perform any desired error handling
-  //     alert('Please fill in all required information');
-  //     return null; // Return null to indicate validation failure
-  //   }
-  
-  //   // Create the demenagementEntity as before
-  //   const commonProperties = new DemandeCommonProperties(
-  //     initialForm.villeDepart,
-  //     initialForm.villeArrivee,
-  //     initialForm.adresseDepart,
-  //     initialForm.adresseArrivee,
-  //     demandeEntityForm.value.horaire,
-  //     this.distance.toFixed(2),
-  //     this.demandeEntityForm.value.informationSpecial
-  //   );
-  
-  //   if (type === 'car') {
-  //     return {
-  //       ...commonProperties,
-  //       specificDemande: {
-  //         type: "car",
-  //         voitureType: childData.voitureType,
-  //         voiturePrice: childData.voiturePrice,
-  //         voitureEtat: childData.voitureEtat
-  //       }
-  //     };
-  //   } else if (type === 'moto') {
-  //     return {
-  //       ...commonProperties,
-  //       specificDemande: {
-  //         type: "moto",
-  //         motoType: childData.motoType,
-  //         motoPrice: childData.motoPrice,
-  //         motoEtat: childData.motoEtat
-  //       }
-  //     };
-  //   } else if(type === 'house'){
-  //     let resultString = "";
-  
-  //     const groupedItems: { [location: string]: string[] } = {};
-  
-  //     for (const item of this.selectedHomeItems) {
-  //         if (item.isChecked) {
-  //             if (!groupedItems[item.typeFourniture]) {
-  //                 groupedItems[item.typeFourniture] = [];
-  //             }
-  //             groupedItems[item.typeFourniture].push(`${item.itemName} ${item.quantity}`);
-  //         }
-  //     }
-  
-  //     for (const location in groupedItems) {
-  //         if (groupedItems.hasOwnProperty(location)) {
-  //             resultString += `${location}:{${groupedItems[location].join(',')}}`;
-  //         }
-  //     }
-  
-  //     return {
-  //       ...commonProperties,
-  //       specificDemande:{
-  //         type: "house",
-  //         items:resultString,
-  //         enlevementType:this.optionLogistiqueHomeForm.value.enlevementType,
-  //         enlevementEtage:this.optionLogistiqueHomeForm.value.enlevementEtage,
-  //         enlevementAvecSansAssenceur:false,
-  //         livraisonType:this.optionLogistiqueHomeForm.value.livraisonType,
-  //         livraisonEtage:this.optionLogistiqueHomeForm.value.livraisonEtage,
-  //         livraisonAvecSansAssenceur:true
-  //       }
-  //     }
-  //   } else if(type ==='colis'){
-  //     let colisListObject = this.colisService.getColisList();
-  //     console.log(colisListObject)
-  //     return {
-  //       ...commonProperties,
-  //       specificDemande:{
-  //         type:"colis",
-  //         ...colisListObject
-  //       }
-  //     }
-  //   } else {
-  //     throw new Error(`Invalid type: ${type}`);
-  //   }
-  // }
+ 
   
 
 

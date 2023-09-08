@@ -36,10 +36,7 @@ export class DetailsComponent implements OnInit {
   
   
    
-    // this.webSocketService.subscribe('/topic/update-personal-info', () => {
-    //   console.log("inside the subscription88888888888888888888")
-    //   this.fetchAndPatchTransporteurData(email);
-    // });
+  
     this.fetchAndPatchTransporteurData(this.email);
 
   }
@@ -112,13 +109,6 @@ onDrop(event: DragEvent): void {
   }
 }
 
-  // onFileChange(event: any) {
-  //   if (event.target.files && event.target.files.length > 0) {
-  //     const selectedImage = event.target.files[0];
-  //     this.selectedImageProfile = selectedImage;
-    
-  //   }
-  // }
 
   onFileChange(event: any) {
     const file = event.target.files[0];

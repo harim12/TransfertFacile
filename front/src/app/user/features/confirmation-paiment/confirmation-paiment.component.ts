@@ -24,7 +24,7 @@ export class ConfirmationPaimentComponent {
   }
 
   getUserInfo(): void {
-    const email = 'hassaniidrissirim190@gmail.com'; // Replace with the email you want to retrieve info for
+    const email = localStorage.getItem("emailTransporteur")||""; // Replace with the email you want to retrieve info for
 
     this.userInfoService.getUserInfoByEmail(email).subscribe(
       (response: any) => {

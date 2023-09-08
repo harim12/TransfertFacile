@@ -21,23 +21,5 @@ export class DemandeTransfertComponent {
   
   }
 
-  // scrollToSingleComponent() {
-  //   if (this.singleComponent && this.singleComponent.nativeElement) {
-  //     console.log("rah dkhl fwst SCROLLTOSINGLECOMPOENT++++++>")
-  //     this.singleComponent.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  //   }
-  // }
 
-  // onRowClicked(demande: DemandeDemenagement) {
-  //   this.demandeDemenagementService.setSelectedDemande(demande);
-  //   if (demande) {
-  //     console.log(demande)
-  //     console.log("hbt=========>",this.singleComponent)
-  //     // Set the selectedDemande to show the app-single-demande component
-  //     this.selectedDemande = demande;
-
-  //     // Scroll to the app-single-demande component when selectedDemande is updated
-  //     this.scrollToSingleComponent();
-  //   }
-  //   }
 }

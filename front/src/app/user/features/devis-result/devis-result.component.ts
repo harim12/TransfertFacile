@@ -50,9 +50,9 @@ export class DevisResultComponent {
 
       this.suggestionService.setSelectedSuggestion(suggestion);
 
-      const jwtTransporteur = localStorage.getItem('jwtUser');
+      const jwtUser = localStorage.getItem('jwtUser');
 
-    if (jwtTransporteur) {
+    if (jwtUser) {
         this.router.navigate(['/hondaDetail'])
     } else {
       alert("you need to login first")

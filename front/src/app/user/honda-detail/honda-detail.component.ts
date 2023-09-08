@@ -60,7 +60,7 @@ export class HondaDetailComponent {
         });
       },
       onError: (error: any) => {
-        console.log('Transaction declined');
+        alert("transaction declined")
       }
     }).render(this.paymentRef.nativeElement);
   }
