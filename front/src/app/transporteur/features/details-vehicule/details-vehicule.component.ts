@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProfileService } from '../../shared/services/profile.service';
 import { WebsocketService } from 'src/app/services/websocket.service';
+import { Alertism } from 'alertism';
 
 @Component({
   selector: 'app-details-vehicule',
@@ -73,11 +74,19 @@ export class DetailsVehiculeComponent {
         .subscribe(
           (response) => {
             this.fetchAndPatchTransporteurData(this.email)
-            console.log('Update successful', response);
+            Alertism({
+              alertHeading: "Success",
+              alertText: "Vehicule data updated successful",
+            });
           },
           (error) => {
             // Handle any errors that may occur during the update
             console.error('Update error', error);
+
+            Alertism({
+              alertHeading: "Error",
+              alertText: "Error updating vehicule data",
+            });
           }
         );
     }

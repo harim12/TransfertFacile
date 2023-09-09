@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProfileService } from '../../shared/services/profile.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { WebsocketService } from 'src/app/services/websocket.service';
+import { Alertism } from 'alertism';
 
 @Component({
   selector: 'app-details-paiment',
@@ -80,11 +81,17 @@ export class DetailsPaimentComponent {
         .subscribe(
           (response) => {
             // Handle the successful update, if needed
-            console.log('Update successful', response);
+            Alertism({
+              alertHeading: "Success",
+              alertText: "Paiment data updated successful",
+            });
           },
           (error) => {
             // Handle any errors that may occur during the update
-            console.error('Update error', error);
+            Alertism({
+              alertHeading: "Error",
+              alertText: "Error updating paiment data",
+            });
           }
         );
     }

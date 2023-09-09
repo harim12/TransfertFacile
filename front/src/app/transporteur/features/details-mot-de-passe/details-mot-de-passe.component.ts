@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ProfileService } from '../../shared/services/profile.service';
+import { Alertism } from 'alertism';
 
 @Component({
   selector: 'app-details-mot-de-passe',
@@ -76,13 +77,22 @@ if (this.passwordForm) {
           if (error.status === 200) {
             // Password changed successfully$
 
-            alert('Password changed successfully.');
+            Alertism({
+              alertHeading: "Success",
+              alertText: "Password changed successfully.",
+            });
           } else if (error.status === 400) {
             // Bad Request (e.g., old password is incorrect)
-            alert('Bad Request: The old password is incorrect.');
+            Alertism({
+              alertHeading: "Success",
+              alertText: "Bad Request: The old password is incorrect.",
+            });
           }
           // Handle other HTTP errors
-          console.error('Error updating password:', error);
+          Alertism({
+            alertHeading: "Success",
+            alertText: "Error updating password:",
+          });
         }
       );
      }

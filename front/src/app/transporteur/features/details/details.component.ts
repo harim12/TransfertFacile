@@ -10,6 +10,7 @@ import { Alertism } from 'alertism';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+  
   transporteurInfo: any = {};
   transporteurForm!: FormGroup;
   selectedImageProfile!: File;
