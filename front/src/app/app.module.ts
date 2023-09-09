@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     UserModule,
     TransporteurModule,
     FormsModule,
+ 
   ],
   providers: [WebsocketService],
   bootstrap: [AppComponent]

@@ -10,7 +10,8 @@
   "files": [
     "src/polyfills.ts",
     "src/global.d.ts",
-    "src/node-geocoder.d.ts"
+    "src/node-geocoder.d.ts",
+    "src/node-alertism.d.ts"
   ],
   "include": [
     "src/**/*.spec.ts",

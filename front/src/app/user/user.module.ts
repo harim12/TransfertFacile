@@ -19,7 +19,7 @@ import { AccessAcountComponent } from './access-acount/access-acount.component';
 import { NavbareComponent } from './core/navbare/navbare.component';
 import { ItemRowComponent } from './core/item-row/item-row.component';
 import { ConfirmationPaimentComponent } from './features/confirmation-paiment/confirmation-paiment.component';
-
+// import { Alertism, Toast } from 'alertism'; // Assuming 'alertism' is the correct package name
 
 
 @NgModule({
@@ -48,6 +48,7 @@ import { ConfirmationPaimentComponent } from './features/confirmation-paiment/co
     UserRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    
   ]
 })
 export class UserModule { }

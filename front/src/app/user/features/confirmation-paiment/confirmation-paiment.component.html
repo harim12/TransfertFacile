@@ -1,3 +1,14 @@
-<h3>{{priceSuggestedAndPaymentConfirmationId.id}}</h3>
-
-<h2>{{priceSuggestedAndPaymentConfirmationId.priceSuggested.priceSuggestion}}</h2>
+<div class="container">
+    <div class="confirmation-container">
+        <div class="confirmation-header">
+          <h1>Transporteur Reserved Successfully</h1>
+          <p class="subtext">Here is the Transporteur's Contact Information:</p>
+        </div>
+        <div class="contact-info">
+          <p><strong>Name:</strong> {{transporteurInfo?.firstName}} {{transporteurInfo?.lastName}}</p>
+          <p><strong>Contact Number:</strong>{{transporteurInfo?.phoneNumber}}</p>
+          <p><strong>Email:</strong>{{transporteurInfo?.email}}</p>
+        </div>
+      </div>
+      
+</div>
