@@ -4,6 +4,7 @@ import { AuthenticationServiceService } from '../../shared/services/authenticati
 import { UserLoginDTO } from '../../models/userLoginDTO.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DemandeIDService } from '../../shared/services/demande-id.service';
+import { Alertism } from 'alertism';
 
 @Component({
   selector: 'app-login-user',
@@ -43,7 +44,10 @@ export class LoginUserComponent {
       this.authenticationService.loginUser(registrationDTO).subscribe(
         (response) => {
           if (response.jwt === '') {
-            alert('Wrong credentials');
+            Alertism({
+              alertHeading: "Failed",
+              alertText: "Wrong credential",
+            });
           } else {
             // Store JWT token and user info
             localStorage.setItem('jwtUser', response.jwt);
@@ -57,7 +61,10 @@ export class LoginUserComponent {
           }
         },
         (error) => {
-          alert('Something went wrong');
+          Alertism({
+            alertHeading: "Failed",
+            alertText: "Something went wrong",
+          });
         }
       );
     }
