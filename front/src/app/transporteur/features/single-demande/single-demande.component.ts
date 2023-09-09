@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { DemandeDemenagement } from '../../shared/models/demande.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DemandeDemenagementService } from '../../shared/services/demande-demenagement.service';
+import { Alertism } from 'alertism';
 
 @Component({
   selector: 'app-single-demande',
@@ -53,11 +54,18 @@ export class SingleDemandeComponent {
       // Now call the service to add the price suggestion
       this.demandeService.addPriceSuggestion(priceSuggestionObject).subscribe(
         (response) => {
-          console.log("Price suggestion added successfully:", response);
+         
+          Alertism({
+            alertHeading: "Success",
+            alertText: "Price suggestion added successfully:",
+          });
           // You can perform any additional actions after the suggestion is added
         },
         (error) => {
-          console.error("Error adding price suggestion:", error);
+          Alertism({
+            alertHeading: "Success",
+            alertText: "Error adding price suggestion:",
+          });
           // Handle any errors that occur during the POST request
         }
       );

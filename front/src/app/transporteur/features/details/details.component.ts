@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../shared/services/profile.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { WebsocketService } from 'src/app/services/websocket.service';
+import { Alertism } from 'alertism';
 
 @Component({
   selector: 'app-details',
@@ -69,10 +70,17 @@ export class DetailsComponent implements OnInit {
           (response) => {
             // Handle the successful update, if needed
             this.fetchAndPatchTransporteurData(this.email);
+            Alertism({
+              alertHeading: "Success",
+              alertText: "Data changed succefully:",
+            });
           },
           (error) => {
             // Handle any errors that may occur during the update
-            console.error('Update error', error);
+            Alertism({
+              alertHeading: "Failed",
+              alertText: "Error updating",
+            });
           }
         );
     }
