@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthenticationServiceService } from 'src/app/user/shared/services/authentication-service.service';
 import { TransporteurLoginDTO } from '../../shared/models/transporteurLoginDTO';
 import { TransporteurAuthenticationService } from '../../shared/services/transporteur-authentication.service';
+import { Alertism } from 'alertism';
 
 @Component({
   selector: 'app-login-transporteur',
@@ -38,7 +39,10 @@ export class LoginTransporteurComponent {
       if(this.loginForm.valid){
         this.authenticationService.loginUser(registrationDTO).subscribe(response => {
           if(response.jwt==''){
-            alert("wrong credentials")
+            Alertism({
+              alertHeading: "Failed",
+              alertText: "Wrong credential",
+            });
           }
           else{
             this.router.navigate(['/transporteurs'])
@@ -47,7 +51,10 @@ export class LoginTransporteurComponent {
           }
         },
         error=>{
-          alert("somthing went wrong")
+          Alertism({
+            alertHeading: "Failed",
+            alertText: "Something went wrong",
+          });
         }
         );
       }

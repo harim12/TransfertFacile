@@ -3,6 +3,7 @@ import { TransporteurRegisterDTO } from '../../shared/models/transporteurRegiste
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationServiceService } from 'src/app/user/shared/services/authentication-service.service';
 import { TransporteurAuthenticationService } from '../../shared/services/transporteur-authentication.service';
+import { Alertism } from 'alertism';
 
 @Component({
   selector: 'app-sign-up-transporteur',
@@ -40,14 +41,23 @@ export class SignUpTransporteurComponent {
         );
   
         this.authenticationService.registerUser(registrationDTO).subscribe(response => {
-          alert("we have sent a verification link to your email")
+          Alertism({
+            alertHeading: "Success",
+            alertText: "We have sent a verification link to your email",
+          });
         },
         error=>{
           if (error.error === 'Email already exists') {
-            alert("Email already exists")
+            Alertism({
+              alertHeading: "Failed",
+              alertText: "Email already exists",
+            });
           }
           else{
-            alert("somthing went wrong");
+            Alertism({
+              alertHeading: "Failed",
+              alertText: "Somthing wrong happend",
+            });
           }
         }
         
