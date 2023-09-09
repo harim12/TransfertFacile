@@ -1,7 +1,5 @@
 .container {
     width: 100%;
-    // position: relative;
-    // text-align: center;
 }
 
 .top-section {
@@ -39,32 +37,19 @@
 .container-content {
     width: 100%;
     display: flex;
-    flex-direction: column; /* Change to column */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .content-section {
-    // // width: 100%; /* Change to 100% */
-    // // max-width: 1200px; /* Set a max-width for the content */
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: center;
-    // gap: 20px;
-    // margin-top: 30px;
-    // // display: grid;
-    // // grid-template-columns: repeat(4, 1fr);
-    // // gap: 20px;
-    // width: 77%;
-    // margin: 30px auto;
-
     width: 100%;
-    display: grid; /* Use CSS Grid */
-    justify-items: center; /* Center horizontally */
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); /* Create flexible grid columns */
+    display: grid;
+    justify-items: center; 
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); 
     gap: 20px;
     margin-top: 30px;
-    max-width: 1400px; /* Set a max-width for the content */
+    max-width: 1400px; 
 }
 
 .card {
@@ -118,6 +103,11 @@
     background-color: var(--primary_color);
     color: white;
     border-radius: 7px;
+}
+
+.imgheader{
+    width: 100%;
+    height: 90%;
 }
 
 @media (max-width: 870px) {
