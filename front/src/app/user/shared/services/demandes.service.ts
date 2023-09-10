@@ -30,7 +30,9 @@ export class DemandesService {
     formData.append('image1', imageFile);
     formData.append('image2',imageSecondFile);
     formData.append('image3',imageThirdFile);
-    console.log("this is the form data from the backend",formData.get("testeEntity"))
+    console.log("this is the form data from the backend",formData.get("image1"))
+    console.log("this is the form data from the backend",formData.get("image2"))
+    console.log("this is the form data from the backend",formData.get("image3"))
     return this.http.post<any>(`${this.baseUrl}/demande/addTeste`, formData);
   }
 

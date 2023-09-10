@@ -13,6 +13,7 @@ import * as NodeGeocoder from 'node-geocoder';
 import { latLng, LatLngBounds } from 'leaflet';
 import { HttpClient } from '@angular/common/http';
 import { ColisSelectedOptionService } from '../../shared/services/colis-selected-option.service';
+import { Alertism } from 'alertism';
 @Component({
   selector: 'app-demenagement-form-second',
   templateUrl: './demenagement-form-second.component.html',
@@ -215,14 +216,20 @@ export class DemenagementFormSecondComponent {
     if (event.target.files && event.target.files.length > 0) {
       const selectedImage = event.target.files[0];
   
-      if (imageType === 'first') {
+       if (imageType == 'first') {
         this.selectedImageFile = selectedImage;
+        console.log("first file",this.selectedImageFile);
       } 
-      else if (imageType === 'second') {
+       if (imageType == 'second') {
         this.selectedSecondImage = selectedImage;
-      } else if (imageType === 'third') {
+        console.log("selectedSecondImage file",this.selectedSecondImage);
+
+      } else if (imageType == 'third') {
         this.selectedThirdImage = selectedImage;
+        console.log("selectedThirdImage file",this.selectedThirdImage);
+        
       }
+     
     }
     
   }
@@ -263,12 +270,18 @@ export class DemenagementFormSecondComponent {
         }
       }
       else {
-        alert('Please fill in all required information');
+        Alertism({
+          alertHeading: "Error",
+          alertText: "Please fill in all required information",
+        });
       }
       // Check if demenagementEntity is defined
       
     } else {
-      alert('Please fill in all required information');
+      Alertism({
+        alertHeading: "Error",
+        alertText: "Please fill in all required information",
+      });
     }
   }
   
@@ -314,8 +327,10 @@ export class DemenagementFormSecondComponent {
         childData.voiturePrice === null ||
         childData.voitureEtat === null
       ) {
-        alert('Please fill in all required car information');
-        return null; // Return null to indicate validation failure
+        Alertism({
+          alertHeading: "Error",
+          alertText: "Please fill in all required information",
+        });        return null; // Return null to indicate validation failure
       }
     
       return {
@@ -368,7 +383,11 @@ export class DemenagementFormSecondComponent {
         this.optionLogistiqueHomeForm.value.livraisonType === "" ||
         this.optionLogistiqueHomeForm.value.livraisonEtage === ""
       ) {
-        alert('Please fill in all required information');
+        Alertism({
+          alertHeading: "Error",
+          alertText: "Please fill in all required information",
+        });
+        
         return null; // Return null to indicate validation failure
       }
       return {
@@ -393,7 +412,10 @@ export class DemenagementFormSecondComponent {
       const isColisObjectEmpty = Object.values(colisListObject).every(value => value === '');
     
       if (isColisObjectEmpty) {
-        alert('Please fill in colis information');
+        Alertism({
+          alertHeading: "Error",
+          alertText: "Please fill in colis informatio",
+        });
         return null; // Return null to indicate validation failure
       } else {
         console.log(colisListObject);
