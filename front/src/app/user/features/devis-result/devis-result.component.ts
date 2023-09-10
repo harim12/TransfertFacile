@@ -6,6 +6,7 @@ import {DemandesService} from '../../shared/services/demandes.service';
 import {WebsocketService} from 'src/app/services/websocket.service';
 import { PriceSuggestionServiceService } from '../../shared/services/price-suggestion-service.service';
 import { DemandeIDService } from '../../shared/services/demande-id.service';
+import { Alertism } from 'alertism';
 
 @Component({selector: 'app-devis-result', templateUrl: './devis-result.component.html', styleUrls: ['./devis-result.component.scss']})
 export class DevisResultComponent {
@@ -55,7 +56,10 @@ export class DevisResultComponent {
     if (jwtUser) {
         this.router.navigate(['/hondaDetail'])
     } else {
-      alert("you need to login first")
+      Alertism({
+        alertHeading: "Failed",
+        alertText: "you need to login first",
+      });
       let url=  '/devisResult/'+this.demandeId;  
       this.router.navigate([url]);
      

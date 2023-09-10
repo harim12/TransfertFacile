@@ -13,6 +13,12 @@
             <small class="text-danger">Last name is required</small>
         </div>
 
+        <input formControlName="phoneNumber" class="un" type="text" align="center" placeholder="Your phone number">
+        <!-- Display error message for required last name -->
+        <div class="error-text" *ngIf="registrationForm.get('phoneNumber')!.hasError('required') && (registrationForm.get('phoneNumber')!.dirty || registrationForm.get('phoneNumber')!.touched)">
+            <small class="text-danger">Last phone number is required</small>
+        </div>
+
         <input formControlName="email" class="un" type="text" align="center" placeholder="Your email">
         <!-- Display error message for required email -->
         <div class="error-text" *ngIf="registrationForm.get('email')!.hasError('required') && (registrationForm.get('email')!.dirty || registrationForm.get('email')!.touched)">
