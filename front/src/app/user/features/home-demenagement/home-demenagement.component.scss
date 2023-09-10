@@ -36,7 +36,8 @@
   }
   
   .tab.active {
-    background-color: #85C1C1;
+    background-color: var(--light-blue);
+    border-right: none;
   }
   
   .tab-content-wrapper {
@@ -51,7 +52,6 @@
   .tab-content {
     display: none;
     width: 90%;
-
     input[type="text"]{
       border-radius: 9px;
       height: 50px;
@@ -75,17 +75,5 @@
   }
   
   .tab-content.show {
-    display: block;
-  }
-  
-  .row{
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: space-between;
-    // align-items: center;
-   
-
-    
-
-  }
-
+    display:block;
+}

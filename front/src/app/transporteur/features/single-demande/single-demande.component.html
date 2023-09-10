@@ -1,6 +1,6 @@
 <div class="container" >
     <div class="content">
-        <h2 class="title">Demande details </h2>
+        <h2 class="title"> <i class="fa-solid fa-circle-info"></i> Demande details</h2>
         <app-car-details *ngIf="demande?.specificDemande.type=='car'" [carDemande]="demande"></app-car-details>
         <app-moto-details *ngIf="demande?.specificDemande.type=='moto'" [motoDemande]="demande"></app-moto-details>
         <app-colis-details *ngIf="demande?.specificDemande.type=='colis'" [colisDemande]="demande"></app-colis-details>
@@ -10,12 +10,12 @@
         <div class="adresse"></div>
         <div class="row">
             <div class="from col" >
-                <p class="title">From</p>
-                <p><i class="fa-solid fa-location-dot icon"></i>{{demande?.villeDepart}}</p>   
+                <p class="title">De</p>
+                <p class="ville"><i class="fa-solid fa-location-dot icon"></i>{{demande?.villeDepart}}</p>   
             </div>
             <div class="to col">
-                <p  class="title">To</p>
-                <p><i class="fa-solid fa-location-dot icon"></i>{{demande?.villeArrivee}}</p>
+                <p  class="title">A</p>
+                <p class="ville"><i class="fa-solid fa-location-dot icon"></i>{{demande?.villeArrivee}}</p>
             </div>
         </div>
         <!-- <div class="etage">
@@ -32,10 +32,10 @@
 
 
     <div >
-        <p class="title">Images</p>
+        <p class="title img-title">Images</p>
         <div class="images">
             <ng-container *ngIf="demande?.firstImageUrl">
-                <img [src]="'../../../../assets/' + getFileNameFromPath(demande.firstImageUrl)" alt="">
+                <img [src]="'../../../../assets/' + (demande?.firstImageUrl? getFileNameFromPath(demande?.firstImageUrl) : '')" alt="">
             </ng-container>
             <ng-container *ngIf="demande?.secondImageUrl">
                 <img [src]="'../../../../assets/' + (demande?.secondImageUrl ? getFileNameFromPath(demande?.secondImageUrl) : '')" alt="">
@@ -55,8 +55,5 @@
     </div>
     
     </div>
-    
-      
+
 </div>
-
-

@@ -1,29 +1,40 @@
 .col{
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    padding-top: 4px;
-    padding-left: 15px;
-    margin-left: -20px;
-    align-items: center;
-    padding-bottom: 15px;
-    width: 100% !important;
-    margin-bottom: 15px;
-    background-color: #85C1C1;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  padding-top: 18px;
+  padding-left: 15px;
+  margin-left: -20px;
+  align-items: center;
+  padding-bottom: 20px;
+  width: 100% !important;
+  // margin-bottom: 10px;
+  background-color: var(--light-blue);
+  .itemName{
+      width: 200px;
+  }
 }
 
 .quantity-button{
-    padding: 7px;
-    border: none;
-    color: white;
-    background-color: var(--primary_color);
+  padding: 4px;
+  border: none;
+  color: white;
+  text-align: center;
+  background-color: var(--primary_color);
+  font-size: 17px;
+  width: 25px;
+}
+.minus{
+  border-right: 1px solid var(--light-blue);
+  border-radius: 5px 0 0 5px;
+}
+.plus{
+  border-radius: 0 5px 5px 0;
+
 }
 input{
-    width: 35px;
-    height: 18px;
-    margin-top: 4px;
-  }
-  .checkbox{
-    color: red;
-    background-color: red;
-  }
+  width: 40px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--gray_color);
+}

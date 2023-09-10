@@ -1,11 +1,10 @@
 <div class="col">
-    <span class="quantity" *ngIf="quantity!=1 && quantity!=0">*({{ quantity }})</span>
-    <p>{{ itemName }}</p>
-    <div class="quantity-controls" *ngIf="isChecked">
-        <button class="quantity-button minus" (click)="decreaseQuantity()">-</button>
-        <button class="quantity-button plus" (click)="increaseQuantity()">+</button>
-      </div>
-    <input type="checkbox" class="checkbox" [(ngModel)]="isChecked" (ngModelChange)="toggleQuantityControls(typeFourniture)">
-    
+  <span class="quantity" *ngIf="quantity!=1 && quantity!=0">*({{ quantity }})</span>
+  <p class="itemName">{{ itemName }}</p>
+  <div class="quantity-controls" *ngIf="isChecked">
+      <button class="quantity-button minus" (click)="decreaseQuantity()">-</button>
+      <button class="quantity-button plus" (click)="increaseQuantity()">+</button>
+    </div>
+  <input type="checkbox" [(ngModel)]="isChecked" (ngModelChange)="toggleQuantityControls(typeFourniture)">
+
 </div>
-  

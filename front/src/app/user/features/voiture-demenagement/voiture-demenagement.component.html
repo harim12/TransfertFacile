@@ -2,14 +2,14 @@
     <div class="content">
         <div class="row first-row">
             <form [formGroup]="voitureTypeForm" >
-                <label >Entrer marque et modèle</label>
-                <input type="text"  class="marqueVoiture" placeholder="Aston Martin" formControlName="voitureType">
-            </form>
+            <label >Entrer marque et modèle</label>
+            <input type="text"  class="marqueVoiture" placeholder="Aston Martin" formControlName="voitureType"> 
+        </form>
         </div>
-        <div class="row">
+        <div class="row second-row">
             <div class="custom-select1"  id ="custom-select" [class.open]="isOpenSelect1" (click)="toggleDropdown('select1')">
                 <label >Informations importante</label>
-                <span class="selected-option">{{ selectedOption1?.label || 'Valeurs estimées de votre voiture' }}</span>
+                <span class="selected-option">{{ selectedOption1?.label || 'Valeurs  de votre voiture' }}</span>
                 <ul class="custom-options custom-options1" [class.open]="isOpenSelect1">
                     <li *ngFor="let option of dropdownOptionsPrice" (click)="onOptionSelected(option,'select1')">
                     {{option.value}}
@@ -18,7 +18,7 @@
             </div> 
             <div class="custom-select2" id="custom-select"  [class.open]="isOpenSelect2" (click)="toggleDropdown('select2')">
                 <label >Informations importante</label>
-                <span class="selected-option">{{ selectedOption2?.label || 'Conditions du véhucule' }}</span>
+                <span class="selected-option">{{ selectedOption2?.label || 'Conditions du véhicule' }}</span>
                 <ul class="custom-options custom-options2" [class.open]="isOpenSelect2">
                     <li *ngFor="let option of dropdownOptionsEtat" (click)="onOptionSelected(option,'select2')">
                     {{option.value}}
@@ -26,6 +26,5 @@
                 </ul>
             </div>  
         </div>  
-    </div>
+ </div>
 </div>
-    

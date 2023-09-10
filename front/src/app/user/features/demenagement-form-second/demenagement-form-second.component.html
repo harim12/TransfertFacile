@@ -14,8 +14,7 @@
               <app-voiture-demenagement (selectedOptionsEvent)="handleSelectedOptions($event)"></app-voiture-demenagement>
              </ng-container>  
              <ng-container class="moto-container" *ngIf="selectedOption === 'motos'">
-              <img class="moto-img" src="./../../../../assets/moto (1).png" alt="">
-              <h2 class="title moto-title"> Transport de moto</h2>
+              <h2 class="title "> Transport de moto</h2>
               <app-moto-demenagement (selectedOptionsEvent)="handleSelectedOptions($event)"></app-moto-demenagement>
              </ng-container>
              <ng-container class="colis" *ngIf="selectedOption === 'colis_et_objets_emballes'">
@@ -41,7 +40,7 @@
                   <small  *ngIf="optionLogistiqueHomeForm.get('enlevementEtage')!.hasError('required') && (optionLogistiqueHomeForm.get('enlevementEtage')!.dirty || optionLogistiqueHomeForm.get('enlevementEtage')!.touched)" class="text-danger">Étage d'enlèvement requis</small>
 
                   <div class="row-checkbox">
-                  <input type="checkbox" formControlName="enlevementAvecSansAssenceur">
+                  <input type="checkbox" class="checkbox-input" formControlName="enlevementAvecSansAssenceur">
                   <p>Avec ascenseur</p>
                   </div>
               </div>
@@ -54,7 +53,7 @@
                   <input type="text" class="input"  placeholder="choisissez un étage"  formControlName="livraisonEtage"> 
                   <small *ngIf="optionLogistiqueHomeForm.get('livraisonEtage')!.hasError('required') && (optionLogistiqueHomeForm.get('livraisonEtage')!.dirty || optionLogistiqueHomeForm.get('livraisonEtage')!.touched)" class="text-danger">Étage de livraison requis</small>
                   <div class="row-checkbox">
-                    <input type="checkbox" formControlName="livraisonAvecSansAssenceur">
+                    <input type="checkbox" class="checkbox-input" formControlName="livraisonAvecSansAssenceur">
                   <p>Avec ascenseur</p>
                   </div>
               </div>
@@ -68,7 +67,7 @@
     </div>
     </form>
 
-        <div class="wrapper-photos-horaire">
+        <div class="wrapper-photos-horaire " [ngClass]="{'horaire-not-home': selectedOption !== 'meubles_et_electromenagers'}">
           <div class="section photos">
             <!-- Your "photos" content here -->
             <h2 class="horaire-title title">Horaire</h2>
@@ -86,25 +85,26 @@
                 <i class="fa-solid fa-image"></i>
                 <p>Glissez la photo ici</p>
                 <a href="#">Télécharger</a>
-
                 <label for="fileInput" class="custom-file-input">
                   <i class="fa-solid fa-camera"></i>
                 </label>
-                <input type="file"(change)="onFileChange($event, 'first')" id="fileInput" class="hidden-input">
-
-              </div>
+                <input type="file"(change)="onFileChange($event, 'first')" id="fileInput" class="hidden-input">              </div>
               <div class="photo">
                 <i class="fa-solid fa-image"></i>
                 <p>Glissez la photo ici</p>
                 <a href="#">Télécharger</a>
-                <input type="file" (change)="onFileChange($event, 'second')"  >
-              </div>
+                <label for="fileInput" class="custom-file-input">
+                  <i class="fa-solid fa-camera"></i>
+                </label>
+                <input type="file"(change)="onFileChange($event, 'second')" id="fileInput" class="hidden-input">              </div>
               <div class="photo">
                 <i class="fa-solid fa-image"></i>
                 <p>Glissez la photo ici</p>
                 <a href="#">Télécharger</a>
-                <input type="file" (change)="onFileChange($event, 'third')"  >
-              </div>
+                <label for="fileInput" class="custom-file-input">
+                  <i class="fa-solid fa-camera"></i>
+                </label>
+                <input type="file"(change)="onFileChange($event, 'third')" id="fileInput" class="hidden-input">              </div>
             </div>
           </div>
         </div>
@@ -133,5 +133,5 @@
       <button class="btn-devis" type="submit" (click) = "addDemande()" >Recevoir des devis</button>
     </form>
 </div>
-<!-- =========this needs to be put back in the button -->
-<!--  -->
+<!-- =========this needs to be put back in the button -->
+<!--  -->

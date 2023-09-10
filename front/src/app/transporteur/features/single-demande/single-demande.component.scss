@@ -16,15 +16,50 @@
   // background-color: red;
     width: 95%;
     // margin: auto;
-    padding-left: 15px;
+    padding-left: 10px;
    
     .title{
         color: var(--primary_color);
-        // font-family: 'Pacifico',sans-serif;
-        font-family:'Prata',serif;
         margin-bottom: 7px;
-        font-size: 27px;
+        font-size: 23px;
+        font-weight: 600;
+        .fa-circle-info{
+          font-size: 25px;
+        }
+    }
+    .adresse-details{
+      background-color: white;
+      padding: 5px 0 5px 5px;
+      margin-top: 15px;
+      border-radius: 10px;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+      .row{
+        .col{
+          .title{
+            color: var(--secondary_color);
+          }
+          .ville{
+            color: var(--gray_color);
+          }
+        }
+      }
+    }
+    .special-details{
+      .title{
+        color: var(--secondary_color);
+        font-size: 20px;
+        text-decoration: underline;
         font-weight: 200;
+      }
+    }
+    div{
+      .img-title{
+        font-size: 20px;
+        text-decoration: underline;
+        font-weight: 200;
+        color: var(--secondary_color);
+      }
     }
 }
 
@@ -73,7 +108,7 @@ img{
   .icon{
     margin-right: 5px;
     font-size: 15px;
-    color: var(--primary_color);
+    color: var(--gray_color);
   }
   .row{
     margin-top: 10px;
@@ -116,9 +151,24 @@ img{
   margin-top: 10px;
   input{
     padding: 15px 25px;
+    width: 100%;
+    border: 1px solid var(--gray_color);
+    border-radius: 5px;
   }
   .btn{
     background-color: var(--primary_color);
+    color: white;
+    padding: 8px;
+    text-align: center;
+    border: none;
+    margin-top: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 50%;
+    margin-left: 4rem;
   }
- 
+  .btn:hover{
+    background-color: #30aedb;
+}
+
 }
