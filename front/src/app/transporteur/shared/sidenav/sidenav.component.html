@@ -1,20 +1,40 @@
-<div class="sidenav" [ngClass] = "collapsed ? 'sidenav-collapsed':'' " >
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
     <div class="logo-container">
-        <button class="logo" (click) = "toggleCollapse()"><i class="fa-sharp fa-solid fa-bars"></i></button>
-        
-        <button class="btn-close "  *ngIf = "collapsed" (click)="closeSidenav()">
+        <button class="logo" (click)="toggleCollapse()"><i class="fa-sharp fa-solid fa-bars"></i></button>
+
+        <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
             <i class="fa-solid fa-xmark fa-2xl"></i>
         </button>
     </div>
     <ul class="sidenav-nav">
-        <li class="sidenav-nav-item" *ngFor = "let data of navData">
-            <a class="sidenav-nav-link" [routerLink] = "[data.routeLink]"
-                routerLinkActive = "active"
-                [routerLinkActiveOptions] = "{exact:true}"
-                >
-                <i class="sidenav-link-icon" [class] = "data.icon" ></i>
-               
-                <span class="sidenav-link-text" *ngIf = "collapsed">{{data.label}}</span> 
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link" [routerLink]="['demandes']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <i class="sidenav-link-icon fa-solid fa-truck"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Demandes</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link" [routerLink]="['projet']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <i class="sidenav-link-icon fa-solid fa-check"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Projet actuelle</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link" [routerLink]="['productivity']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <i class="sidenav-link-icon fa-solid fa-arrow-up-right-dots"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Productivity</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link" [routerLink]="['profile']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <i class="sidenav-link-icon fa-solid fa-user"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Profile</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item logoute" (click)="logout()">
+            <a class="sidenav-nav-link " routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <i class="sidenav-link-icon fa-solid fa-right-from-bracket "></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Logout</span>
             </a>
         </li>
     </ul>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { navbarData } from './nav-data';
+import { Router } from '@angular/router';
 interface SideNavToggle{
   screenWidth:number;
   collapsed:boolean;
@@ -23,7 +24,7 @@ export class SidenavComponent {
 
     }
   }
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
@@ -37,5 +38,10 @@ export class SidenavComponent {
     this.collapsed = false;
     this.onToggleSideNav.emit({collapsed:this.collapsed,screenWidth:this.screenWidth})
 
+  }
+  logout(){
+    this.router.navigate(['demeFormFirst'])
+    localStorage.removeItem("jwtTransporteur")
+    localStorage.removeItem("emailTransporteur")
   }
 }

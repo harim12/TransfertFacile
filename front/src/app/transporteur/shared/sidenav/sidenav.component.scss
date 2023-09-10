@@ -38,7 +38,7 @@
             border: none;
             color: white;
              &:focus{
-                background-color: teal;
+                background-color:  var(--light-blue);
              }
             .fa-home{
                 color: white;
@@ -94,22 +94,26 @@
     }
     .sidenav-nav-item:hover{
         .sidenav-nav-link{
-            background-color: teal;
+            background-color:  var(--light-blue);
             color: white;
         }
     }
 }
 .active{
     height: 100%;
-    background-color: teal;
+    background-color:  var(--light-blue);
 
     .sidenav-link-icon,
     .sidenav-link-text{
         color: white;
     }
 }
-.logout{
-    margin-top: 600px !important;
+.logoute{
+    position: absolute;
+    bottom: 20px;
+    left: 2px;
+    padding: 0.738rem;
+
 }
 ul{
     color: white !important;

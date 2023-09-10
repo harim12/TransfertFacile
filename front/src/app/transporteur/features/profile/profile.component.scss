@@ -64,12 +64,12 @@
   
 /* Styling for non-active tabs */
 .tab:not(.active)::before {
-    background-color: #85C1C1; 
+    background-color: var(--light-blue); 
   }
   
   /* Additional styling for non-active tabs */
   .tab:not(.active) {
-    color: #85C1C1; 
+    color:  var(--light-blue); 
   }
   /* Styling for tab content */
   .tab-content-wrapper {
