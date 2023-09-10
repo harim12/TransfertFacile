@@ -3,29 +3,29 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <p>colisType: &nbsp;</p>
+            <p class="colis-data">colisType: &nbsp;</p>
             <p>{{ colis?.colisType }}</p>
           </div>
           <div class="row">
-            <p>colis Hauteur: &nbsp;</p>
-            <p>{{ colis?.colisHauteur }}</p>
+            <p class="colis-data">colis Hauteur: &nbsp;</p>
+            <p>{{ colis?.colisHauteur }} {{ colis?.colisUnite }}</p>
           </div>
           <div class="row">
-            <p>colis Poids: &nbsp;</p>
-            <p>{{ colis?.colisPoids }}</p>
+            <p class="colis-data">colis Poids: &nbsp;</p>
+            <p>{{ colis?.colisPoids }} kg  </p>
           </div>
           <div class="row">
-            <p>colis Largeur: &nbsp;</p>
-            <p>{{ colis?.colisLargeur }}</p>
+            <p class="colis-data">colis Largeur: &nbsp;</p>
+            <p>{{ colis?.colisLargeur }} {{ colis?.colisUnite }}</p>
           </div>
           <div class="row">
-            <p>colis Profondeur: &nbsp;</p>
-            <p>{{ colis?.colisProfondeur }}</p>
+            <p class="colis-data">colis Profondeur: &nbsp;</p>
+            <p>{{ colis?.colisProfondeur }} {{ colis?.colisUnite }}</p>
           </div>
-          <div class="row">
-            <p>colis Unite: &nbsp;</p>
+          <!-- <div class="row">
+            <p class="colis-data">colis Unite: &nbsp;</p>
             <p>{{ colis?.colisUnite }}</p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <div class="container" >
     <div class="content">
-        <h2 class="title">Demande details </h2>
+        <h2 class="title">Projet details </h2>
         <app-car-details *ngIf="demande?.specificDemande.type=='car'" [carDemande]="demande"></app-car-details>
         <app-moto-details *ngIf="demande?.specificDemande.type=='moto'" [motoDemande]="demande"></app-moto-details>
         <app-colis-details *ngIf="demande?.specificDemande.type=='colis'" [colisDemande]="demande"></app-colis-details>

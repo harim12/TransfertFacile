@@ -26,7 +26,7 @@
                               </div>
             <div class="right upload-image">
                 <div class="content">
-                    <img class="vehicleImg" [src]="userUploadedImageUrl ? userUploadedImageUrl : ('../../../assets/' + (transporteurInfo?.imageVehiculeUrl ? getFileNameFromPath(transporteurInfo?.imageVehiculeUrl) : ''))" alt="">
+                    <img class="vehicleImg" [src]="userUploadedImageUrl ? userUploadedImageUrl : ('../../../assets/' + (transporteurInfo?.imageVehiculeUrl ? getFileNameFromPath(transporteurInfo?.imageVehiculeUrl) : 'Image-Not-Available.png'))" alt="">
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@
     <div class="content-section">
         <div class="card" *ngFor="let suggestion of priceSuggestions">
           <div class="card-header">
-            <img class="imgheader" [src]="'../../../../assets/' + (suggestion?.vehiculeImageUrl ? getFileNameFromPath(suggestion?.vehiculeImageUrl) : '')" alt="">
+            <img class="imgheader" [src]="'../../../../assets/' + (suggestion?.vehiculeImageUrl ? getFileNameFromPath(suggestion?.vehiculeImageUrl) : 'Image-Not-Available.png')" alt="">
           </div>           
 
           <div class="card-body">

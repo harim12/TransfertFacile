@@ -33,7 +33,7 @@ export class VoitureDemenagementComponent {
   
   ngOnInit(){
     this.voitureTypeForm =  this.formBuilder.group({
-      voitureType: ['Aston Martin', Validators.required],
+      voitureType: ['', Validators.required],
     });
   }  
              
