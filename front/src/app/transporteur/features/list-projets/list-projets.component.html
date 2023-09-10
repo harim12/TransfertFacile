@@ -27,19 +27,20 @@
           <table class="custom-table">
             <thead>
               <tr>
-                <th>Image</th>
-                <th>Nom et prénom</th>
+                <th>Projet id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
                 <th>telephone</th>
-                <th>départ</th>
-                <th>arrivée</th>
+                <th>Price</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor ="let projet of projets" (click)="onRowClicked(projet)">
-                <td><img src="./../../../../assets/OIP.jpeg" alt="#"></td>
-                <td>{{projet.userFirstName}} {{projet.userLastName}}</td>
+                <td>{{projet.projectId}}</td>
+                <td>{{projet.userFirstName}}</td>
+                <td>{{projet.userLastName}}</td>
                 <td>{{projet.userPhoneNumber}}</td>
-
+                <td>{{projet.price}}</td>
               </tr>
              
             

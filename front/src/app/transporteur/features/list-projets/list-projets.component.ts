@@ -31,10 +31,10 @@ export class ListProjetsComponent {
 
     const demandeSubscription = this.webSocketService.subscribe('/topic/change', () => {
      
-      this.getDemandes();
+      this.getProjets();
       console.log(this.projets)
     });
-    this.getDemandes();
+    this.getProjets();
 
    }
    onRowClicked(project:ProjetDemenagement){
@@ -43,11 +43,12 @@ export class ListProjetsComponent {
       
     }
 
-    getDemandes(): void {
+    getProjets(): void {
       this.demandeDemenagementService.getProjects(this.transporteurEmail).subscribe(projets => {
        
        this.projets = projets;
-      //  console.log(this.projets)
+       console.log(this.projets)
+
 
       });
     }

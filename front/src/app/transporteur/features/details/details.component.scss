@@ -194,7 +194,9 @@ img{
     border-radius: 50%;
     object-fit: cover;
 }
-
+.hidden-input{
+    display: none;
+}
 
 @media (max-width:768px){
     .container{

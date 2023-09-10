@@ -27,7 +27,7 @@ export class ConfirmationPaimentComponent {
   }
 
   getUserInfo(): void {
-    const email = localStorage.getItem("emailTransporteur")||""; // Replace with the email you want to retrieve info for
+    const email = localStorage.getItem("emailUser")||""; // Replace with the email you want to retrieve info for
     this.transporteurService.getTransporteurPersonalInfo(email).subscribe((data) => {
       this.transporteurInfo = data;
       console.log(this.transporteurInfo)

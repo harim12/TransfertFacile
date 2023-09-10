@@ -45,8 +45,13 @@
                     </div>
                     <div class="bottom" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
                         <p><span>Click to upload </span>or drag and drop</p>
-                        <input type="file"(change)="onFileChange($event)">
                       
+                        
+                        <label for="fileInput3" class="custom-file-input">
+                            <i class="fa-solid fa-camera"></i>
+                          </label>
+                          <input type="file"(change)="onFileChange($event)" id="fileInput3" class="hidden-input">  
+
                     </div>
                 </div>
             </div>
