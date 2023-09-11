@@ -1,18 +1,20 @@
 <div class="container">
-    <div class="left" (click)="redirectToNotification()">
-        <i class="fa-solid fa-bell icon"></i>
-        <div class="point" *ngIf="isNotification">
-
+    <div class="content">
+        <div class="left" (click)="redirectToNotification()">
+            <i class="fa-solid fa-bell icon"></i>
+            <div class="point" *ngIf="isNotification">
+    
+            </div>
         </div>
-    </div>
-    <div class="center">
-       
-        <div class="center-right">
-            <img class="img" [src]="'../../../assets/' + (transporteurInfo?.imageUrl ? getFileNameFromPath(transporteurInfo?.imageUrl) : 'defaultUser.jpeg')" alt="">
-        </div>
-        <div class="center-left">
-            <p class="name">{{transporteurInfo?.firstName}} {{transporteurInfo?.lastName}}</p>
-            <!-- <p class="admin">admin</p> -->
+        <div class="center">
+           
+            <div class="center-right">
+                <img class="img" [src]="'../../../assets/' + (transporteurInfo?.imageUrl ? getFileNameFromPath(transporteurInfo?.imageUrl) : 'defaultUser.jpeg')" alt="">
+            </div>
+            <div class="center-left">
+                <p class="name">{{transporteurInfo?.firstName}} {{transporteurInfo?.lastName}}</p>
+                <!-- <p class="admin">admin</p> -->
+            </div>
         </div>
     </div>
     <!-- <div class="right">
